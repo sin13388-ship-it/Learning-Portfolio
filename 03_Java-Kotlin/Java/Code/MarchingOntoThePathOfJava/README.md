@@ -16,4 +16,16 @@
 ---
 
 ---
+### 正規表達式
 
+#### 語法與對應的例題
+
+|語法|說明|例題|
+|--|--|--|
+|boolean matches(String regex) | 傳回字串是否符合正規表達式，如果比對結果符合會傳回true, 否則為false|ch13_3.java|
+
+
+####  語法相關補充
+
+- matches 字串長度與pattern不對稱
+  假設正規表達式的pattern 是 "\\d"，但輸入"aa23"，matches的結果會是false，因為沒有符合個位數為數字
