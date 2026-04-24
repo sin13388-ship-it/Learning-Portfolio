@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$APPLICATION_HOME_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$APPLICATION_HOME_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ch01-1/P18_InputDialog/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ch01-1/P18_InputDialog/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ch01-1/P19_Unicode/src/main/java" charset="UTF-8" />
@@ -79,10 +81,16 @@
     <file url="file://$PROJECT_DIR$/Ch06/ClassAndObjectExercise/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ch07/GenericAndCollections/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ch07/GenericAndCollections/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ch07/P23_ArrayList_Iterator_PrimeLeft_Demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ch07/P23_ArrayList_Iterator_PrimeLeft_Demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ch08/P06_CreateThread_via_Runnable_Interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ch08/P06_CreateThread_via_Runnable_Interface/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/A_3_Prob13/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/A_3_Prob13/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/B14_Stack/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/B14_Stack/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/P14-1_Thread_RunnableTask/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/P14-1_Thread_RunnableTask/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/P2-18_LogicalOperators/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/P2-18_LogicalOperators/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java_ChatGPT_Example/P7-30_RectgangleQuestion/src/main/java" charset="UTF-8" />
@@ -95,7 +103,5 @@
     <file url="file://$PROJECT_DIR$/Practice/Test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$APPLICATION_HOME_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$APPLICATION_HOME_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

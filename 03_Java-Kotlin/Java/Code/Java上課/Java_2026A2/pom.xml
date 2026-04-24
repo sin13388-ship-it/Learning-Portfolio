@@ -50,6 +50,9 @@
         <module>Java_ChatGPT_Example/B14_Stack</module>
         <module>Ch07/GenericAndCollections</module>
         <module>P07_GenericClass_Practice</module>
+        <module>Ch07/P23_ArrayList_Iterator_PrimeLeft_Demo</module>
+        <module>Ch08/P06_CreateThread_via_Runnable_Interface</module>
+        <module>Java_ChatGPT_Example/P14-1_Thread_RunnableTask</module>
 
     </modules>
 
