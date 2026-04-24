@@ -53,6 +53,7 @@
         <module>Ch07/P23_ArrayList_Iterator_PrimeLeft_Demo</module>
         <module>Ch08/P06_CreateThread_via_Runnable_Interface</module>
         <module>Java_ChatGPT_Example/P14-1_Thread_RunnableTask</module>
+        <module>Java_ChatGPT_Example/P14_1_MultipleThreads</module>
 
     </modules>
 
