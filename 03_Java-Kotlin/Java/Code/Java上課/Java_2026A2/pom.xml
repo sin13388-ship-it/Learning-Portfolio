@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Java_2026A2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>Ch01-1/P20_Boolean_String</module>
+        <module>Ch01-1/P21_FinalConstant_PI</module>
+        <module>Ch01-1/P21_StringLayout</module>
+        <module>Ch02/P03_Operator_Operand_Expression</module>
+        <module>Ch02/P04_Four_arithmetic_operations_mod</module>
+        <module>Ch02/P05_MathPow</module>
+        <module>Ch02/P07_Compound_Assignment_Operator</module>
+        <module>Ch02/P08_Relation_Operator</module>
+        <module>Ch02/P09_Logic_AND_OR_Operator</module>
+        <module>Ch02/P10_Short_Circuit_AAND_OOR</module>
+        <module>Ch02/P11_Three_Oprands</module>
+        <module>Ch02/P12_Twos_Complement</module>
+        <module>Ch02/P14_Complement_Operator</module>
+        <module>Ch02/P15_Bit_Logic_AND_OR_XOR</module>
+        <module>Ch02/P16_Bitwise_Operator</module>
+        <module>Ch02/P17_Bitwise_Shift_R_L_Operator</module>
+        <module>Ch02/P23_Operartor_Priority</module>
+        <module>Ch02/P24_AutoCasting</module>
+        <module>Java_ChatGPT_Example/P2-18_LogicalOperators</module>
+        <module>Ch02/P25_AutoTypeConvert</module>
+        <module>Ch03/P05_If_else</module>
+        <module>Ch03/P10_If_Elseif_Else</module>
+        <module>Ch03/P11_StudentsGrade</module>
+        <module>Ch03/P12_TicketDiscount</module>
+        <module>Ch03/P13_DetectCase</module>
+        <module>Ch03/P15_Nested_if_Else</module>
+        <module>Ch03/P16_IsLeapYear</module>
+        <module>Ch03/P18_SchoolGrade</module>
+        <module>Ch03/P19_Switch_in_String</module>
+        <module>Ch03/ExampleCode/ExampleCode-0402</module>
+        <module>Ch04/ArrayExercise</module>
+        <module>Ch05/MethodExercise</module>
+        <module>Ch05/ClassExercise</module>
+        <module>Ch06/ClassAndObjectExercise</module>
+
+        <module>Java_ChatGPT_Example/P7-30_RectgangleQuestion</module>
+        <module>Java_ChatGPT_Example/P8_28_CustomerClass</module>
+        <module>Java_ChatGPT_Example/A_3_Prob13</module>
+        <module>Java_ChatGPT_Example/B14_Stack</module>
+        <module>Ch07/GenericAndCollections</module>
+        <module>P07_GenericClass_Practice</module>
+
+    </modules>
+
+    <properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
