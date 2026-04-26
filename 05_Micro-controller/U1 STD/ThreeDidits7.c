@@ -5,33 +5,43 @@
 #include "HT66F2390.h"
 #include "MyType.h"
 
-//define _pg, _pgc 
+//define SEG Output 
 #define SEGPort		_pg
 #define SEGPortC	_pgc
 
-//Delaytime
+#define COMort		_pe
+#define COMPortC	_pec
+
+
+
+
 void delay10ms(u8);
+void InitSystem();
+u8 GetSegmentCode(int , u8 );
+void delay5ms(u8 );
+
+void Polling(u8 period, int Counter);
+
 
 //Display pattern with delaytime
 //const 讓compiler 使用程式記憶體
-const u16 SEG_PATTERN[]={
-			(20<<8)+0x3F,(30<<8)+0x06,(40<<8)+0x5B,	//High-Byte:延遲常數
-			(50<<8)+0x4F,(60<<8)+0x66,(70<<8)+0x6D,	//Low-Byte:七段顯示碼
-			(80<<8)+0x7D,(90<<8)+0x07,(100<<8)+0x7F,
-			(110<<8)+0x67};
+const u8 SEG_PATTERN[]={
+		0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};
 			
-int main(){	
-	u8 i;
-	_wdtc=0xAB;										//Disable watch dog timer
-	//set SEGPort IO : Input
-	SEGPortC=0;
+int main(){		
+
+	int Counter =9999;
+	
+	InitSystem();
+
 	while(1)
 	{
-		for(i=9; (s8) i>=0; i--){
+		Polling(200,Counter); //1 sec
+
+		Counter--;		
+	
+		if(Counter < 0)  Counter=9999;
 		
-			SEGPort=(u8)SEG_PATTERN[i]; //get LSB
-			delay10ms(SEG_PATTERN[i]>>8);		
-		}		
 	}
 }
 
@@ -41,3 +51,72 @@ void delay10ms(u8 delayCount)
 	for(i=0; i<delayCount; i++)
 		GCC_DELAY(20000); //20000 clks =10ms	
 }
+
+void delay5ms(u8 delayCount)
+{
+	u8 i;
+	for(i=0; i<delayCount; i++)
+		GCC_DELAY(10000); //10000 clks =5ms	
+}
+
+void Polling(u8 period, int Counter)
+{
+	
+	u8 timeout=0;
+	static u8 DigiIndex=0;
+	
+	while(timeout < period)
+	{
+		
+		_pe &=0xF0; //不知幹嘛用的
+
+		_pg=GetSegmentCode(Counter, DigiIndex);
+
+		_pe |=(1<<DigiIndex);	
+
+		DigiIndex=(DigiIndex+1)%4;
+		
+		delay5ms(1);	
+		
+		timeout ++;		
+	
+	}	
+
+
+}
+
+
+void InitSystem()
+{
+	_wdtc=0xAB;										//Disable watch dog timer
+	SEGPortC=0;	
+	COMPortC=0;	
+}
+
+u8 GetSegmentCode(int Number , u8 DigiIndex)
+{
+	//回傳當前位數對應的值	
+	
+	u8 code;
+	
+	switch(DigiIndex){
+		case 0 : 
+			code =(u8)((Number/1) %10); //個位
+			break;
+		case 1 :
+			code=(u8)((Number/10) %10);
+			break;
+		case 2 :
+			code=(u8)((Number/100) %10);
+			break;			
+		case 3 :
+			code=(u8)((Number/1000) %10);
+			break;
+		default :
+			break;		
+	}
+	
+	return  SEG_PATTERN[code];	
+	
+}
+
