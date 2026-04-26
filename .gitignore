@@ -95,3 +95,34 @@ replay_pid*
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/c,java,kotlin
+
+# Holtek HT-IDE3000 Temporary & Build Files
+*.tmp
+*.bak
+*.obj
+*.hex
+*.lib
+*.dcm
+*.bin
+*.map
+*.lst
+*.hmap
+
+# Output Folders
+/Output/
+/Debug/
+/Release/
+
+# Project Settings & Session Files
+*.prj
+*.session
+*.depend
+*.layout
+*.vpe
+
+# IDE generated files
+*.ide
+*.cfg
+
+# User-specific files (optional, depending on if you want to share workspace settings)
+# *.workspace
