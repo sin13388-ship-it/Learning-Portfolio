@@ -12,21 +12,18 @@
 #define COMort		_pe
 #define COMPortC	_pec
 
-
-
-
 void delay10ms(u8);
-void InitSystem();
-u8 GetSegmentCode(int , u8 );
 void delay5ms(u8 );
-
+void InitSystem();
+void UpdateDigits(int);
 void Polling(u8 period, int Counter);
 
 
 //Display pattern with delaytime
 //const 讓compiler 使用程式記憶體
 const u8 SEG_PATTERN[]={
-		0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};
+		0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};		
+u8 CurrentDigits[4];
 			
 int main(){		
 
@@ -64,13 +61,15 @@ void Polling(u8 period, int Counter)
 	
 	u8 timeout=0;
 	static u8 DigiIndex=0;
+	//除法移外面到減少開銷
+	UpdateDigits(Counter);
 	
 	while(timeout < period)
 	{
 		
 		_pe &=0xF0; //不知幹嘛用的
 
-		_pg=GetSegmentCode(Counter, DigiIndex);
+		_pg=SEG_PATTERN[CurrentDigits[DigiIndex]];
 
 		_pe |=(1<<DigiIndex);	
 
@@ -80,8 +79,7 @@ void Polling(u8 period, int Counter)
 		
 		timeout ++;		
 	
-	}	
-
+	}
 
 }
 
@@ -93,30 +91,13 @@ void InitSystem()
 	COMPortC=0;	
 }
 
-u8 GetSegmentCode(int Number , u8 DigiIndex)
-{
-	//回傳當前位數對應的值	
-	
-	u8 code;
-	
-	switch(DigiIndex){
-		case 0 : 
-			code =(u8)((Number/1) %10); //個位
-			break;
-		case 1 :
-			code=(u8)((Number/10) %10);
-			break;
-		case 2 :
-			code=(u8)((Number/100) %10);
-			break;			
-		case 3 :
-			code=(u8)((Number/1000) %10);
-			break;
-		default :
-			break;		
-	}
-	
-	return  SEG_PATTERN[code];	
-	
+
+void UpdateDigits(int Number){
+	CurrentDigits[0]=(u8)((Number/1) %10);
+	CurrentDigits[1]=(u8)((Number/10) %10);
+	CurrentDigits[2]=(u8)((Number/100) %10);
+	CurrentDigits[3]=(u8)((Number/1000) %10);
 }
+
+
 
