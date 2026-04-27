@@ -31,7 +31,11 @@ int main(){
 	//pointer_exercise_swap();	
 	//pointer_exercise_arithmetic_series();
 	//pointer_exercise_rectangle();
-	pointer_function();
+	//pointer_function();
+	assign_pointer();
+	main_count();
+	change_value();
+	sum_odd_even();
 
 }
 void show_variable_address(){	
