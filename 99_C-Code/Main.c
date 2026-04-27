@@ -16,7 +16,6 @@ int main(){
 	getchar();
 	return 0;
 } 
-
 void peri(double r)
 {
 	printf("The circumference = %.2f\n", 2*pi*r);	
@@ -31,11 +30,9 @@ void EncodingAndDecoding(){
 	/*
 	* 字元移位加密解密 
 	*
-	*/
-	
+	*/	
 	char str[50];
-	int i;
-	
+	int i;	
 	scanf("%s", &str);
 	fflush(stdin);
 	if (str[0] == '+'){
@@ -56,8 +53,5 @@ void EncodingAndDecoding(){
 			}
 		}		
 	}
-
 	printf("%s",str);	
-	
-	
 }
