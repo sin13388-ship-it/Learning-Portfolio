@@ -9,7 +9,8 @@ public class ThreadExercise {
         Thread factorialThread =new Thread(new FactorialTask(10));
         factorialThread.setName("Factorial thread");
 
-        Thread primeThread=new Thread(new PrimeNumberTask(500));
+        //Thread primeThread=new Thread(new PrimeNumberTask(500));
+        Thread primeThread=new Thread((new PrimeNumberTask(500)));
         primeThread.setName("Prime thread");
         factorialThread.start();
         primeThread.start();
