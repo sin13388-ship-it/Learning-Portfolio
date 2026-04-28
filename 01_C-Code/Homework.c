@@ -8,18 +8,14 @@ void main_count();
 void change_value();
 void sum_odd_even();
 
-void assign_pointer(){
-	
-	float num_f=12.6f;
-	float *num=&num_f;
+void assign_pointer(){	
+	float num=12.6f;
+	float *ptr=&num;
 	printf("===Homework1====\n");
-	printf("value= %f, &num= %p , ptr=%p \n", num_f, &num_f, &num);
-	
-	
+	printf("value= %f, &num= %p , ptr=%p \n", num, &num, &ptr);
 }
 
-void main_count() {
-	
+void main_count() {	
 	int sum=0;
 	int i =0;
 	printf("===Homework2====\n");
@@ -27,15 +23,11 @@ void main_count() {
 		count(&sum);
 		printf("Call count() : %d ¦¸, sum= %d \n", i+1,sum);		
 		
-	}
-	
+	}	
 }
 
-void count(int *sum){
-	
+void count(int *sum){	
 	*sum +=1;
-	
-	
 }
 
 void change_value(){

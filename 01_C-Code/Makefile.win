@@ -1,15 +1,15 @@
-# Project: C_Code_0427_AddressAndPointer
+# Project: C_Code_0428_Exercise
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = AdessAndPointer.o Homework.o
-LINKOBJ  = AdessAndPointer.o Homework.o
+OBJ      = ArrayFunction.o
+LINKOBJ  = ArrayFunction.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = C_Code_0427_AddressAndPointer.exe
+BIN      = C_Code_0428_Exmple.exe
 CXXFLAGS = $(CXXINCS) -std=c99
 CFLAGS   = $(INCS) -std=c99
 RM       = rm.exe -f
@@ -24,8 +24,5 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-AdessAndPointer.o: AdessAndPointer.c
-	$(CC) -c AdessAndPointer.c -o AdessAndPointer.o $(CFLAGS)
-
-Homework.o: Homework.c
-	$(CC) -c Homework.c -o Homework.o $(CFLAGS)
+ArrayFunction.o: ArrayFunction.c
+	$(CC) -c ArrayFunction.c -o ArrayFunction.o $(CFLAGS)
