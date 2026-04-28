@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = ArrayFunction.o
-LINKOBJ  = ArrayFunction.o
+OBJ      = ArrayFunction.o Homework0428.o
+LINKOBJ  = ArrayFunction.o Homework0428.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -26,3 +26,6 @@ $(BIN): $(OBJ)
 
 ArrayFunction.o: ArrayFunction.c
 	$(CC) -c ArrayFunction.c -o ArrayFunction.o $(CFLAGS)
+
+Homework0428.o: Homework0428.c
+	$(CC) -c Homework0428.c -o Homework0428.o $(CFLAGS)

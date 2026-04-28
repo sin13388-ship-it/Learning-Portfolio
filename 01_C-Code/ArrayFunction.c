@@ -28,9 +28,14 @@ int main(){
 	//using_pointer_to_change_array_elements();
 	//using_index_to_find_max_min();
 	//count_lower_case_characters();
-	//matrix_sum();
-	
+	//matrix_sum();	
 	pointer_of_pointer();
+	
+	//multiple();
+	//print_square();
+	//print_add_ten();
+	//print_arr();
+	
 }
 
 void array_update(){	
