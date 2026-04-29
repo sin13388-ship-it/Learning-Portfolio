@@ -54,6 +54,7 @@
         <module>Ch08/P06_CreateThread_via_Runnable_Interface</module>
         <module>Java_ChatGPT_Example/P14-1_Thread_RunnableTask</module>
         <module>Java_ChatGPT_Example/P14_1_MultipleThreads</module>
+        <module>ClassAndObject</module>
 
     </modules>
 
