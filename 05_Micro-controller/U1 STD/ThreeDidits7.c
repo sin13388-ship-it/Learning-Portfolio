@@ -26,7 +26,7 @@ const u8 SEG_PATTERN[]={
 u8 CurrentDigits[4];
 			
 int main(){		
-
+                                                  
 	int Counter =9999;
 	
 	InitSystem();
