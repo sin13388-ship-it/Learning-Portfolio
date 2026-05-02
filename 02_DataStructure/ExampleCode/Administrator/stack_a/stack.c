@@ -17,7 +17,7 @@ void stack_init(Stack * stack)
 
 /*******************************************
 	Method :stack_empty
-	ÀË¬d°ïÅ|¬O§_¬°ªÅ
+	ï¿½Ë¬dï¿½ï¿½ï¿½|ï¿½Oï¿½_ï¿½ï¿½ï¿½ï¿½
 *******************************************/
 
 int stack_empty(Stack *Stack1) 
@@ -35,7 +35,7 @@ int stack_empty(Stack *Stack1)
 
 /*******************************************
 	Method :stack_push
-	±À¤J¸ê®Æ
+	ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½
 *******************************************/
 
 void stack_push(Stack *Stack1,int x)
@@ -46,13 +46,13 @@ void stack_push(Stack *Stack1,int x)
  		return ;
  }
 	
- Stack1->(Data[(Stack1->Top)])=x;              
+ Stack1->Data[(Stack1->Top)]=x;              
  (Stack1->Top)++ ;
 }
 
 
 /*******************************************
-	Method : ¼u¥X¸ê®Æ
+	Method : ï¿½uï¿½Xï¿½ï¿½ï¿½
 		- return STACK_EMPTY if stack empty
 *******************************************/
 int stack_pop(Stack *Stack1)

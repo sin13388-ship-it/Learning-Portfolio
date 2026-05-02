@@ -1,7 +1,7 @@
 #include "stack.h"
 #include <stdio.h>
 
-main()
+int main()
 {
   Stack stack1 ;
   
@@ -20,4 +20,5 @@ main()
   		if(top_data != STACK_EMPTY)
   				printf("pop data : %d \n",top_data) ;
 	}
+  return 0;
 }
