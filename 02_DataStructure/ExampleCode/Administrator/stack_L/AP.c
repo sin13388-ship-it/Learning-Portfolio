@@ -3,7 +3,7 @@
 
 
 
-main()
+int main()
 {
   Stack stack1 ;
   
@@ -25,5 +25,5 @@ main()
 	
 	// stack should be empty now!
 	top_data = stack_pop(&stack1) ;
-	
+	return 0;
 }
