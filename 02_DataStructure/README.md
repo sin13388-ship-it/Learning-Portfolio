@@ -49,3 +49,8 @@
 
     ~~~
 
+- Basic function :
+    - Initialize
+    - Insert
+    - Delete
+    - Add 
