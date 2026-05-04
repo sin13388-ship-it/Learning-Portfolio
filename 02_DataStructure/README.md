@@ -15,14 +15,37 @@
 
     可以用一個Array 和 top index表示
 
-~~~c
+    ~~~c
 
-struct stack_S{
-    int Data[stack_size];
-    int top;
-}
+    struct stack_S{
+        int Data[stack_size];
+        int top;
+    }
 
-typedef struct stack_s stack;
+    typedef struct stack_s stack;
 
-~~~
-       
+    ~~~
+## LinkedList
+### 說明
+- Node :
+
+    Linked-list 是一個資料結構，每個點被稱為節點Node。通常Node會包含 :
+    1. 一個Data
+    2. 一個pointer 指向下一個Node
+   ~~~c
+   //節點資料結構定義範例
+   struct node {
+    int data;
+    struct node *next;
+   };
+   typedef struct node Node;
+   ~~~    
+- Linked-List :
+    由Node組成的的串列，包含一個Head:
+    ~~~ c
+    struct link_list{
+        Node *head;
+    };
+
+    ~~~
+
