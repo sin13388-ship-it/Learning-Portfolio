@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="object_and_encapsulation" />
         <module name="RegularExpression" />
+        <module name="Composition" />
       </profile>
     </annotationProcessing>
   </component>
