@@ -1,7 +1,7 @@
 #include "linklist.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  LinkList myList1 ;
   
@@ -50,8 +50,8 @@ main()
  llist_travel(&myList1) ;
 
 
-// ¥Ñ¾Ç¥Í­t³d¹ê§@
-{ 
+// Test 5~ Test 8
+
  LinkList myList2 ;
  LinkList * myList3 ;
  
@@ -71,14 +71,14 @@ main()
  printf("\n[Test5-2]: last value of myList2 is %d",lastNode->data) ;
  
 
- // test 6 - §â¤@­ÓNode¥[¦b myList2 §ÀºÝ
+ // test 6 - ï¿½ï¿½@ï¿½ï¿½Nodeï¿½[ï¿½b myList2 ï¿½ï¿½ï¿½ï¿½
  //
  printf("\n[Test 6]\n") ;
  newNode = llist_generate_new_node(1024) ;
  llist_insert_in_rear(&myList2,newNode) ;
  llist_travel(&myList2) ;
 
- // test 7 - §âlist2¥[¦blist1§À¤Ú, ¦L¥X·s¦ê¦C»P¨ä¸`ÂI¼Æ¥Ø
+ // test 7 - ï¿½ï¿½list2ï¿½[ï¿½blist1ï¿½ï¿½ï¿½ï¿½, ï¿½Lï¿½Xï¿½sï¿½ï¿½Cï¿½Pï¿½ï¿½`ï¿½Iï¿½Æ¥ï¿½
  printf("\n[Test 7]\n") ;
  myList3 = llist_cat(&myList1,&myList2) ;
  llist_travel(myList3) ;
@@ -86,7 +86,7 @@ main()
  printf("list number = %d\n",llist_get_list_size(myList3)) ;
 
  
- // test 8 - ¦b·s¦ê¦C¤¤´M§ä²Ä¤@­Ó­È¬°"2"ªº¸`ÂI,¨Ã±N¨ä§R°£
+ // test 8 - ï¿½bï¿½sï¿½ï¿½Cï¿½ï¿½ï¿½Mï¿½ï¿½Ä¤@ï¿½Ó­È¬ï¿½"2"ï¿½ï¿½ï¿½`ï¿½I,ï¿½Ã±Nï¿½ï¿½Rï¿½ï¿½
  printf("\n[Test 8]\n") ;
  nodeToDel = llist_search(myList3,2) ;
  if(nodeToDel == NULL)
@@ -99,8 +99,10 @@ main()
 	
  //llist_delete(&myList2) ;
 		
- }
+ 
 
  llist_delete(&myList1) ;
-  
+ 
+ return 0;
+
 }

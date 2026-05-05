@@ -11,7 +11,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Node structure definition
 //
 struct node 
 {
@@ -22,7 +22,7 @@ struct node
 typedef struct node Node ;
 
 
-// 一個link list只需用一個節點來描述即可
+// A linked list can be represented by its head node
 //
 struct linklist
 {
@@ -38,12 +38,12 @@ typedef struct linklist LinkList ;
 // generate a new node / return NULL if anything wrong
 Node * llist_generate_new_node(int value) ;
 
-// 初始化 linklist型別
+// initialize linked list
 void llist_init(LinkList * linklist) ;
 
 // <============ one more function
 //
-// 加入並排序
+// insert node with sorting
 void llist_insert_with_sorting(LinkList * linklist, Node *newNod) ;
 
 // 將新節點加在Linked List開頭
