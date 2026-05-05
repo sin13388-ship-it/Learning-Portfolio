@@ -3,6 +3,7 @@ int decimalToBinary(int);
 void pointers();
 void get_array_elements_with_pointers2();
 void struct_assignment();
+void time_elapse();
 int main(){
 	
 	//printf("%d (dec) = %d (bin) \n", 121,decimalToBinary(121));
@@ -15,7 +16,13 @@ int main(){
 	//define_struct_also_create();
 	//struct_assignment();
 	//struct_array_and_its_size();
-	nested_structure();
+	//nested_structure();
+	//structure_assignment_using_stdin();
+	//nested_struct_now();
+	//student_data();
+	//structure_pointer();
+	structure_pointer_get_value();
+
 	getchar();
 	return 0;
 }
@@ -78,5 +85,6 @@ void get_array_elements_with_pointers2(){
 		}
 	}
 }
+
 
 

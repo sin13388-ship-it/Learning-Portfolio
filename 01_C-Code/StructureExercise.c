@@ -6,6 +6,12 @@ void define_struct_also_create();
 void struct_assignment();
 void struct_array_and_its_size();
 void nested_structure();
+void structure_assignment_using_stdin();
+void time_elapse();
+void nested_struct_now();
+void student_data();
+void structure_pointer();
+void structure_pointer_get_value();
 struct data{
 	char name[20];
 	int math;
@@ -15,9 +21,6 @@ struct staff_information{
 	char name[18];
 	int seniority;
 };
-
-
-
 
 void structure_exercise(){	
 	struct data student1;
@@ -112,16 +115,140 @@ void nested_structure(){
 		int score;
 		struct date birthday;		
 	}student={"Mary Wang", 95, {93,10,2}}; //Nested 結構一樣用{}初始化 
-	printf("%s, Birthday: %d/%d/%d\n", student.name, student.birthday.year,student.birthday.month,student.birthday.day); 
-	
+	printf("%s, Birthday: %d/%d/%d\n", student.name, student.birthday.year,student.birthday.month,student.birthday.day); 	
 	//非初始化的都要個別賦值	
 	student.birthday.year =80;
 	student.birthday.month=5;
-	student.birthday.day=23;
-	
+	student.birthday.day=23;	
 	printf("%s, Birthday: %d/%d/%d\n", student.name, student.birthday.year,student.birthday.month,student.birthday.day); 
-	printf("Score = %d \n", student.score);
+	printf("Score = %d \n", student.score);		
+}
+
+void structure_assignment_using_stdin(){
+	struct date{
+		int year;
+		int month;
+		int day;
+	}holiday={2026,6,13}, festival;
+	
+	do {
+		printf("Please input 2026: \n");
+		scanf("%d", &festival.year);
+		fflush(stdin);
+	}while(festival.year !=2026);
+	do {
+		printf("Please input 6: \n");
+		scanf("%d", &festival.month);
+		fflush(stdin);
+	}while(festival.month !=6);
+	do {
+		printf("Please input 13: \n");
+		scanf("%d", &festival.day);
+		fflush(stdin);
+	}while(festival.day !=13);
+	printf("\nholiday=%02d/%02d/%02d\n", holiday.month, holiday.day, holiday.year);
+	printf("festival=%02d/%02d/%02d\n", festival.month,festival.day, festival.year);
+	printf("sizeof(festival)=%d\n", sizeof(festival));	
+}
+void time_elapse(){
+	
+	struct time{
+		int hour;
+		int minute;		
+	}start={12,32}, end={15,13}, elapse={0,0};
+	
+	printf("start= %2d:%2d\n",start.hour, start.minute);
+	printf("end= %2d:%2d\n",end.hour, end.minute);
+	elapse.minute =end.minute-start.minute;
+	if(elapse.minute <0) {
+		elapse.minute +=60; //borrow
+		end.hour--;
+	}
+	elapse.hour=end.hour-start.hour;
+	printf("elapse= %2d:%2d\n",elapse.hour, elapse.minute);	
+}
+
+void nested_struct_now(){
+	struct time{
+		int hour;
+		int minute;		
+	};
+	struct date{
+		int year;
+		int month;
+		int day;
+		struct time crt;
+	}now={2026,5,5,{14,12}};	
+	printf("Now=> %02d/%02d/%02d %02d:%02d\n",now.month,now.day, now.year,now.crt.hour, now.crt.minute);
+}
+void student_data(){
+	
+	/*structur array*/
+	
+	struct student_info{
+		char name[15];
+		int age;
+		int score;		
+	}student[3];	
+	int i;
+	for(i=0; i<3; i++){
+		printf("Pleast input student%d.name :\n",i+1);
+		fgets(student[i].name,15,stdin);
+		student[i].name[strcspn(student[i].name,"\n")]=0;
+		fflush(stdin);
+		printf("Pleast input student%d.age :\n",i+1);
+		scanf("%d", &student[i].age);
+		fflush(stdin);
+		printf("Pleast input student%d.score :\n",i+1);
+		scanf("%d", &student[i].score);
+		fflush(stdin);
+	}	
+	for(i=0; i<3; i++){
+		printf("%s \nAge: %d Score: %d\n",student[i].name, student[i].age,student[i].score);
+	}
+}
+void structure_pointer(){
+	
+	struct student_data{
+		char name[15];
+		int math;
+		int eng;
+		int chi;
+	}student;
+	struct student_data *ptr; //宣告成指向一個結構的指標 
+	ptr = &student; // 一樣要給位置 
+	
+	printf("Pleast input student.name :\n");
+	fgets(ptr->name,15,stdin);
+	ptr->name[strcspn(ptr->name,"\n")]=0;
+	fflush(stdin);
+	printf("Pleast input math :\n");
+	scanf("%d", &ptr->math);
+	fflush(stdin);
+	printf("Pleast input eng : \n");
+	scanf("%d", &ptr->eng);
+	fflush(stdin);
+	printf("Pleast input chi : \n");
+	scanf("%d", &ptr->chi);
+	fflush(stdin);
+		
+	printf("%s \nMath: %d Eng: %d  Chi: %d\n",ptr->name, ptr->math, ptr->eng, ptr->chi); //ptr->math = (ptr.math)用指標的方式 	
+	printf("Average = %1f", (float)(ptr->math + ptr->eng +  ptr->chi )/3); //整數除法要型轉 
+
+}
+
+void structure_pointer_get_value(){
+	struct employee{
+		char name[20];
+		int salary;
+		char department[20];
+	}manager={"William", 60000, "System team"};
+	
+	struct employee *ptr;
+	ptr=&manager;
+	printf("Name: %s\n", ptr->name);
+	printf("Salary: %d\n", ptr->salary);
+	printf("department: %s\n", ptr->department);
 	
 	
 }
-
