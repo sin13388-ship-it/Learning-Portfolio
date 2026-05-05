@@ -21,8 +21,13 @@ int main(){
 	//nested_struct_now();
 	//student_data();
 	//structure_pointer();
-	structure_pointer_get_value();
-
+	//structure_pointer_get_value();
+	
+	homework_1();
+ 	homework_2();
+ 	homework_3();
+ 	homework_4();
+ 	
 	getchar();
 	return 0;
 }

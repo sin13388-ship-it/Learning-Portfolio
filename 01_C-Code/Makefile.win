@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = C_0505_Exercise.o StructureExercise.o
-LINKOBJ  = C_0505_Exercise.o StructureExercise.o
+OBJ      = C_0505_Exercise.o StructureExercise.o C_Homework_0505.o
+LINKOBJ  = C_0505_Exercise.o StructureExercise.o C_Homework_0505.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -29,3 +29,6 @@ C_0505_Exercise.o: C_0505_Exercise.c
 
 StructureExercise.o: StructureExercise.c
 	$(CC) -c StructureExercise.c -o StructureExercise.o $(CFLAGS)
+
+C_Homework_0505.o: C_Homework_0505.c
+	$(CC) -c C_Homework_0505.c -o C_Homework_0505.o $(CFLAGS)
