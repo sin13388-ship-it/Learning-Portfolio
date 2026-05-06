@@ -15,16 +15,37 @@ int main()
   
   for(i=0;i<(11);i++)
 			stack_push(&stack1,data[i]);
-		
+
+  printf("Stack length : %d \n",stack_get_length(&stack1)) ;
+  
+  stack_print_all(&stack1);
+
+  //pop all
+  /*
+  int pop_data[11];
+  stack_pop_all(&stack1,pop_data,11);
+
+  for(i=0;i<(11);i++){
+	printf("pop data : %d \n",pop_data[i]) ;
+  }
+  */
+
+  /*
   for(i=0;i<(11);i++)
 	{
-  		printf("peek data : %d \n",stack_peek(&stack1)) ;
+		top_data =stack_peek(&stack1) ;
+		if(top_data != STACK_EMPTY)
+  				printf("peek data : %d \n",top_data) ;
 		top_data = stack_pop(&stack1) ;  
   		if(top_data != STACK_EMPTY)
   				printf("pop data : %d \n",top_data) ;
 	}
-	
+
+	*/
+
 	// stack should be empty now!
 	top_data = stack_pop(&stack1) ;
+
+
 	return 0;
 }

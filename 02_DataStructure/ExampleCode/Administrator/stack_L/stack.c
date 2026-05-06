@@ -39,6 +39,57 @@ int stack_peek(Stack *Stack1){
 }
 
 /*******************************************
+	Method :stack_get_length	
+*******************************************/
+int stack_get_length(Stack *Stack1){
+	return Stack1->length;
+}
+
+/*******************************************
+	Method :stack_pop_all
+	return error if array length is not equal to stack length
+*******************************************/
+int stack_pop_all(Stack *Stack1, int *data, int length){
+
+  //check
+  if(Stack1->length != length) {
+	printf("Length error!\n");
+	return -1;
+  }
+  int i=0;
+  while (!stack_empty(Stack1))
+  {
+	data[i++]=stack_pop(Stack1);
+  }
+  return 0;
+}
+
+/*******************************************
+	Method :stack_print_all
+	return STACK_EMPTY if stack empty
+*******************************************/
+int stack_print_all(Stack *Stack1){
+  if(stack_empty(Stack1))
+  {
+    printf("stack is empty\n");
+    return STACK_EMPTY ;
+  }
+  else
+  {
+	 int i;
+	 Node * tempNodePtr ;
+	 tempNodePtr=Stack1->top;
+	
+	 for(i=0; i< Stack1->length; i++){
+		
+		printf("%d : %d \n", i, (tempNodePtr)->data);
+		tempNodePtr=tempNodePtr->next;
+	 }	
+	 return 0;
+  }
+}
+
+/*******************************************
 	Method :stack_push
 	push data into stack
 *******************************************/
