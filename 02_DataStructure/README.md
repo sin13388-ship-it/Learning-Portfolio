@@ -29,7 +29,8 @@
 ### 說明
 - Node :
 
-    Linked-list 是一個資料結構，每個點被稱為節點Node。通常Node會包含 :
+    Linked-list 是一個資料結構，是一種線性序列，但並不是按縣性的順序存放資料。
+    Linked-list 用數個節點(Node)串接而成。通常Node會包含 :
     1. 一個Data
     2. 一個pointer 指向下一個Node
    ~~~c
@@ -41,16 +42,27 @@
    typedef struct node Node;
    ~~~    
 - Linked-List :
-    由Node組成的的串列，包含一個Head:
+    只要用一個節點(Head)來描述即可:
     ~~~ c
     struct link_list{
         Node *head;
     };
-
     ~~~
 
-- Basic function :
-    - Initialize
+- 課程提供的Linked-list方法 :
+    - Initialize :
+        - 把list 裡的head設為null
+    - Generate new node:
+        - 和CPU 要一塊記憶體(malloc)，回傳null表示失敗
     - Insert
+        - 從head insert 
+        - 從rear insert 
+        - 從特定Node insert
     - Delete
-    - Add 
+        - 記得要free
+    - Traval
+        - 取得每個節點的元素
+    - Concat
+        - 串接兩個linked list
+
+- 如何實作

@@ -11,6 +11,7 @@
     <modules>
         <module>Ch09/object_and_encapsulation</module>
         <module>Ch13/RegularExpression</module>
+        <module>Ch14/Composition</module>
     </modules>
 
     <properties>
