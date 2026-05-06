@@ -13,7 +13,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Node structure definition
 //
 struct node 
 {
@@ -25,7 +25,7 @@ typedef struct node Node ;
 
 
 
-/*堆疊資料結構*/ 
+/*A stack can be represented by a node(top) and a length*/ 
 struct Stack_s
 { 
  Node * top ;
@@ -40,7 +40,7 @@ typedef struct Stack_s Stack ;
 *******************************************/
 void stack_init(Stack * stack) ;
 
-/*檢查堆疊是否為空*/ 
+
 int stack_empty(Stack *Stack1) ;
 
 void stack_push(Stack *Stack1,int x) ;
@@ -56,7 +56,7 @@ int stack_pop(Stack *Stack1) ;
 
 
 // 2. get top element (取出最頂端元素的值，但不做pop的動作)
-
+int stack_peek(Stack *Stack1);
 
 // 3. get element number (目前stack裡有多少個元素)
 

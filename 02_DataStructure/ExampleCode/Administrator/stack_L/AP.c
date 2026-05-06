@@ -18,7 +18,8 @@ int main()
 		
   for(i=0;i<(11);i++)
 	{
-  		top_data = stack_pop(&stack1) ;  
+  		printf("peek data : %d \n",stack_peek(&stack1)) ;
+		top_data = stack_pop(&stack1) ;  
   		if(top_data != STACK_EMPTY)
   				printf("pop data : %d \n",top_data) ;
 	}

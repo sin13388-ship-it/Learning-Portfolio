@@ -1,4 +1,12 @@
 # Data Structure 練習筆記
+## Demo Code List
+|Project Name|Topic|Description|Review date|
+|------------|-----|-----------|-----------|
+|stack_a|Stack|使用Array 實現Stack|5/2|
+|linklist|Linked-List|節點與串列的實現|5/3~5/5|
+
+
+
 ## Stack
 - FILO特性
 ### 說明
@@ -63,6 +71,7 @@
     - Traval
         - 取得每個節點的元素
     - Concat
-        - 串接兩個linked list
+        - 串接兩個linked-list
 
-- 如何實作
+## Stack using linked-list
+
