@@ -42,7 +42,18 @@ int stack_peek(Stack *Stack1){
 	Method :stack_get_length	
 *******************************************/
 int stack_get_length(Stack *Stack1){
-	return Stack1->length;
+	
+	Node *tmp_node_ptr;
+	tmp_node_ptr =Stack1->top;
+	int i=0;
+	while(tmp_node_ptr != NULL){
+		i++;
+		tmp_node_ptr=tmp_node_ptr->next;
+	}
+	
+	if (i !=Stack1->length) printf("The length of stack is not equal to stack's size\n");	
+	
+	return i;
 }
 
 /*******************************************
