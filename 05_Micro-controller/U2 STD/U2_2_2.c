@@ -10,23 +10,23 @@ const u8 SEG_TAB[] = {							//7-Segment Table
 void Delayms(u16 del);
 void main()
 {	u8 i;	
-	_wdtc=0b01010110;							//­P¯à¬Ý­Ìª¯­p®É¾¹,Time-out=2^17/fLIRC
-	SEGPort=0; SEGPortC=0;						//³W¹ºSEGPort¬°¿é¥XÄÝ©Ê¨Ã¿é¥X0
-	_rstc=0xAA;									//­P¯àRES¸}¦ì­«¸m¥\¯à
-	if(_to)										//¬O§_¬°WDT Time-out­«¸m
-	{	for(i=0;i<10;i++)						//¬O,°{Ã{a¡ãg¸`¬q
+	_wdtc=0b01010110;							//è‡´èƒ½çœ‹å€‘ç‹—è¨ˆæ™‚å™¨,Time-out=2^17/fLIRC
+	SEGPort=0; SEGPortC=0;						//è¦åŠƒSEGPortç‚ºè¼¸å‡ºå±¬æ€§ä¸¦è¼¸å‡º0
+	_rstc=0xAA;									//è‡´èƒ½RESè…³ä½é‡ç½®åŠŸèƒ½
+	if(_to)										//æ˜¯å¦ç‚ºWDT Time-outé‡ç½®
+	{	for(i=0;i<10;i++)						//æ˜¯,é–ƒçˆaï½žgç¯€æ®µ
 		{	SEGPort^=0xFF;
-			Delayms(100);						//©µ¿ð0.1S
+			Delayms(100);						//å»¶é²0.1S
 		}
 	}
 	for(i=0;i<10;i++)
-	{	SEGPort=SEG_TAB[i]; Delayms(250);		//Åã¥Üi­È¨Ã©µ¿ð0.25S
+	{	SEGPort=SEG_TAB[i]; Delayms(250);		//é¡¯ç¤ºiå€¼ä¸¦å»¶é²0.25S
 	} 
-	SEGPort=0;									//º¶·À¤C¬qÅã¥Ü¾¹
-	while(1);									//µL½a°j°é(¼ÒÀÀMCU·í¾÷)
+	SEGPort=0;									//ç†„æ»…ä¸ƒæ®µé¡¯ç¤ºå™¨
+	while(1);									//ç„¡çª®è¿´åœˆ(æ¨¡æ“¬MCUç•¶æ©Ÿ)
 }
 void Delayms(u16 del)
-{	u16 i;										//@fSYS=8MH,©µ¿ðdel*1ms
+{	u16 i;										//@fSYS=8MH,å»¶é²del*1ms
 	for(i=0;i<del;i++) GCC_DELAY(2000);
-	GCC_CLRWDT();								//²M°£WDT
+	GCC_CLRWDT();								//æ¸…é™¤WDT
 }
