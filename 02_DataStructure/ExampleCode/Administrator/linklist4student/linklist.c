@@ -23,8 +23,7 @@ Node * llist_generate_new_node(int value)
 	if (newNode==NULL)
 	{
 		return NULL;
-	}
-	
+	}	
 
 	newNode->data = value ;
 	newNode->next = NULL ;
@@ -217,9 +216,19 @@ void llist_init2(LinkList * linklist,int * dataArray, int N)
 // 取得串列最後一個Node的位址
 Node * llist_get_last_node(LinkList * linklist) 
 {
+	Node *cur;
+
+	if ( linklist->head ==NULL)
+	{
+		return NULL;
+	}	
+	cur=linklist->head;
+	while(cur->next!=NULL){
+		cur=cur->next;
+	}
+	return cur;
+
 }
-
-
 
 /*******************************************
 	Method : llist_insert_in_rear
@@ -227,6 +236,15 @@ Node * llist_get_last_node(LinkList * linklist)
 // 將新節點加在串列結尾
 void llist_insert_in_rear(LinkList * linklist, Node *newNode) 
 {
+	Node *last ;	
+	last=llist_get_last_node(linklist);
+	if(last==NULL){
+		linklist->head=newNode;
+	}
+	else{
+		last->next=newNode;		
+	}
+	newNode->next=NULL;
 }
 
 
@@ -236,6 +254,14 @@ void llist_insert_in_rear(LinkList * linklist, Node *newNode)
 //把串列B接在串列A之後
 LinkList * llist_cat(LinkList * A, LinkList * B) 
 {
+	//考慮各別為NULL的情形
+	if(A->head==NULL) return B;
+	if(B->head==NULL) return A;
+
+	Node * tail;
+	tail=llist_get_last_node(A);
+	tail->next=B->head;
+	return A;
 }
 
 
@@ -245,6 +271,17 @@ LinkList * llist_cat(LinkList * A, LinkList * B)
 // 取得串列的節點數目
 int llist_get_list_size(LinkList * linklist) 
 {
+	int length=0;
+	if(linklist->head==NULL) return 0;
+	Node *cur;
+	cur=linklist->head;
+	while (cur !=NULL)
+	{
+		length++;
+		cur=cur->next;
+	}
+	return length;
+	
 }
 
 
@@ -255,7 +292,15 @@ int llist_get_list_size(LinkList * linklist)
 //   YES: return 1,   NO: return 0
 Node * llist_search(LinkList * linklist, int value) 
 {
-	
+	if(linklist->head==NULL) return NULL;	
+	Node *cur;
+	cur=linklist->head;
+	while (cur !=NULL)
+	{
+		if(cur->data==value) break;
+		cur=cur->next;
+	}
+	return cur;
 }
 
 

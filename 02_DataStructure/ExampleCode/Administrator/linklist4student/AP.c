@@ -1,7 +1,7 @@
 #include "linklist.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  LinkList myList1 ;
   
@@ -49,9 +49,9 @@ main()
  llist_delete_node(&myList1,newNode2) ;
  llist_travel(&myList1) ;
 
-/*
-// 由學生負責實作
-{ 
+
+// Exercise
+
  LinkList myList2 ;
  LinkList * myList3 ;
  
@@ -71,14 +71,14 @@ main()
  printf("\n[Test5-2]: last value of myList2 is %d",lastNode->data) ;
  
 
- // test 6 - 把一個Node加在 myList2 尾端
+ // test 6 -Appends a new node to the end of the list myList2.
  //
  printf("\n[Test 6]\n") ;
  newNode = llist_generate_new_node(1024) ;
  llist_insert_in_rear(&myList2,newNode) ;
  llist_travel(&myList2) ;
 
- // test 7 - 把list2加在list1尾巴, 印出新串列與其節點數目
+ // test 7 - Concatenates list myList2 to the end of list myList1
  printf("\n[Test 7]\n") ;
  myList3 = llist_cat(&myList1,&myList2) ;
  llist_travel(myList3) ;
@@ -86,7 +86,7 @@ main()
  printf("list number = %d\n",llist_get_list_size(myList3)) ;
 
  
- // test 8 - 在新串列中尋找第一個值為"2"的節點,並將其刪除
+ // test 8 - Searches for a node with a specific value and delete it
  printf("\n[Test 8]\n") ;
  nodeToDel = llist_search(myList3,2) ;
  if(nodeToDel == NULL)
@@ -99,8 +99,9 @@ main()
 	
  //llist_delete(&myList2) ;
 		
- }
- */
+
+ //because the concat function conctate myList1 and myList2,
+ //myList3 == myList1 -> free myList1
  llist_delete(&myList1) ;
-  
+return 0;
 }
