@@ -6,7 +6,7 @@
 /*******************************************
 	Method :llist_init
 *******************************************/
-// 初始化 linklist型別
+// initialize linked list
 void llist_init(LinkList * linklist) 
 {
 	linklist->head = NULL ;
@@ -19,10 +19,18 @@ void llist_init(LinkList * linklist)
 Node * llist_generate_new_node(int value) 
 {
 	Node * newNode = (Node *)malloc(sizeof(Node)) ;
+
+	if (newNode==NULL)
+	{
+		return NULL;
+	}
+	
+
 	newNode->data = value ;
 	newNode->next = NULL ;
 
-  // 注意： LinkList模組勢必要在某個method內將此node歸還 (free())
+  // Note： The linked-list module must free this node using 'free()' within an aproppriate
+  //function to prevent memory leaks.
   return newNode ;		
 }
 
@@ -30,7 +38,7 @@ Node * llist_generate_new_node(int value)
 /*******************************************
 	Method :llist_insert_in_front
 *******************************************/
-// 將新節點加在Linked List開頭
+// add a new node at the begining of the list
 void llist_insert_in_front(LinkList * linklist, Node *newNode) 
 {
 		newNode->next = (linklist->head) ;
@@ -40,21 +48,36 @@ void llist_insert_in_front(LinkList * linklist, Node *newNode)
 /*******************************************
 	Method :llist_insert
 *******************************************/
-// 將新節點加在某個Node之後
+// add a new node after a specific node in the list
 void llist_insert(LinkList * linklist,Node * nodeInList,Node *newNode) 
 {
-	// 判斷 nodeInList 確實存在list裡
-	// todo
 	
-	newNode->next = nodeInList->next ;
-	nodeInList->next = newNode ;
+	Node * tempNodePtr;
+	
+	if (linklist->head==NULL) return;
+	if (nodeInList==NULL) return;
+	if (newNode==NULL) return;
+
+	tempNodePtr=linklist->head;
+
+	//Ensure that the node is present in the linked-list
+	while (tempNodePtr!=NULL)
+	{
+		if(tempNodePtr==nodeInList) break;
+		tempNodePtr=tempNodePtr->next;
+	}
+	
+	if(tempNodePtr==NULL) return;
+
+	newNode->next=nodeInList->next;
+	nodeInList->next=newNode;
 	
 }
 
 /*******************************************
 	Method :llist_delete_first_node
 *******************************************/
-// 刪除第一個節點
+// Delete the first node of the list
 void llist_delete_first_node(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -74,7 +97,7 @@ void llist_delete_first_node(LinkList * linklist)
 	Method :llist_delete_node
 *******************************************/
 
-// 刪除某個節點
+// Delete a specific node from the list
 void llist_delete_node(LinkList * linklist, Node * nodeInList) 
 {
 	Node * tempNodePtr ;
@@ -83,7 +106,7 @@ void llist_delete_node(LinkList * linklist, Node * nodeInList)
 	if(tempNodePtr == NULL)
 		return ;  // empty list
 	
-	// find the previous Node (因為只有往後面的link)	
+	// find the previous Node (singly linked list)	
 	while(tempNodePtr != NULL)
 	{
 			if(tempNodePtr->next == nodeInList)
@@ -107,7 +130,7 @@ void llist_delete_node(LinkList * linklist, Node * nodeInList)
 /*******************************************
 	Method :llist_travel
 *******************************************/
-// 印出串列中的所有節點
+// Traverse the list and print all node values
 void llist_travel(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -132,7 +155,7 @@ void llist_travel(LinkList * linklist)
 /*******************************************
 	Method :llilst_delete
 *******************************************/
-// 歸還所有節點
+// Frees all nodes in the list and clears the list.
 void llist_delete(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -165,8 +188,26 @@ void llist_delete(LinkList * linklist)
 *******************************************/
 // 初始化 linklist型別, 並直接insert N個節點
 void llist_init2(LinkList * linklist,int * dataArray, int N) 
-{
+{	
+	//Initialize
+	llist_init(linklist);
 
+	if(dataArray==NULL || N <=0) return;
+
+	Node *tail; //找尾巴
+	for(int i=0; i<N; i++){
+		Node *tempNodePtr =	llist_generate_new_node(dataArray[i]);
+		if(tempNodePtr==NULL) return;
+		if(linklist->head==NULL){			
+			linklist->head=tempNodePtr;
+			tail=tempNodePtr; //head 同時也是最末端
+		}
+		else{
+			tail->next=tempNodePtr; //接上
+			tail=tempNodePtr; //更新尾巴的位置
+		}
+
+	}
 }
 
 

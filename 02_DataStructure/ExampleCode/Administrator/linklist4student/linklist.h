@@ -11,7 +11,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Define a data structure for node
 //
 struct node 
 {
@@ -22,7 +22,7 @@ struct node
 typedef struct node Node ;
 
 
-// 一個link list只需用一個節點來描述即可
+// using a node to represent a linked-list
 //
 struct linklist
 {
@@ -34,58 +34,52 @@ typedef struct linklist LinkList ;
 /*******************************************
 	Method Declaration
 *******************************************/
+// Creates a new node. Returns NULL if memory allocation fails.
+Node * llist_generate_new_node(int value);
 
-// generate a new node / return NULL if anything wrong
-Node * llist_generate_new_node(int value) ;
+// Initializes the linked list.
+void llist_init(LinkList * linklist);
 
-// 初始化 linklist型別
-void llist_init(LinkList * linklist) ;
+// Inserts a new node at the beginning of the list.
+void llist_insert_in_front(LinkList * linklist, Node *newNode);
 
-// 將新節點加在Linked List開頭
-void llist_insert_in_front(LinkList * linklist, Node *newNode) ;
+// Inserts a new node after a specific node in the list.
+void llist_insert(LinkList * linklist, Node * nodeInList, Node *newNode);
 
-// 將新節點加在某個Node之後
-void llist_insert(LinkList * linklist,Node * nodeInList,Node *newNode) ;
+// Deletes the first node of the list.
+void llist_delete_first_node(LinkList * linklist);
 
-// 刪除第一個節點
-void llist_delete_first_node(LinkList * linklist) ;
+// Deletes a specific node from the list.
+void llist_delete_node(LinkList * linklist, Node * nodeInList);
 
+// Traverses the list and prints all node values.
+void llist_travel(LinkList * linklist);
 
-// 刪除某個節點
-void llist_delete_node(LinkList * linklist, Node * nodeInList) ;
-
-// 印出串列中的所有節點
-void llist_travel(LinkList * linklist) ;
-
-// 歸還所有節點
-void llist_delete(LinkList * linklist) ;
-
+// Frees all nodes in the list and clears the list.
+void llist_delete(LinkList * linklist);
 
 
 //*******************************************
-// method need to implement:
+// Methods to be implemented:
 //*******************************************
 
-// 初始化 linklist型別, 並直接insert N個節點
-void llist_init2(LinkList * linklist,int * dataArray, int N) ;
+// Initializes the list and inserts N nodes from the provided data array.
+void llist_init2(LinkList * linklist, int * dataArray, int N);
 
+// Returns the address of the last node in the list.
+Node * llist_get_last_node(LinkList * linklist);
 
-// 取得串列最後一個Node的位址
-Node * llist_get_last_node(LinkList * linklist) ;
+// Appends a new node to the end of the list.
+void llist_insert_in_rear(LinkList * linklist, Node *newNode);
 
-// 將新節點加在串列結尾
-void llist_insert_in_rear(LinkList * linklist, Node *newNode) ;
+// Concatenates list B to the end of list A.
+LinkList * llist_cat(LinkList * A, LinkList * B);
 
-//把串列B接在串列A之後
-LinkList * llist_cat(LinkList * A, LinkList * B) ;
+// Returns the total number of nodes in the list.
+int llist_get_list_size(LinkList * C);
 
-// 取得串列的節點數目
-int llist_get_list_size(LinkList * C) ;
-
-// 在串列中找尋具有某個值的節點
-//   YES: return 1,   NO: return 0
-Node * llist_search(LinkList * linklist, int value) ;
-
-
+// Searches for a node with a specific value. 
+// Returns the pointer to the node if found; otherwise, returns NULL.
+Node * llist_search(LinkList * linklist, int value);
 
 #endif
