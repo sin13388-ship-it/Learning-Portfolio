@@ -14,7 +14,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Node data structure definition
 //
 struct node 
 {
@@ -25,7 +25,7 @@ struct node
 typedef struct node Node ;
 
 
-/*Queue資料結構*/ 
+/*Queuev data structure*/ 
 struct queue_s
 { 
 	Node * front ; 

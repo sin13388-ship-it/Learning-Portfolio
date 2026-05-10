@@ -7,7 +7,7 @@
 *******************************************/
 void queue_init(Queue * queue) 
 {
-	// 一個node不儲存資料
+	// an empty node
 	Node * headNode = (Node *)malloc(sizeof(Node)) ;	
 	
 	queue->front = headNode ;

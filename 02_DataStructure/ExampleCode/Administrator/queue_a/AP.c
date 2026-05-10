@@ -1,7 +1,7 @@
 #include "Q.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  Queue Q ;
  int data[10] ;
@@ -48,4 +48,5 @@ main()
  if( queue_enqueue(&Q,9) != QUEUE_SUCESS)
  	printf("we cannot use this Queue any more!\n") ;
  
+return 0;
 }

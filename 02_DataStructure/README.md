@@ -4,7 +4,9 @@
 |------------|-----|-----------|-----------|
 |stack_a|Stack|使用Array 實現Stack|5/2|
 |linklist|Linked-List|節點與串列的實現|5/3~5/5|
-|linkedlist4student|Linked-List|Homework|5/9~|
+|linkedlist4student|Linked-List|Homework|5/9|
+|queue_a|queue|佇列，使用陣列的方式來實現|5/10|
+|queue_L|queue|佇列，使用linked-list的方式來實現|5/10|
 
 
 
@@ -74,5 +76,28 @@
     - Concat
         - 串接兩個linked-list
 
-## Linked-List Homework
+### Linked-List Homework
+## Queue
+### 說明
+- Queue 具有First-in-Frist-Out (FIFO)的特性
+- Queue 具有兩個開口且各司其職 :
+    - 資料的刪除在Front執行，稱之為dequeue
+    - 資料的加入在rear執行，稱之為enqueue
+- 配套方法:
+    - 基本方法 :
+        - dequeue
+        - enqueue
+    - 支援方法 :
+        - size
+        - isEmpty
+- 變種:
+    - Circular queue :
+    線性的佇列會發生明明前面的資料已經空了，卻仍然占住空間。可以用circular queue 改善
+    - 如何判斷佇烈已空和已滿?
+        - is empty : queue.front == queue.rear
+        - is full : queue.front == (queue.rear+1) % Maxqueue
+
+
+
+
 

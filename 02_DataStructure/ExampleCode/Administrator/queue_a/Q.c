@@ -12,8 +12,8 @@ void queue_init(Queue * queue)
  		queue->Data[i] = 0 ;
  }	
 
- // front: 馬上可以抓走資料的位置，
- // rear: 馬上可以塞入資料的位置
+ // front: Immediate data extraction point，
+ // rear: Immediate data insertion point
  queue->front = -1 ;
  queue->rear = 0 ;
 	
@@ -33,7 +33,7 @@ int queue_enqueue(Queue * queue,int x)
     else 
 	 	{
 	 			if(queue->rear == 0)
-	 				queue->front = 0 ;		// 第一個元素被加入
+	 				queue->front = 0 ;		// add the first element
 	 				
       	queue->Data[queue->rear] = x ;  
  		  	(queue->rear)++;

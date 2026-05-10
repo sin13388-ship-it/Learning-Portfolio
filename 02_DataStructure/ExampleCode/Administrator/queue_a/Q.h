@@ -19,8 +19,8 @@ struct queue_s
 { 
 	int Data[QUEUE_SIZE];		//陣列空間 
 	int front, rear;								
-													// front: 馬上可以抓走資料的位置，
- 													// rear: 馬上可以塞入資料的位置
+													// front: dequeue，
+ 													// rear: enqueue
 }; 
 
 typedef struct queue_s Queue ;
