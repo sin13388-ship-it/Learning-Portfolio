@@ -7,6 +7,7 @@
 |linkedlist4student|Linked-List|Homework|5/9|
 |queue_a|queue|佇列，使用陣列的方式來實現|5/10|
 |queue_L|queue|佇列，使用linked-list的方式來實現|5/10|
+|Sorted linked list 4 student|linked-list|implement linked-list with sorting|5/11|
 
 
 
@@ -77,6 +78,40 @@
         - 串接兩個linked-list
 
 ### Linked-List Homework
+#### Sorted linked list
+- 實作一個在insert節點的時候會順便sorting的方法
+> - 使用升序排序
+> - 實作 void llist_insert_with_sorting(LinkList * linklist, Node *newNode) 
+- 步驟解說:
+    - 宣告一個node 為prev, 用於儲存滿足條件的前一個節點
+    - 因為是升序排列，要找到比newNode 小的前一個節點
+    - 如果prev=NULL， 表示從頭到尾都沒有，直接insert 在head
+```c
+/*******************************************
+	Method :llist_insert_with_sorting
+*******************************************/
+// Insert with sorting
+void llist_insert_with_sorting(LinkList * linklist, Node *newNode) 
+{ 	
+	Node *cur;
+	Node *prev;
+	cur=linklist->head;
+	prev=NULL;
+	if(newNode==NULL) return;
+	//Ascending order
+	while(cur !=NULL && (cur->data <= newNode->data)){
+		prev=cur;
+		cur=cur->next;
+	}	
+	if (prev==NULL){
+		llist_insert_in_front(linklist, newNode);
+	}else
+	{
+		llist_insert(linklist,prev,newNode);
+	}
+}
+```
+
 ## Queue
 ### 說明
 - Queue 具有First-in-Frist-Out (FIFO)的特性

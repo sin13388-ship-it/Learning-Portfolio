@@ -38,43 +38,18 @@ void llist_insert_with_sorting(LinkList * linklist, Node *newNode)
 	Node *prev;
 	cur=linklist->head;
 	prev=NULL;
-
 	if(newNode==NULL) return;
-
 	//Ascending order
 	while(cur !=NULL && (cur->data <= newNode->data)){
 		prev=cur;
 		cur=cur->next;
-	}
-
-	//Minimum
+	}	
 	if (prev==NULL){
 		llist_insert_in_front(linklist, newNode);
 	}else
 	{
 		llist_insert(linklist,prev,newNode);
 	}
-
-	    // 找到第一個比 newNode 大的節點，插在它前面
-    // while (cur != NULL && cur->data <= newNode->data) {
-    //     prev = cur;
-    //     cur = cur->next;
-    // }
-
-    // if (prev == NULL) {
-    //     // 插在 head 之前（newNode 是最小值，或 list 為空）
-    //     newNode->next = linklist->head;
-    //     linklist->head = newNode;
-    // } else {
-    //     // 插在 prev 後面（即 cur 前面）
-    //     llist_insert(linklist, prev, newNode);
-    // }
-
-
-
-
-
-
 }
 
 
