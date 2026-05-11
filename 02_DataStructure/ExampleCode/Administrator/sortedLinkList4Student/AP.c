@@ -1,7 +1,7 @@
 #include "linklist.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  LinkList myList1 ;
  Node *newNode ;
@@ -14,6 +14,7 @@ main()
  for(i=0;i<10;i++)
  {
 		 newNode = llist_generate_new_node(data[i]) ;
+		 //llist_insert_in_front(&myList1,newNode);
 		 llist_insert_with_sorting(&myList1,newNode) ;
  }
 
@@ -21,6 +22,8 @@ main()
   
  
  llist_delete(&myList1) ;
-  
+
+ return 0;
+
 }
 

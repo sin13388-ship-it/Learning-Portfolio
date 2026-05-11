@@ -28,7 +28,7 @@ Node * llist_generate_new_node(int value)
 	newNode->data = value ;
 	newNode->next = NULL ;
 
-  // Note¡G The linked-list module must free this node using 'free()' within an aproppriate
+  // Note: The linked-list module must free this node using 'free()' within an aproppriate
   //function to prevent memory leaks.
   return newNode ;		
 }
@@ -169,7 +169,7 @@ void llist_delete(LinkList * linklist)
 		nodeToDel = tempNodePtr ;
 		tempNodePtr = tempNodePtr->next ;			
 		
-		// ª`·Nfreeªº®É¾÷
+		// ï¿½`ï¿½Nfreeï¿½ï¿½ï¿½É¾ï¿½
 		free(nodeToDel) ;
 	}
 		
@@ -185,7 +185,7 @@ void llist_delete(LinkList * linklist)
 /*******************************************
 	Method : llist_init2
 *******************************************/
-// ªì©l¤Æ linklist«¬§O, ¨Ãª½±µinsert N­Ó¸`ÂI
+// ï¿½ï¿½lï¿½ï¿½ linklistï¿½ï¿½ï¿½O, ï¿½Ãªï¿½ï¿½ï¿½insert Nï¿½Ó¸`ï¿½I
 void llist_init2(LinkList * linklist,int * dataArray, int N) 
 {	
 	//Initialize
@@ -193,17 +193,17 @@ void llist_init2(LinkList * linklist,int * dataArray, int N)
 
 	if(dataArray==NULL || N <=0) return;
 
-	Node *tail; //§ä§À¤Ú
+	Node *tail; //ï¿½ï¿½ï¿½ï¿½ï¿½
 	for(int i=0; i<N; i++){
 		Node *tempNodePtr =	llist_generate_new_node(dataArray[i]);
 		if(tempNodePtr==NULL) return;
 		if(linklist->head==NULL){			
 			linklist->head=tempNodePtr;
-			tail=tempNodePtr; //head ¦P®É¤]¬O³Ì¥½ºÝ
+			tail=tempNodePtr; //head ï¿½Pï¿½É¤]ï¿½Oï¿½Ì¥ï¿½ï¿½ï¿½
 		}
 		else{
-			tail->next=tempNodePtr; //±µ¤W
-			tail=tempNodePtr; //§ó·s§À¤Úªº¦ì¸m
+			tail->next=tempNodePtr; //ï¿½ï¿½ï¿½W
+			tail=tempNodePtr; //ï¿½ï¿½sï¿½ï¿½ï¿½Úªï¿½ï¿½ï¿½m
 		}
 
 	}
@@ -213,7 +213,7 @@ void llist_init2(LinkList * linklist,int * dataArray, int N)
 /*******************************************
 	Method : llist_get_last_node
 *******************************************/
-// ¨ú±o¦ê¦C³Ì«á¤@­ÓNodeªº¦ì§}
+// ï¿½ï¿½ï¿½oï¿½ï¿½Cï¿½Ì«ï¿½@ï¿½ï¿½Nodeï¿½ï¿½ï¿½ï¿½}
 Node * llist_get_last_node(LinkList * linklist) 
 {
 	Node *cur;
@@ -233,7 +233,7 @@ Node * llist_get_last_node(LinkList * linklist)
 /*******************************************
 	Method : llist_insert_in_rear
 *******************************************/
-// ±N·s¸`ÂI¥[¦b¦ê¦Cµ²§À
+// ï¿½Nï¿½sï¿½`ï¿½Iï¿½[ï¿½bï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½
 void llist_insert_in_rear(LinkList * linklist, Node *newNode) 
 {
 	Node *last ;	
@@ -251,10 +251,10 @@ void llist_insert_in_rear(LinkList * linklist, Node *newNode)
 /*******************************************
 	Method : llist_cat
 *******************************************/
-//§â¦ê¦CB±µ¦b¦ê¦CA¤§«á
+//ï¿½ï¿½ï¿½CBï¿½ï¿½ï¿½bï¿½ï¿½CAï¿½ï¿½ï¿½ï¿½
 LinkList * llist_cat(LinkList * A, LinkList * B) 
 {
-	//¦Ò¼{¦U§O¬°NULLªº±¡§Î
+	//ï¿½Ò¼{ï¿½Uï¿½Oï¿½ï¿½NULLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(A->head==NULL) return B;
 	if(B->head==NULL) return A;
 
@@ -268,7 +268,7 @@ LinkList * llist_cat(LinkList * A, LinkList * B)
 /*******************************************
 	Method : llist_get_list_size
 *******************************************/
-// ¨ú±o¦ê¦Cªº¸`ÂI¼Æ¥Ø
+// ï¿½ï¿½ï¿½oï¿½ï¿½Cï¿½ï¿½ï¿½`ï¿½Iï¿½Æ¥ï¿½
 int llist_get_list_size(LinkList * linklist) 
 {
 	int length=0;
@@ -288,7 +288,7 @@ int llist_get_list_size(LinkList * linklist)
 /*******************************************
 	Method : llist_search
 *******************************************/
-// ¦b¦ê¦C¤¤§ä´M¨ã¦³¬Y­Ó­Èªº¸`ÂI
+// ï¿½bï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Mï¿½ã¦³ï¿½Yï¿½Ó­Èªï¿½ï¿½`ï¿½I
 //   YES: return 1,   NO: return 0
 Node * llist_search(LinkList * linklist, int value) 
 {
