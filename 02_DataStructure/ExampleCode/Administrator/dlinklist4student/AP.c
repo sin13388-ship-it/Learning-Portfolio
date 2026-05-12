@@ -1,7 +1,7 @@
 #include "dlinklist.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  LinkList myList1 ;
   
@@ -49,8 +49,8 @@ main()
  llist_delete_node(&myList1,newNode2) ;
  llist_travel(&myList1) ;
 
-// 由學生負責實作
-{ 
+// 嚙諸學生負嚙範嚙踝蕭@
+
  LinkList myList2 ;
  LinkList * myList3 ;
  
@@ -66,18 +66,19 @@ main()
  
  // test 5-2: get last node and show its value
  //
+
  lastNode = llist_get_last_node(&myList2) ;
  printf("\n[Test5-2]: last value of myList2 is %d",lastNode->data) ;
  
 
- // test 6 - 把一個Node加在 myList2 尾端
+ // test 6 -Appends a new node to the end of the list.
  //
  printf("\n[Test 6]\n") ;
  newNode = llist_generate_new_node(1024) ;
  llist_insert_in_rear(&myList2,newNode) ;
  llist_travel(&myList2) ;
 
- // test 7 - 把list2加在list1尾巴, 印出新串列與其節點數目
+ // test 7 - Concatenates list B to the end of list A
  printf("\n[Test 7]\n") ;
  myList3 = llist_cat(&myList1,&myList2) ;
  llist_travel(myList3) ;
@@ -85,7 +86,7 @@ main()
  printf("list number = %d\n",llist_get_list_size(myList3)) ;
 
  
- // test 8 - 在新串列中尋找第一個值為"2"的節點,並將其刪除
+ // test 8 - 嚙箭嚙編嚙踝蕭C嚙踝蕭嚙瞎嚙踝蕭臚@嚙諉值穿蕭"2"嚙踝蕭嚙窯嚙瘢,嚙衛將嚙踝蕭R嚙踝蕭
  printf("\n[Test 8]\n") ;
  nodeToDel = llist_search(myList3,2) ;
  if(nodeToDel == NULL)
@@ -98,8 +99,10 @@ main()
 	
  //llist_delete(&myList2) ;
 		
- }
+
  
  llist_delete(&myList1) ;
-  
+
+return 0;
+
 }

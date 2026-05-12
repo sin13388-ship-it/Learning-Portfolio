@@ -5,6 +5,7 @@ void exercise5_typedefine();
 void exercise6_union();
 void exercise7_payment_select();
 
+
 union paid{
 	char creditCard[21];
 	char bankAccount[16];

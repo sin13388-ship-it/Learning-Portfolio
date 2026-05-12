@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = C_0512_AP.o C_0512_Type.o
-LINKOBJ  = C_0512_AP.o C_0512_Type.o
+OBJ      = C_0512_AP.o C_0512_Type.o C_0512_Enum.o Homework_0512.o
+LINKOBJ  = C_0512_AP.o C_0512_Type.o C_0512_Enum.o Homework_0512.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -29,3 +29,9 @@ C_0512_AP.o: C_0512_AP.c
 
 C_0512_Type.o: C_0512_Type.c
 	$(CC) -c C_0512_Type.c -o C_0512_Type.o $(CFLAGS)
+
+C_0512_Enum.o: C_0512_Enum.c
+	$(CC) -c C_0512_Enum.c -o C_0512_Enum.o $(CFLAGS)
+
+Homework_0512.o: Homework_0512.c
+	$(CC) -c Homework_0512.c -o Homework_0512.o $(CFLAGS)

@@ -35,7 +35,18 @@ int main(){
 	//exercise4_structure_swap();
 	//exercise5_typedefine();
 	//exercise6_union();
-	exercise7_payment_select();
+	//exercise7_payment_select();
+	//exercise8_enum();
+	//exercise9_Iterate();
+	//exercise10_salary();
+	//exercise11_select_trousers();
+	
+	homework1();
+	homework2();
+	homework3();
+	homework4();
+	
+	
 	getchar();
 	return 0;
 }
@@ -103,7 +114,7 @@ void result(const scores *score){
 scores *maximum(const scores *arr, int count){	
 	const scores *ptr;
 	ptr=arr;
-	const scores *max_ptr;
+	scores *max_ptr;
 	max_ptr=ptr;
 	int i=0;
 	

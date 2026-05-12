@@ -19,6 +19,10 @@ void llist_init(LinkList * linklist)
 Node * llist_generate_new_node(int value) 
 {
 	Node * newNode = (Node *)malloc(sizeof(Node)) ;
+
+	if(newNode==NULL) return NULL;
+
+
 	newNode->data = value ;
 	
 	newNode->prev = NULL ;
@@ -184,7 +188,14 @@ void llist_delete(LinkList * linklist)
 void llist_init2(LinkList * linklist,int * dataArray, int N) 
 {
 	
-
+	if(dataArray==NULL) return;	
+	llist_init(linklist);
+	int i;
+	for(i=0;i<N;i++){
+		Node * newNode= llist_generate_new_node(dataArray[i]);
+		if (newNode==NULL) return;
+		llist_insert_in_front(linklist,newNode);
+	}
 }
 
 
@@ -193,7 +204,15 @@ void llist_init2(LinkList * linklist,int * dataArray, int N)
 *******************************************/
 // Returns the address of the last node in the list.
 Node * llist_get_last_node(LinkList * linklist) 
-{
+{	
+	if(linklist->head==NULL) return NULL;
+	Node *cur;
+	cur=linklist->head;
+	while (cur->next !=NULL)
+	{
+		cur=cur->next;
+	}
+	return cur;
 }
 
 
@@ -201,37 +220,69 @@ Node * llist_get_last_node(LinkList * linklist)
 /*******************************************
 	Method : llist_insert_in_rear
 *******************************************/
-// �N�s�`�I�[�b��C����
+// Appends a new node to the end of the list.
 void llist_insert_in_rear(LinkList * linklist, Node *newNode) 
 {
+	if(newNode==NULL) return;
+	Node *cur = llist_get_last_node(linklist);
+	cur->next=newNode;
+	newNode->prev=cur;
 }
 
 
 /*******************************************
 	Method : llist_cat
 *******************************************/
-//���CB���b��CA����
+//Concatenates list B to the end of list A.
 LinkList * llist_cat(LinkList * A, LinkList * B) 
 {
- }
+	if(A->head==NULL) return B;
+	if(B->head==NULL) return A;
+
+	Node *last_node;
+	last_node=llist_get_last_node(A);
+	last_node->next=B->head;
+	B->head->prev=last_node;
+	return A;
+}
 
 
 /*******************************************
 	Method : llist_get_list_size
 *******************************************/
-// ���o��C���`�I�ƥ�
+// Returns the total number of nodes in the list
 int llist_get_list_size(LinkList * linklist) 
 {
+	int count=0;
+
+	if (linklist->head==NULL) return 0;
+
+	Node *cur;
+	cur=linklist->head;
+	while (cur !=NULL)
+	{
+		count++;
+		cur=cur->next;
+	}
+	return count;
+
 }
 
 
 /*******************************************
 	Method : llist_search
 *******************************************/
-// �b��C����M�㦳�Y�ӭȪ��`�I
-//   YES: return 1,   NO: return 0
+// Searches for a node with a specific value
+// Returns the pointer to the node if found; otherwise, returns NULL
 Node * llist_search(LinkList * linklist, int value) 
 {
- }
+	if(linklist->head==NULL) return NULL;	
+	Node *cur;
+	cur =linklist->head;
+	while(cur!=NULL && (cur->data !=value)){
+		cur=cur->next;
+	}
+	return cur;
+}
 
 
