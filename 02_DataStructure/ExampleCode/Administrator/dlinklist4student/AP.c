@@ -49,7 +49,6 @@ int main()
  llist_delete_node(&myList1,newNode2) ;
  llist_travel(&myList1) ;
 
-// �Ѿǥͭt�d��@
 
  LinkList myList2 ;
  LinkList * myList3 ;
@@ -86,7 +85,7 @@ int main()
  printf("list number = %d\n",llist_get_list_size(myList3)) ;
 
  
- // test 8 - �b�s��C���M��Ĥ@�ӭȬ�"2"���`�I,�ñN��R��
+ // test 8 -  Searches for a node with a specific value
  printf("\n[Test 8]\n") ;
  nodeToDel = llist_search(myList3,2) ;
  if(nodeToDel == NULL)
