@@ -61,6 +61,17 @@
         Node *head;
     };
     ~~~
+- 變種 :
+    - 雙向 linked-list
+        - 除了有next 外還有一個 prev
+        ```c
+        struct node 
+        {
+            int data;
+            struct node *next;
+            struct node *prev; 
+        };
+        ``` 
 
 - 課程提供的Linked-list方法 (link-list) :
     - Initialize :

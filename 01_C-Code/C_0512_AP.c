@@ -20,6 +20,7 @@ void exercise2_structure_get_result();
 void exercise3_structure_array();
 void exercise4_structure_swap();
 
+
 void structure_pointer();
 void add5(student *std);
 void result(const scores *score);
@@ -31,7 +32,10 @@ int main(){
 	//exercise1_structure_pointer();
 	//exercise2_structure_get_result();	
 	//exercise3_strucutre_array();
-	exercise4_structure_swap();
+	//exercise4_structure_swap();
+	//exercise5_typedefine();
+	//exercise6_union();
+	exercise7_payment_select();
 	getchar();
 	return 0;
 }
