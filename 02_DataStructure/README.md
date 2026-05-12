@@ -8,6 +8,7 @@
 |queue_a|queue|佇列，使用陣列的方式來實現|5/10|
 |queue_L|queue|佇列，使用linked-list的方式來實現|5/10|
 |Sorted linked list 4 student|linked-list|implement linked-list with sorting|5/11|
+|Double linked list 4 student|linked-list|implement a double linked-list |5/12|
 
 
 
@@ -61,7 +62,7 @@
     };
     ~~~
 
-- 課程提供的Linked-list方法 :
+- 課程提供的Linked-list方法 (link-list) :
     - Initialize :
         - 把list 裡的head設為null
     - Generate new node:
@@ -76,6 +77,8 @@
         - 取得每個節點的元素
     - Concat
         - 串接兩個linked-list
+- 
+
 
 ### Linked-List Homework
 #### Sorted linked list
