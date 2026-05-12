@@ -57,18 +57,14 @@ void exercise6_union(){
 	
 }
 
-void exercise7_payment_select(){
-	
+void exercise7_payment_select(){	
 	int amt =1500;
 	int opt;
 	
 	printf("Please select a payment method (0: Credit Card, 1: Cash)\n");
 	scanf("%d",&opt);
-	fflush(stdin);
-	
-	union payment myPayment;
-	
-	
+	fflush(stdin);	
+	union payment myPayment;	
 	if(opt==0){
 		printf("Please input your credit card numbers [16 char.]\n");
 		fgets(myPayment.creditCard,17,stdin);

@@ -6,7 +6,7 @@
 /*******************************************
 	Method :llist_init
 *******************************************/
-// 初始化 linklist型別
+// Initialize
 void llist_init(LinkList * linklist) 
 {
 	linklist->head = NULL ;
@@ -24,7 +24,8 @@ Node * llist_generate_new_node(int value)
 	newNode->prev = NULL ;
 	newNode->next = NULL ;
 
-  // 注意： LinkList模組勢必要在某個method內將此node歸還 (free())
+  // Note: The linked-list module must free this node using 'free()' within an aproppriate
+  //function to prevent memory leaks.
   return newNode ;		
 }
 
@@ -32,7 +33,7 @@ Node * llist_generate_new_node(int value)
 /*******************************************
 	Method :llist_insert_in_front
 *******************************************/
-// 將新節點加在Linked List開頭
+// add a new node at the begining of the list
 void llist_insert_in_front(LinkList * linklist, Node *newNode) 
 {
 	  Node * head = linklist->head ;
@@ -48,11 +49,19 @@ void llist_insert_in_front(LinkList * linklist, Node *newNode)
 /*******************************************
 	Method :llist_insert
 *******************************************/
-// 將新節點加在某個Node之後
+// add a new node after a specific node in the list
 void llist_insert(LinkList * linklist,Node * nodeInList,Node *newNode) 
 {
-	// 判斷 nodeInList 確實存在list裡
-	// todo
+	Node *cur;
+
+	if(linklist->head=NULL) return;
+	if(nodeInList=NULL) return;
+	if(newNode=NULL) return;
+	cur=linklist->head;
+	while(cur !=NULL && (cur!=nodeInList)){
+		cur=cur->next;
+	}
+	if(cur==NULL) return;
 	
 	if(nodeInList->next != NULL)
 			(nodeInList->next)->prev = newNode ;
@@ -66,7 +75,7 @@ void llist_insert(LinkList * linklist,Node * nodeInList,Node *newNode)
 /*******************************************
 	Method :llist_delete_first_node
 *******************************************/
-// 刪除第一個節點
+// Delete the first node of the list
 void llist_delete_first_node(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -91,7 +100,7 @@ void llist_delete_first_node(LinkList * linklist)
 	Method :llist_delete_node
 *******************************************/
 
-// 刪除某個節點
+// Delete a specific node from the list
 void llist_delete_node(LinkList * linklist, Node * nodeInList) 
 {
 	if(linklist->head == NULL)
@@ -116,7 +125,7 @@ void llist_delete_node(LinkList * linklist, Node * nodeInList)
 /*******************************************
 	Method :llist_travel
 *******************************************/
-// 印出串列中的所有節點
+// Traverse the list and print all node values
 void llist_travel(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -141,7 +150,7 @@ void llist_travel(LinkList * linklist)
 /*******************************************
 	Method :llilst_delete
 *******************************************/
-// 歸還所有節點
+// Frees all nodes in the list and clears the list.
 void llist_delete(LinkList * linklist) 
 {
 	Node * tempNodePtr ;
@@ -171,10 +180,10 @@ void llist_delete(LinkList * linklist)
 /*******************************************
 	Method : llist_init2
 *******************************************/
-// 初始化 linklist型別, 並直接insert N個節點
+// Initializes the list and inserts N nodes from the provided data array
 void llist_init2(LinkList * linklist,int * dataArray, int N) 
 {
- 
+	
 
 }
 
@@ -182,7 +191,7 @@ void llist_init2(LinkList * linklist,int * dataArray, int N)
 /*******************************************
 	Method : llist_get_last_node
 *******************************************/
-// 取得串列最後一個Node的位址
+// Returns the address of the last node in the list.
 Node * llist_get_last_node(LinkList * linklist) 
 {
 }
@@ -192,7 +201,7 @@ Node * llist_get_last_node(LinkList * linklist)
 /*******************************************
 	Method : llist_insert_in_rear
 *******************************************/
-// 將新節點加在串列結尾
+// 嚙瞇嚙編嚙窯嚙瘢嚙稼嚙箭嚙踝蕭C嚙踝蕭嚙踝蕭
 void llist_insert_in_rear(LinkList * linklist, Node *newNode) 
 {
 }
@@ -201,7 +210,7 @@ void llist_insert_in_rear(LinkList * linklist, Node *newNode)
 /*******************************************
 	Method : llist_cat
 *******************************************/
-//把串列B接在串列A之後
+//嚙踝蕭嚙瘠B嚙踝蕭嚙箭嚙踝蕭CA嚙踝蕭嚙踝蕭
 LinkList * llist_cat(LinkList * A, LinkList * B) 
 {
  }
@@ -210,7 +219,7 @@ LinkList * llist_cat(LinkList * A, LinkList * B)
 /*******************************************
 	Method : llist_get_list_size
 *******************************************/
-// 取得串列的節點數目
+// 嚙踝蕭嚙緻嚙踝蕭C嚙踝蕭嚙窯嚙瘢嚙複伐蕭
 int llist_get_list_size(LinkList * linklist) 
 {
 }
@@ -219,7 +228,7 @@ int llist_get_list_size(LinkList * linklist)
 /*******************************************
 	Method : llist_search
 *******************************************/
-// 在串列中找尋具有某個值的節點
+// 嚙箭嚙踝蕭C嚙踝蕭嚙踝蕭M嚙賬有嚙磐嚙諉值迎蕭嚙窯嚙瘢
 //   YES: return 1,   NO: return 0
 Node * llist_search(LinkList * linklist, int value) 
 {

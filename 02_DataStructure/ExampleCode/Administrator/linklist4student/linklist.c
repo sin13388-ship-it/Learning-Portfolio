@@ -185,7 +185,7 @@ void llist_delete(LinkList * linklist)
 /*******************************************
 	Method : llist_init2
 *******************************************/
-// ��l�� linklist���O, �ê���insert N�Ӹ`�I
+// Initializes the list and inserts N nodes from the provided data array
 void llist_init2(LinkList * linklist,int * dataArray, int N) 
 {	
 	//Initialize
