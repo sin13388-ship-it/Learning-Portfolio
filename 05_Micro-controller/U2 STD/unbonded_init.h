@@ -3,7 +3,7 @@
   * @brief    This file is used to initialize unbonded pins.
   * @author   Holtek Semiconductor Inc.
   * @version  1
-  * @date     2026-5-7 (11-42-38)
+  * @date     2026-5-13 (13-28-34)
  *******************************************************************************
   * @attention
   *
