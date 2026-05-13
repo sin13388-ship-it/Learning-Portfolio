@@ -12,7 +12,7 @@ const u8 SEG_TAB[] = {			   				//七段顯示碼建表區(共陰)
 volatile u8 *ptr,ScanCode,Buffer[4];
 void main()
 {	u8 i,j=0;
-	_wdtc=0b10101111;							//關閉看們狗計時器
+	_wdtc=0b10101111;							//關閉看們狗計時器	
 	SEGPort=0; SEGPortC=0;						//規劃SEGPort為輸出屬性
 	ScanPort&=0xF0; ScanPortC&=0xF0;			//規劃ScanPort[3:0]為輸出屬性
 	_psc0r=0x01; _tb0c=0x85;_tb0e=1;			//fPSC0=fSYS/4,週期=8192*(1/fPSC0),致能TB0中斷
