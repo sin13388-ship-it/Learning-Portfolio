@@ -12,6 +12,7 @@
         <module>Ch09/object_and_encapsulation</module>
         <module>Ch13/RegularExpression</module>
         <module>Ch14/Composition</module>
+        <module>Ch20/IO_Exception</module>
     </modules>
 
     <properties>
