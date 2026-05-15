@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>hyperlink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .unkempt-regular {
+        font-family: "Unkempt", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .unkempt-bold {
+        font-family: "Unkempt", cursive;
+        font-weight: 700;
+        font-style: normal;
+        
+        }
+    </style>
+</head> 
+<body>
+    <!--圖片練習，alt 是替代文字，當圖片無法顯示時會顯示該文字-->
+    <figure>
+         <figcaption class ="unkempt-bold">Pikmin 2026 Wall Calendar with Over 50 Bonus Stickers</figcaption>
+        <a href="https://www.amazon.com/-/zh_TW/Pikmin-2026-Calendar-Bonus-Stickers/dp/1419784927">
+        <img src="pikimin.jpg" title="皮克敏" alt="皮克敏的盜圖"/><br/>
+        </a>       
+    </figure>
+
+    <!--圖片練習，可設定高與寬，會有失真的問題-->
+    <img src="pikimin.jpg" title="皮克敏" alt="皮克敏的盜圖" height="200" width="500"/><br/>
+    <!--圖片練習，可以只設定高，會自動調整比例-->
+    <img src="pikimin.jpg" title="皮克敏" alt="皮克敏的盜圖" height="400"/><br/>
+    <!--圖片練習，可以設定比例-->
+    <img src="pikimin.jpg" title="皮克敏" alt="皮克敏的盜圖" width="50%"/><br/>
+</body>  
+</html>
