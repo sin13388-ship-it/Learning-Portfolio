@@ -9,6 +9,7 @@
 |queue_L|queue|佇列，使用linked-list的方式來實現|5/10|
 |Sorted linked list 4 student|linked-list|implement linked-list with sorting|5/11|
 |Double linked list 4 student|linked-list|implement a double linked-list |5/12|
+|BinaryTree4Student|Tree|使用linked-list來實現Tree|5/16-|
 
 
 
@@ -145,6 +146,15 @@ void llist_insert_with_sorting(LinkList * linklist, Node *newNode)
     - 如何判斷佇烈已空和已滿?
         - is empty : queue.front == queue.rear
         - is full : queue.front == (queue.rear+1) % Maxqueue
+
+## Tree
+### 說明
+- 樹的種類 :
+樹分成無序數即有序數兩種:
+    - 無序樹 : 樹中的任意節點沒有順序，又被稱為自由樹 
+    - 有序樹 : 樹中的任意節點的子節點之間有順序關係    
+        - 二元樹 : 每個節點最多包含兩個子樹
+    
 
 
 
