@@ -1,4 +1,15 @@
 # Data Structure 練習筆記
+## Contents
+
+- [Demo Code List](#demo-code-list)
+- [Stack](#stack)
+- [LinkedList](#linkedlist)
+- [Queue](#queue)
+- [Tree](#tree)
+
+
+
+
 ## Demo Code List
 |Project Name|Topic|Description|Review date|
 |------------|-----|-----------|-----------|
@@ -154,7 +165,130 @@ void llist_insert_with_sorting(LinkList * linklist, Node *newNode)
     - 無序樹 : 樹中的任意節點沒有順序，又被稱為自由樹 
     - 有序樹 : 樹中的任意節點的子節點之間有順序關係    
         - 二元樹 : 每個節點最多包含兩個子樹
+            - Full binary tree :每一個節點的左右子分支都有節點
+            - complete binary tree : 最後一層沒有滿
+
+            ||Full Binary Tree|Complete Binary Tree|
+            |-|---|---|
+            |總節點|k=2^h -1| 2^(h-1) < k <2^h-1|
+            |樹高 h|log2(k+1)|log2(k)+1|
+
+        - 紅黑樹 :
+            - 紅黑樹是一種自平衡二元搜尋樹，可在最壞情況下保持搜尋、插入、刪除為 O(log n)
+            - 每個節點都有一個顏色屬性：紅或黑
+            - 資料結構特性：
+                1. 節點為紅或黑
+                2. 根節點必須為黑
+                3. 所有葉節點(NIL節點)為黑
+                4. 紅節點的子節點必須為黑（不能連續兩個紅節點）
+                5. 從任一節點到其所有後代葉節點的黑色節點數量相同
+            - 這些規則保證了樹的高度是 O(log n)，避免了在最壞情況下退化成鏈狀結構
+            - 常見應用：
+                - C++ STL 的 `std::map`、`std::set`
+                - 作業系統排程或記憶體管理中的平衡搜尋
+        - B 樹 :
+            - B 樹是一種平衡多路搜尋樹，常用於資料庫與檔案系統的磁碟資料結構
+            - 每個節點可以有多個子節點，節點內保存多個鍵值
+            - 特性規則：
+                1. 每個節點最多有 `m` 個子節點、最少有 `⌈m/2⌉` 個子節點（根節點例外）
+                2. 每個非葉節點有 `k-1` 個鍵值和 `k` 個子節點，`⌈m/2⌉ - 1 <= k <= m-1`
+                3. 所有葉節點具有相同深度
+                4. 節點內鍵值按排序順序儲存
+            - B 樹適合用於磁碟 I/O 優化，因為一個節點可以包含大量鍵值，減少讀寫次數
+        - B+ 樹 :
+            - B+ 樹是 B 樹的變種，所有資料值只保存在葉節點，內部節點僅做索引
+            - 葉節點之間用指標串連，支援範圍查詢和順序遍歷效率高
+            - 特性規則：
+                1. 所有值都存在葉節點，內部節點只保存索引鍵
+                2. 內部節點只需儲存子樹範圍邊界，鍵值可重複於不同分支
+                3. 葉節點依然保持同一深度
+                4. 葉節點通常形成一個有序鏈結列表
+            - 常見應用：資料庫索引、檔案系統和任何需要高效範圍查詢的儲存系統
+### Binary Tree 的組成
+1. 節點
+    - 包含left、right 兩個sub-trees
+    - sub-trees 都是 binary tree
+2. 節點 example:
     
+    ```c
+    struct t_node {
+        void *item;
+        struct t_node *right;
+        struct t_node *left;
+    };
+    ```
+    - break down :
+
+        ```struct t_node { ... };```
+
+        This declares a structure named t_node. Each instance of this struct represents one node in the tree.
+        
+        ```void *item;```
+
+        Stores the data/value held by this node.
+        void * is a generic pointer — it can point to any data type (an int, a char, another struct, etc.). This makes the node flexible and reusable for any kind of data.
+
+        ```struct t_node *right;```
+
+        A pointer to this node's right child node.
+        It points to another struct t_node, which is how the tree links together.
+
+        ```struct t_node *left;```
+
+        A pointer to this node's left child node.
+        Same idea as right, but for the left branch.
+
+        ---
+
+        ```Why Self-Referencing?```
+        
+        Notice that t_node contains pointers to itself (struct t_node *right/left). This is called a self-referential struct — it's the standard technique for building linked data structures like trees and linked lists in C.
+
+    - Code example: Typecasting a ```void*```
+    
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    struct t_node {
+        void *item;
+        struct t_node *right;
+        struct t_node *left;
+    };
+
+    int main() {
+        // 1. Allocate memory for a node
+        struct t_node *root = malloc(sizeof(struct t_node));
+        
+        // 2. Allocate memory for an integer and assign a value
+        int *data = malloc(sizeof(int));
+        *data = 42;
+        
+        // 3. Store the integer pointer inside the void* item
+        root->item = data; 
+        root->left = NULL;
+        root->right = NULL;
+
+        // ==========================================
+        // HOW TO USE IT (Typecasting & Dereferencing)
+        // ==========================================
+        
+        // Step-by-step approach:
+        int *stored_ptr = (int *)root->item; // 1. Cast void* to int*
+        int value1 = *stored_ptr;            // 2. Dereference to get the value
+        
+        // All-in-one approach (most common in C):
+        int value2 = *(int *)(root->item);
+
+        printf("Value via step-by-step: %d\n", value1);
+        printf("Value via all-in-one: %d\n", value2);
+
+        // Clean up memory
+        free(data);
+        free(root);
+        return 0;
+    }
+    ```
 
 
 

@@ -10,11 +10,11 @@
 	Data Structure
 *******************************************/
 
-/* 二叉樹的二叉鏈表存儲表示 */
+/* Binary tree stored as a binary linked structure */
  struct node
  {
    int data;
-   struct node *left,*right; /* 左右孩子指針 */
+   struct node *left,*right; /* pointers to left and right children */
    
    struct node * parent ;
  };
