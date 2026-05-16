@@ -99,12 +99,12 @@ int binTree_treeDeepth(BinTree * tree)
    
  
    if(root== NULL) 
-     return 0; /* 空樹深度為0 */
+     return 0; /* the depth of an empty tree is 0 */
      
    if(root->left != NULL)
    {
    	 subTree.root = root->left ; 
-     left_deepth=binTree_treeDeepth(&subTree); /* left_deepth為左子樹的深度 */
+     left_deepth=binTree_treeDeepth(&subTree); /* left_depth is the depth of the left subtree */
    }
    else
      left_deepth=0;
@@ -112,12 +112,12 @@ int binTree_treeDeepth(BinTree * tree)
    if(root->right != NULL)
    {
    	 subTree.root = root->right ; 
-     right_deepth=binTree_treeDeepth(&subTree); /* right_deepth為右子樹的深度 */
+     right_deepth=binTree_treeDeepth(&subTree); /* right_depth is the depth of the right subtree */
    }
    else
      right_deepth=0;
    
-   /* T的深度為其左右子樹的深度中的大者+1 */	  
+   /* the depth of T is the larger of its left and right subtree depths plus 1 */	  
    return (left_deepth>right_deepth)?left_deepth+1:right_deepth+1; 
 }
 
