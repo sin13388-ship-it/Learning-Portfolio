@@ -140,3 +140,159 @@ Node * binTree_parent(BinTree * tree,Node * child)
 //*******************************************
 // method need to implement:
 //*******************************************
+
+//*******************************************
+// method : binTree_travel_postorder
+// left -> right -> center
+//*******************************************
+
+void binTree_travel_postorder(BinTree * tree){
+
+		BinTree subTree ;
+		Node * root = tree->root ;
+		
+		
+		if(root != NULL)
+		{
+			subTree.root = root->left ;
+			binTree_travel_postorder(&subTree) ;	
+			
+			subTree.root = root->right ;
+			binTree_travel_postorder(&subTree) ;
+			
+			printf("%d ",root->data) ;			
+			
+		}
+
+
+}
+
+//*******************************************
+// method : binTree_travel_preorder
+// center -> left -> right
+//*******************************************
+
+void binTree_travel_preorder(BinTree * tree){
+
+		BinTree subTree ;
+		Node * root = tree->root ;
+		
+		
+		if(root != NULL)
+		{
+			printf("%d ",root->data) ;
+			
+			subTree.root = root->left ;
+			binTree_travel_preorder(&subTree) ;	
+			
+			subTree.root = root->right ;
+			binTree_travel_preorder(&subTree) ;		
+
+		}
+
+}
+
+
+//*******************************************
+// method : binTree_get_Max
+//*******************************************
+
+int binTree_get_Max(BinTree * tree){
+
+		BinTree subTree ;
+		Node * root = tree->root ;
+				
+		int rightData;
+		
+		if(root->right!= NULL)
+		{		
+			subTree.root = root->right ;
+			rightData=binTree_get_Max(&subTree) ;
+		}
+		else rightData=root->data;				
+
+	return rightData;
+}
+
+//*******************************************
+// method : binTree_get_Min
+//*******************************************
+
+int binTree_get_Min(BinTree * tree){
+
+		BinTree subTree ;
+		Node * root = tree->root ;
+				
+		int leftData;
+		
+		if(root->left!= NULL)
+		{		
+			subTree.root = root->left ;
+			leftData=binTree_get_Min(&subTree) ;
+		}
+		else leftData=root->data;				
+
+	return leftData;
+}
+
+//*******************************************
+// method : sub method for  binTree_search
+//*******************************************
+Node *search_Node(Node * root, int value){
+
+	if (root ==NULL || root->data==value) return root;	
+
+	if(root->data < value){
+		 return search_Node(root->right,value);
+	}
+
+	else{
+		return search_Node(root->left,value);
+	}
+
+}
+
+//*******************************************
+// method : binTree_search
+//*******************************************
+Node * binTree_search(BinTree * tree,int value){
+
+	if(tree==NULL) return NULL;
+	
+	Node *root= tree->root;
+
+	return search_Node(root, value);
+}
+//*******************************************
+// method : binTree_get_sibling
+//*******************************************
+Node * binTree_get_sibling(BinTree * tree, Node * node)
+{
+	if(tree==NULL) return NULL;
+	Node *parent;
+	parent=binTree_parent(tree,node);
+	if(parent->left==node) return parent->right;
+	else return parent->left;
+}
+
+//*******************************************
+// method : free_Node, sub method for binTree_free
+//*******************************************
+
+void free_Node(Node * root){
+
+	if (root==NULL) return;
+	free_Node(root->right);
+	free_Node(root->left);
+	free(root);
+}
+
+//*******************************************
+// method :binTree_free
+//*******************************************
+
+void binTree_free(BinTree *tree){
+	if (tree==NULL) return;
+	free_Node(tree->root);
+	tree->root=NULL; //clear pointer
+}

@@ -53,8 +53,12 @@ int binTree_get_Max(BinTree * tree) ;
 int binTree_get_Min(BinTree * tree) ;
 
 Node * binTree_search(BinTree * tree,int value) ;
+Node * search_Node(Node * root, int value);
 
 Node * binTree_get_sibling(BinTree * tree, Node * node) ;
+
+void free_Node(Node * root);
+void binTree_free(BinTree *tree);
 
 
 

@@ -1,7 +1,7 @@
 #include "BinaryTree.h"
 #include <stdio.h>
 
-main()
+int main()
 {
  BinTree tree ;
  BinTree subTree ;
@@ -59,5 +59,14 @@ main()
  node = binTree_search(&tree,34) ; 		
  node = binTree_get_sibling(&tree,node) ;		
  printf("sibling data = %d\n",node->data) ;
+
+  //<=======================
+ printf("\n\n[test8] item 1234's sibling is: \n") ;
+ node = binTree_search(&tree,1234) ; 		
+ node = binTree_get_sibling(&tree,node) ;		
+ printf("sibling data = %d\n",node->data) ;
+ 
+ binTree_free(&tree);
+return 0;
  
 }
