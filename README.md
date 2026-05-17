@@ -1,7 +1,17 @@
 # Learning-Portfolio
 職訓局IoT學習歷程
 
-# 課程內容
+## 寫在前面
+之前都是用Notion寫，之後會陸續把內容移轉過來
+[數位筆記連結](https://www.notion.so/IoT-Learning-323fbfb24ec0800c8d35ddb46b4f26d6?source=copy_link)
+
+## 各項目的日程
+滾動式調整
+
+
+## 課程內容
+
+[數位筆記連結]()
 
 1. 數位邏輯系統(32小時)
    - 基本的邏輯閘介紹
