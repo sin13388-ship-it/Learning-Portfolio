@@ -13,7 +13,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Node definition add student
 //
 struct node 
 {
@@ -26,7 +26,7 @@ struct node
 typedef struct node Node ;
 
 
-// 一個link list只需用一個節點來描述即可
+// using a node to represent a linke-list
 //
 struct linklist
 {
@@ -52,51 +52,51 @@ Node * llist_search_student(LinkList * linklist, Student * student_info) ;
 // generate a new node / return NULL if anything wrong
 Node * llist_generate_new_node(int value) ;
 
-// 初始化 linklist型別
+// intialize
 void llist_init(LinkList * linklist) ;
 
-// 將新節點加在Linked List開頭
+// add a new node in the begining of the list
 void llist_insert_in_front(LinkList * linklist, Node *newNode) ;
 
-// 將新節點加在某個Node之後
+// insert a node after a specific node in the list
 void llist_insert(LinkList * linklist,Node * nodeInList,Node *newNode) ;
 
-// 刪除第一個節點
+// delete the first node
 void llist_delete_first_node(LinkList * linklist) ;
 
 
-// 刪除某個節點
+// delete a node after a specific node from the list
 void llist_delete_node(LinkList * linklist, Node * nodeInList) ;
 
-// 印出串列中的所有節點
+// print all nodes
 void llist_travel(LinkList * linklist) ;
 
-// 歸還所有節點
+// free nodes
 void llist_delete(LinkList * linklist) ;
 
 
 
 //*******************************************
-// method need to implement:
+// Method need to implement:
 //*******************************************
 
-// 初始化 linklist型別, 並直接insert N個節點
+// Initialize linklist type and directly insert N nodes
 void llist_init2(LinkList * linklist,int * dataArray, int N) ;
 
 
-// 取得串列最後一個Node的位址
+// Get the address of the last node in the list
 Node * llist_get_last_node(LinkList * linklist) ;
 
-// 將新節點加在串列結尾
+// Insert a new node at the end of the list
 void llist_insert_in_rear(LinkList * linklist, Node *newNode) ;
 
-//把串列B接在串列A之後
+// Concatenate list B after list A
 LinkList * llist_cat(LinkList * A, LinkList * B) ;
 
-// 取得串列的節點數目
+// Get the number of nodes in the list
 int llist_get_list_size(LinkList * C) ;
 
-// 在串列中找尋具有某個值的節點
+// Search for a node with a specific value in the list
 //   YES: return 1,   NO: return 0
 Node * llist_search(LinkList * linklist, int value) ;
 

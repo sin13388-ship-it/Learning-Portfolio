@@ -13,7 +13,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Hash table definition
 //
 struct hashtable 
 {

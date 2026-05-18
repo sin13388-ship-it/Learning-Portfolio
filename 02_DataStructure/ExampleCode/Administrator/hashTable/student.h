@@ -11,7 +11,7 @@
 	Data Structure
 *******************************************/
 
-// 節點資料結構定義
+// Student Structure
 //
 struct student 
 {

@@ -6,6 +6,7 @@
 - [LinkedList](#linkedlist)
 - [Queue](#queue)
 - [Tree](#tree)
+- [Hash Table](#hash-table)
 
 
 
@@ -20,7 +21,8 @@
 |queue_L|queue|佇列，使用linked-list的方式來實現|5/10|
 |Sorted linked list 4 student|linked-list|implement linked-list with sorting|5/11|
 |Double linked list 4 student|linked-list|implement a double linked-list |5/12|
-|BinaryTree4Student|Tree|使用linked-list來實現Tree|5/16-|
+|BinaryTree4Student|Tree|使用linked-list來實現Tree|5/16|
+|HashTable|Hash table|使用linked-list來實現Hash table|5/18-|
 
 
 
@@ -292,5 +294,67 @@ void llist_insert_with_sorting(LinkList * linklist, Node *newNode)
 
 
 
+## Hash Table
+
+Hash table 的威力：用「空間換時間」，讓查找、插入、刪除的時間複雜度從 O(n) 降至平均 O(1)。
+
+### 說明
+- Hashing :
+
+### Trace code
+- 使用linked-list 定義一個Hash table
+
+```c
+
+struct hashtable 
+{
+       LinkList list[HASH_TABLE_ENTRY_NO] ;
+};
+
+typedef struct hashtable HashTable ;
+
+```
+- Linked-list 的結構會跟之前有些許的不同
+
+```c
+// Node definition add student
+//
+struct node 
+{
+			 int data ;
+			 Student student;
+       
+       struct node *next;
+};
+
+typedef struct node Node ;
+
+// using a node to represent a linke-list
+//
+struct linklist
+{
+	Node * head ;
+} ;
+
+typedef struct linklist LinkList ;
+
+```
+```c
+// Student Structure
+//
+struct student 
+{
+       char name[MAX_NAME_SIZE];
+       int age ;
+       //...
+};
+
+typedef struct student Student ;
+
+```
+- 方法
+
+    - `void hash_init(HashTable * hashTable)` :
+        - 使用Linked-list 的方法initialize table 中的每一列元素
 
 

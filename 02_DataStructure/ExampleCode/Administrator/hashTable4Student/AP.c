@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-main()
+int main()
 {
  int i,result ;	
  HashTable hashTable ;	
@@ -38,4 +38,5 @@ main()
  else
  		printf("\ncannot found\n") ;
 
+	return 0;
 }
