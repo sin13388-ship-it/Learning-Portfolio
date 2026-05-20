@@ -1,0 +1,37 @@
+/* font_style.css */
+
+/* 1. 就像 #include 一樣，把 Google 伺服器上的字型設定檔引入進來 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Indie+Flower&display=swap');
+
+
+/* 2. 製作你自己的 CSS 類別 */
+.custom-title {
+    /* 指定使用剛才引入的 Roboto 字型，如果讀取失敗則用系統內建的無襯線字型 (sans-serif) */
+    font-family: 'Roboto', sans-serif; 
+    font-size: 28px;
+    font-weight: 700; /* 粗體 */
+    color: #2c3e50;
+}
+
+.custom-body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400; /* 常規體 */
+    line-height: 1.6;
+    color: #34495e;
+}
+.custom-small-blue {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400; /* 常規體 */
+    line-height: 1.6;
+    color: #0880f8;
+}
+
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

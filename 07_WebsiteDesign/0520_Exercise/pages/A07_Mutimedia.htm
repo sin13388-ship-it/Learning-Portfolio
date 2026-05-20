@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">
+        <link rel="stylesheet" href="../CSS_style_clas/style.css">
+        <title>multimedia</title>
+        
+    </head>
+    <body>
+        <table border="1">
+            <th class="custom-title">Ttitle</th>
+            <th class="custom-title">Video</th>
+             <th class="custom-title">Music</th>
+            <tr>
+                <td class="custom-body">My lovely bird with a cover</td>
+                <!--加入cover-->
+                <td><video src="../materials/bird.mp4" controls  poster=../materials/jp1.jpg ; width=500 ;></video></td>
+                <td>
+                    <!--插入音樂-->
+                    <audio src="../materials/audio.mp3" controls muted></audio><br/>
+                    <audio src="../materials/audio.wav" controls muted></audio><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="custom-body">My lovely bird</td>
+                <!--影片版面大小-->
+                <td><video class ="video-container" src="../materials/bird.mp4" controls width="500"></video></td>
+            </tr>
+            <tr>
+                <td class="custom-body">My lovely bird (muted, preload="Auto")</td>
+                <!--preload : "Auto" 先預載, muted 預設靜音-->
+                <td><video src="../materials/bird.mp4" controls  width=500 preload="auto" muted></video></td>
+            </tr>
+            <tr>
+                <td class="custom-body">My lovely bird (muted, preload="metadata")</td>
+                <!--preload : "metadata" 先預載主要的一部份, muted 預設靜音-->
+                <td><video src="../materials/bird.mp4" controls  width=500 preload="metadata" muted></video></td>
+            </tr>
+        </table>
+
+        
+        
+    </body>
+</html>
