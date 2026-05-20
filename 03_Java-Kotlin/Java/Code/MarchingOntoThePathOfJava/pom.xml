@@ -13,6 +13,7 @@
         <module>Ch13/RegularExpression</module>
         <module>Ch14/Composition</module>
         <module>Ch20/IO_Exception</module>
+        <module>Ch21/Multithreads</module>
     </modules>
 
     <properties>

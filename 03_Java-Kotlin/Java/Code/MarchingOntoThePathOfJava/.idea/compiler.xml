@@ -10,6 +10,7 @@
         <module name="RegularExpression" />
         <module name="Composition" />
         <module name="object_and_encapsulation" />
+        <module name="Multithreads" />
       </profile>
     </annotationProcessing>
   </component>
