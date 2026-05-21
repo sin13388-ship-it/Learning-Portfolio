@@ -3,7 +3,7 @@ package com.vera.genericexercise;
 public class P24_Interface_Lambda {
     static void main(String[] args) {
         /*
-        * () -> 1 + 2 + 3 的意思就是：「請建立類別並or方法，當有人呼叫它時，請回傳 1 + 2 + 3 的結果。
+        * () -> 1 + 2 + 3 的意思就是：「請建立類別並override方法，當有人呼叫它時，請回傳 1 + 2 + 3 的結果。
         * */
 
         /*anonymous 的寫法*/
