@@ -1,0 +1,18 @@
+/*把喜歡的style 都放在這裡*/
+
+            h1 ,h2{ color: #414833; 
+                    font-family: 'LXGW WenKai TC', cursive; /*註解*/
+                    font-weight:bold;
+                    font-style: normal;
+                    background-color:#ede0d4;}
+
+            h3 { color:red;
+                font-family: 'LXGW WenKai TC', cursive;}
+            body{background-color: #e5e5e5;
+                color :#000000;
+                font-family: 'LXGW WenKai TC', cursive;
+            }
+            li{
+               list-style-type: circle;
+            }
+

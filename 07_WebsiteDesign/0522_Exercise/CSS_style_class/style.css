@@ -1,0 +1,47 @@
+/* style.css */
+/* 基礎設定：讓內容居中 */
+#background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease; /* 讓背景顏色轉變時有平滑的動畫 */
+}
+
+/* 白天模式的樣式 */
+.light-theme {
+    background-color: #f0f2f5;
+    color: #333333;
+}
+
+
+.video-container {
+  border-radius: 16px;
+  overflow: hidden;
+  transform: translateZ(0); /* Fixes Safari rendering bugs */
+}
+
+/* 夜間模式的樣式 */
+.dark-theme {
+    background-color: #1e1e24;
+    color: #ffffff;
+}
+
+/* 按鈕的基本外觀與滑鼠懸停效果 (:hover) */
+#toggle-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#toggle-btn:hover {
+    background-color: #0056b3; /* 滑鼠移上去時按鈕變深藍色 */
+}
+

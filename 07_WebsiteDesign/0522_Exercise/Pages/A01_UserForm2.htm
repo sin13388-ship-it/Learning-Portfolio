@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <title>form</title>
+
+    </head>
+    <body>
+        <!--        
+        預設為get模式，資訊都會被秀在網址上...
+        http://127.0.0.1:5500/Pages/A01_UserLogIn.htm?userName=ssss&userPwd=ffff&Author=Cindy
+        <form method="post"> 資訊不會放在網頁欄上，但需要後端       
+        
+        -->
+        <form>
+            <p>帳號: <input type="text" name="userName" required></p>
+            <!--密碼覆蓋-->
+            <!---->
+            <p>密碼: <input type="password" name="userPwd" required></p>
+            <hr/>
+            <input type="hidden" name="Author" value="Cindy">
+            <!--對全頁面有效，所有資訊都會出去-->
+            <input type="submit" value="確認">
+            <input type="reset" value="取消">
+        </form>
+        <hr/>
+        <form>
+             <!--更改數字，跳階-->
+            <p>Set Numbers[0:100] <input type="number" name="userNum" min="0" max="100" style="width: 200px;"></p>
+            <p>Set Numbers[0:100] <input type="number" name="userNum" min="0" max="100" value="18" step="3"style="width: 200px;"></p>
+            <p>Set Numbers[0:100] <input type="number" name="userNum" min="0" max="100" value="18" step="0.1"style="width: 200px;"></p>
+            <p>Set level[1-10]:<input type="range" name="userRange" min="1" max="10" value="1"></p>
+        </form>
+        <hr/>
+        <form>
+            <!--Meter 當前的數值與閥值的視覺化提示 -->
+
+            <p>張三得票率<meter value="3" min="0" max="10"></meter>&nbsp;3 out of 10</p>
+            <p>李四得票率<meter value="20" min="0" max="100" low="30"></meter>&nbsp;20 out of 100</p>
+            <p>王五得票率<meter value="0.7" min="0" max="1" high="0.8"></meter>&nbsp;70%</p>
+            <p>趙六得票率<meter value="0.9" min="0" max="1" high="0.8"></meter>&nbsp;90%</p>
+        </form>
+        <hr/>
+        <form>
+            <!--選單群組-->
+            <label for ="tvlist">請選擇想要觀看的節目</label>
+            <select name="tvlist" id="tvlist" >
+                <optgroup  label="新聞頻道" >
+                    <option value="news1">台視新聞台</option>
+                    <option value="news2">中視新聞台</option>
+                    <option value="news3">華視新聞台</option>
+                    <option value="news4">民視新聞台</option>
+                </optgroup>
+                <optgroup label="娛樂頻道">
+                    <option value="show1" selected >全明星運動會</option>
+                    <option value="show2">戲說台灣</option>
+                    <option value="show3">東遊記</option>
+                </optgroup>
+            </select>
+        </form>
+    </body>
+
+</html>
