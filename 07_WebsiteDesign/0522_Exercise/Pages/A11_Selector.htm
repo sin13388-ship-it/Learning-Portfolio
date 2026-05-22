@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>CSS style</title>
+       
+        <style>
+            /*與div 同位階且不相鄰*/
+            h1+p{
+                  color: #54d149;
+            }
+            p+p{
+                   color: #30638e;
+            }
+            div~p{
+                color: #30638e;
+            }
+            /*與div 相鄰*/
+            div+p{
+                color: #54d149;
+            }
+            /*div 的子元素*/
+            div p{
+                color:#dc0073;
+            }
+            div h2{
+                color:#cc5803;
+            }
+            div h3{
+                color:#ff6392;
+            }
+            div span{
+                color:#7046be;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>物聯網課程地圖</h1>
+        <p>術科</p>
+        <p>軟硬體全棧整合的實戰淬鍊，具備從嵌入式系統、雲端網頁到 AI 智慧應用的端到端（End-to-End）專案開發與架構能力。</p>
+        <div>
+            <h2>單晶片微控制器</h2>
+            <h3>Android手機程式設計</h3>
+            <p><span>Linux作業系統</span><h2>Ubuntu</h2></p>
+            <p>資料庫系統(MySQL)</p>
+            <p>網頁程式設計</p>
+            <p>Python/Django動態網頁設計</p>
+            <p>單晶片ARM cortex控制實習</p>
+            <p>AI應用</p>
+            <p>綜合應用</p>
+            <p>專題製作</p>
+        </div>        
+        <p>學科</p>
+        <p>從底層邏輯到高階物件導向的完整跨越，奠定物件導向與跨平台開發的紮實思維</p>
+        <div>
+            <p>數位邏輯系統</p>
+            <p>C程式語言</p>
+            <p>JAVA程式語言</p>
+            <p>Kotlin程式語言</p>
+        </div>
+    </body>
+
+</html>
