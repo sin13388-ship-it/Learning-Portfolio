@@ -356,5 +356,19 @@ typedef struct student Student ;
 
     - `void hash_init(HashTable * hashTable)` :
         - 使用Linked-list 的方法initialize table 中的每一列元素
+        - 關聯方法 `void llist_init(LinkList * linklist) `
+    - `int hash_function(char * student_name)` :
+        - 生成Hash值，作為Hash table 的 index
+        - 作法:
+            - 取得Student 的名稱，ASCII加總 Mod 32
+    - `void hash_add_student(HashTable * hashTable, Student * student_info)` :
+        - 關聯方法 `int hash_function(char * student_name)` : 取得Hash值
+        - 關聯方法 `void llist_set_student_info(Node * node, Student * student_info)` : 先新增一個node
+        - 關聯方法 `void llist_insert_in_front(LinkList * linklist, Node *newNode)` : 再把node 加到list的前面
+    - `int hash_search(HashTable * hashTable, Student * toFind, Student * found)` :
+        - 關聯方法 `int hash_function(char * student_name)` : 取得Hash值
+        - 關聯方法 `Node * llist_search_student(LinkList * linklist, Student * student_info)`
+
+
 
 
