@@ -107,6 +107,13 @@ replay_pid*
 *.map
 *.lst
 *.hmap
+*.asm
+*.DBG
+*.list
+*.MEM
+*.CV
+*.MTP
+*.TSK
 
 
 # Output Folders
