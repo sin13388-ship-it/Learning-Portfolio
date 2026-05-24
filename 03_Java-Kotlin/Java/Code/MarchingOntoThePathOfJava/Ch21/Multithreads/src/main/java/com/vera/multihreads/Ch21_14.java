@@ -2,7 +2,7 @@ package com.vera.multihreads;
 
 public class Ch21_14 {
     static void main(String[] args) {
-        //加了同步之後會先等執行緒的鎖
+        //同步最重要的就是可以lock共享資療
         Demo2 demo =new Demo2();
         Thread thread3=new Thread(new JobThreads3(demo));
         Thread thread4=new Thread(new JobThreads4(demo));
