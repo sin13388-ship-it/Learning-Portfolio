@@ -1,46 +1,29 @@
 /*
-  Blink without Delay
+  LED ticker
 
-  Turns on and off a light emitting diode (LED) connected to a digital pin,
-  without using the delay() function. This means that other code can run at the
-  same time without being interrupted by the LED code.
+  從 PIN2~PIN9 依序點亮，點滅
+  |I/O Logic|LED state|  
+  Low : ON
+  HIGH : OFF
 
   The circuit:
-  - Use the onboard LED.
-  - Note: Most Arduinos have an on-board LED you can control. On the UNO, MEGA
-    and ZERO it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN
-    is set to the correct LED pin independent of which board is used.
-    If you want to know what pin the on-board LED is connected to on your
-    Arduino model, check the Technical Specs of your board at:
-    https://docs.arduino.cc/hardware/
+  - 5V --> R(570 ohm) --> LED --> Arduino I/O
 
-  created 2005
-  by David A. Mellis
-  modified 8 Feb 2010
-  by Paul Stoffregen
-  modified 11 Nov 2013
-  by Scott Fitzgerald
-  modified 9 Jan 2017
-  by Arturo Guadalupi
-
-  This example code is in the public domain.
-
-  https://docs.arduino.cc/built-in-examples/digital/BlinkWithoutDelay/
 */
 void ledUpdates(int state);
 void ledForward();
 void ledBackward();
 const int pins[8]={2,3,4,5,6,7,8,9};
+int isFirstRun;
 
 void setup() {
-  // set the digital pin as output:
-  
-   Serial.begin(115200);
+  //Serial.begin(115200);
+  // set the digital pin as output: 
   for(int i=0;i<8;i++){
     pinMode(pins[i], OUTPUT); //using pin2~pin9 as the led array output
     digitalWrite(pins[i], HIGH);
   }  
-  
+  isFirstRun=1;
 }
 
 void ledUpdates(int state){
@@ -49,30 +32,48 @@ void ledUpdates(int state){
     // Serial.print(pinState);
     // Serial.print(" ,");
     // Serial.println(((pinState>>i) & 0x01));
-    digitalWrite(pins[i], ((pinState>>i) & 0x01));   
+   
+      digitalWrite(pins[i], ((pinState>>i) & 0x01));   
+   
+    
   }  
 }
 
 void ledForward(){
   byte ledState=0;
-  for(ledState=0;ledState<8;ledState++){
-    ledUpdates(ledState);
-    delay(50); 
-  }
+    if(!!isFirstRun){
+      for(ledState=0;ledState<8;ledState++){
+      ledUpdates(ledState);
+      delay(100); 
+    }
+    }
+    else{
+      for(ledState=1;ledState<8;ledState++){
+      ledUpdates(ledState);
+      delay(100); 
+      }
+    }
 }
 void ledBackward(){
     byte ledState=0;
   for(ledState=0;ledState<7;ledState++){
     ledUpdates(6-ledState);
-    delay(50); 
+
+    delay(100); 
+
+    
   }
 }
 
+void ledHop(byte pinState){
+  ledUpdates(pinState ^ 0xFF);  
+}
 
-void loop() {
+void loop() {   
     
     ledForward();
     ledBackward();
+    if(!!isFirstRun) isFirstRun=0;
 
 }
 
