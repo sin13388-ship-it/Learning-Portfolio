@@ -1,13 +1,28 @@
 void ledUpdates(int state);
 void ledColorUp();
+void rgbShow();
 
 #define startPin 10
-const int pins[3]={10,11,12};
 
 void setup() {
   // put your setup code here, to run once:
   for(int i=0;i<3;i++){
     pinMode(startPin+i, OUTPUT); //using pin9~pin11 as the led's output
+    digitalWrite(startPin+i, LOW);
+  }  
+  rgbShow();
+
+}
+
+void rgbShow(){
+
+  //show monochrome r,g,b
+    for(int i=0;i<3;i++){
+    pinMode(startPin+i, OUTPUT); //using pin9~pin11 as the led's output
+    digitalWrite(startPin+i, LOW);
+    delay(1000);
+    digitalWrite(startPin+i, HIGH);
+    delay(1000);
     digitalWrite(startPin+i, LOW);
   }  
 }
