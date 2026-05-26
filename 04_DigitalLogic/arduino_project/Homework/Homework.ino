@@ -46,9 +46,9 @@ void setup() {
 void ledUpdates(int state){
   byte pinState=(byte) ~(1<<state);
   for(int i=0; i<8; i++){    
-    Serial.print(pinState);
-    Serial.print(" ,");
-    Serial.println(((pinState>>i) & 0x01));
+    // Serial.print(pinState);
+    // Serial.print(" ,");
+    // Serial.println(((pinState>>i) & 0x01));
     digitalWrite(pins[i], ((pinState>>i) & 0x01));   
   }  
 }
@@ -57,14 +57,14 @@ void ledForward(){
   byte ledState=0;
   for(ledState=0;ledState<8;ledState++){
     ledUpdates(ledState);
-    delay(100); 
+    delay(50); 
   }
 }
 void ledBackward(){
     byte ledState=0;
-  for(ledState=0;ledState<8;ledState++){
-    ledUpdates(7-ledState);
-    delay(100); 
+  for(ledState=0;ledState<7;ledState++){
+    ledUpdates(6-ledState);
+    delay(50); 
   }
 }
 
