@@ -22,7 +22,8 @@
 |Sorted linked list 4 student|linked-list|implement linked-list with sorting|5/11|
 |Double linked list 4 student|linked-list|implement a double linked-list |5/12|
 |BinaryTree4Student|Tree|使用linked-list來實現Tree|5/16|
-|HashTable|Hash table|使用linked-list來實現Hash table|5/18-|
+|HashTable|Hash table|使用linked-list來實現Hash table|5/18|
+|Sort|Sorting|
 
 
 

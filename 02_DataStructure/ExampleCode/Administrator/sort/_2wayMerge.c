@@ -5,28 +5,28 @@
 void _2wayMerge(int array[], int low, int mid, int high)
 {
 	int i, k;
-	int *temp = (int *) malloc((high-low+1) * sizeof(int)); //申請空間，使其大小為兩個已經排序序列之和，該空間用來存放合併後的序列
+int *temp = (int *) malloc((high-low+1) * sizeof(int)); // allocate space equal to the sum of two sorted subarrays; this holds the merged sequence
 	int begin1 = low;
 	int end1 = mid;
 	int begin2 = mid + 1;
 	int end2 = high;
  
-	//比較兩個指針所指向的元素，選擇相對小的元素放入到合併空間，並移動指針到下一位置
+	// compare the elements pointed by two pointers, choose the smaller one to put into merge space, and advance the pointer
 	for (k = 0; begin1 <= end1 && begin2 <= end2; ++k)  
 		if(array[begin1]<array[begin2])
 			temp[k] = array[begin1++];
 		else
-			temp[k] = array[begin2++];	
-			
-	//若第一個序列有剩餘，直接拷貝出來粘到合併序列尾
+			temp[k] = array[begin2++];		
+		
+	// if the first sequence has remaining elements, copy them directly to the end of merged sequence
 	while(begin1<=end1) 
 		temp[k++] = array[begin1++];
 		
-	//若第二個序列有剩餘，直接拷貝出來粘到合併序列尾	
+	// if the second sequence has remaining elements, copy them directly to the end of merged sequence
 	while(begin2<=end2) 
 		temp[k++] = array[begin2++];
 	
-	//將排序好的序列拷貝回數組中	
+	// copy the sorted merged sequence back into the original array
 	for (i = 0; i < (high-low+1); i++) 
 		array[low+i] = temp[i];
 	free(temp);
@@ -40,10 +40,10 @@ void _2wayMerge(int array[], int low, int mid, int high)
 ************************************************/
 #define DATA_NO 10
 
-main()
+int main()
 {
 	int i ;
-	int data[DATA_NO] = {12,23,34,57,87, /*兩段排過序的data*/  14,15,26,66,90} ;
+	int data[DATA_NO] = {12,23,34,57,87, /*sorted data*/  14,15,26,66,90} ;
 	
 	printf("\nBefore Sorting:\n") ;
 	for(i=0;i<DATA_NO;i++)
@@ -57,5 +57,5 @@ main()
 		printf("%d  ", data[i]) ; 
 	printf("\n") ;
 	
-	
+	return 0;
 }
