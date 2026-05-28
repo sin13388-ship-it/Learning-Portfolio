@@ -45,22 +45,22 @@ int main()
 	int i ;
 	//資料必須是經過排序的
 	int data[DATA_NO] = {12,23,34,57,87, /*sorted data*/  14,15,26,66,90} ;
-	int data2[7] = {12,3,34,57,87, 14,15} ;
+	
 	
 	printf("\nBefore Sorting:\n") ;
 	//for(i=0;i<DATA_NO;i++)
 	for(i=0;i<7;i++)
-		printf("%d  ", data2[i]) ; 
+		printf("%d  ", data[i]) ; 
 	printf("\n") ;
 	
 	//_2wayMerge(data,0,4,DATA_NO-1) ;
-	_2wayMerge(data2,0,4,6) ;
+	_2wayMerge(data,0,4,6) ;
 
 	
 	printf("\nAfter Sorting:\n") ;
 	//for(i=0;i<DATA_NO;i++)
 	for(i=0;i<7;i++)
-		printf("%d  ", data2[i]) ; 
+		printf("%d  ", data[i]) ; 
 	printf("\n") ;
 	
 	return 0;
