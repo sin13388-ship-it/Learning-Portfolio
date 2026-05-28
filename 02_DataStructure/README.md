@@ -370,6 +370,28 @@ typedef struct student Student ;
         - 關聯方法 `int hash_function(char * student_name)` : 取得Hash值
         - 關聯方法 `Node * llist_search_student(LinkList * linklist, Student * student_info)`
 
+## Sort
+
+### 說明
+Sort有很多種方法，範例碼中包含:
+
+- `bubbleSort.c` 
+- `mergeSort.c`
+    - 關聯程式碼 : `_2wayMerge.c`
+    - mergeSort 使用遞迴 _2way_merge
+- `quickSort.c`
+
+### 2 way merge
+
+2 way merge 是一種將兩個已排序的子序列合併成一個排序序列的排序方法。它通常用於 merge sort 中，先將資料分成左右兩半並遞迴排序，然後將兩邊已排序的結果逐一比較並合併，最後得到完整的排序結果。
+
+- 演算法流程：
+    1. 將資料分成左右兩個子序列。
+    2. 分別對左右子序列遞迴排序，直到子序列長度為 1 或 0。
+    3. 使用兩個指標從左、右子序列的起始位置開始比較。
+    4. 將較小的元素放入合併後的結果序列，並移動對應指標。
+    5. 重複比較與取出元素，直到其中一邊子序列耗盡。
+    6. 將剩餘的子序列元素直接附加到結果序列末尾。
 
 
 
