@@ -23,7 +23,7 @@
 |Double linked list 4 student|linked-list|implement a double linked-list |5/12|
 |BinaryTree4Student|Tree|使用linked-list來實現Tree|5/16|
 |HashTable|Hash table|使用linked-list來實現Hash table|5/18|
-|Sort|Sorting|
+|Sort|Sorting|使用陣列完成兩個子陣列的合併並排序|5/27|
 
 
 
