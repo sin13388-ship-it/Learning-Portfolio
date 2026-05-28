@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6afe5ad-847f-41ab-92c0-663134e3c5f4" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DJ7SgOt75PGDw5ANbHvpSMGrix" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Ch20_24.executor": "Run",
+    "Application.Ch21_1.executor": "Run",
+    "Application.Ch21_13.executor": "Run",
+    "Application.Ch21_14.executor": "Run",
+    "Application.Ch21_7.executor": "Run",
+    "Application.Handsontest_05.executor": "Run",
+    "Application.P21_15.executor": "Run",
+    "Application.P21_16.executor": "Run",
+    "Application.P21_19.executor": "Run",
+    "Application.P21_9.executor": "Run",
+    "Application.ch14_18.executor": "Run",
+    "Application.ch20_23.executor": "Run",
+    "Application.handsontest_01.executor": "Run",
+    "Application.handsontest_02.executor": "Run",
+    "Application.handsontest_03.executor": "Run",
+    "Application.handsontest_04.executor": "Run",
+    "Application.handsontest_05.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sin13/Documents/IoTLearning/Learning-Portfolio/03_Java-Kotlin/Java/Code/MarchingOntoThePathOfJava",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sin13\Documents\IoTLearning\Learning-Portfolio\03_Java-Kotlin\Java\Code\MarchingOntoThePathOfJava\Ch14" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6afe5ad-847f-41ab-92c0-663134e3c5f4" name="Changes" comment="" />
+      <created>1777988320385</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777988320385</updated>
+      <workItem from="1777988321638" duration="1015000" />
+      <workItem from="1778765750301" duration="3174000" />
+      <workItem from="1778937125184" duration="4960000" />
+      <workItem from="1779282491223" duration="1000" />
+      <workItem from="1779282767788" duration="1059000" />
+      <workItem from="1779366047818" duration="4464000" />
+      <workItem from="1779584129932" duration="6980000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Ch14/Composition/src/main/java/com/vera/composition/ch14_18.java</url>
+          <line>21</line>
+          <properties class="com.vera.composition.Car" method="showCarInfo">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
