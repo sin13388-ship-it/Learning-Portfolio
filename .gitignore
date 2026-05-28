@@ -81,30 +81,12 @@ dkms.conf
 hs_err_pid*
 replay_pid*
 
-### Kotlin ###
-# Compiled class file
 
-# Log file
-
-# BlueJ files
-
-# Mobile Tools for Java (J2ME)
-
-# Package Files #
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-
-# End of https://www.toptal.com/developers/gitignore/api/c,java,kotlin
 
 # Holtek HT-IDE3000 Temporary & Build Files
 *.tmp
 *.bak
-*.obj
-*.hex
-*.lib
 *.dcm
-*.bin
-*.map
 *.lst
 *.hmap
 *.asm
