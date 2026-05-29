@@ -18,5 +18,6 @@ fun main() {
     }
     //Elvis
     println("Length(Elvis): ${str?.length ?: 0}")
+    println("Length(Elvis): ${str1?.length ?: 0}")
 
 }
