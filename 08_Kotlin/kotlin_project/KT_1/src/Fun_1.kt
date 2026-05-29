@@ -1,6 +1,5 @@
 /*declare function*/
 fun main() {
-
     var sum=add(8,12)
     println("Sum= ${sum}")
     //anonymous func
@@ -8,7 +7,6 @@ fun main() {
     println("Sum1= ${sum1(8,12)}")
     //add1()
     //C2F()
-
     sayHello("Kelly",36)
     sayHello("Mary") //use default
     sayHello(age=25, name = "Jhon") //Named arguments, the order of arguments can be swapped
@@ -17,14 +15,12 @@ fun main() {
 fun sayHello(name:String, age: Int=10){
     println("Hi ${name}, age = ${age}")
 }
-
 //fun 函數名稱(parameters) : return type
 fun add(a: Int, b: Int) : Int{
     return  a+b
 }
-
 //function exercise: nullable & safe call, elvis
-fun add1() : Unit{
+fun add1(): Unit{
     var a: Int=0
     var b: Int=0
     println("Input two numbers to sum: ")

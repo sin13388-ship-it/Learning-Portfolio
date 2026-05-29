@@ -1,0 +1,19 @@
+
+
+## **題目 1：計算學生平均成績**
+定義一個 `student` function，輸入以下成員：列印每位學生的姓名和平均分數
+* 姓名（name: String）
+* 成績（math:Int,english:Int,science:Int）
+在主程式建立 3 個學生並印出他們的平均成績。
+
+## 題目 2： 
+定義一個 名稱為drunkStatus 單運算式function，輸入參數為整數的醉酒值，根據下表回傳檢查醉酒狀態
+給3個不同的值value , 使用when 回傳每一個狀態
+
+醉酒值    	醉酒狀態
+1-10		tipsy
+11-20		sloshed
+21-30		soused
+31-40		stewed
+41-50		..t0aSt3d
+

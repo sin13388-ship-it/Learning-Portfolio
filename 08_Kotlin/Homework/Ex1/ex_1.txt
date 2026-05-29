@@ -1,0 +1,17 @@
+
+## 題目 1：九九乘法表 請撰寫一個 Kotlin 程式，印出 1 到 9 的九九乘法表。
+ 輸出格式範例:
+ 1 x 1 = 1
+ 1 x 2 = 2
+ ...
+ 9 x 9 = 81
+ 
+## 題目 2： input 三個不同的points 值，且值需小於110, 利用下列表格，取得對應的顏色
+計算 karma value , 使用when 列印顏色
+val karma = ( Math.pow(Math.random(), (110-points)/100.0) *20 ).toInt()
+
+karma value     color
+0-5				red	
+6-10			orange
+11-15			purple
+16-20			green
