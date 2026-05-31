@@ -8,28 +8,28 @@
 void _2wayMerge(int array[], int low, int mid, int high)
 {
 	int i, k;
-	int *temp = (int *) malloc((high-low+1) * sizeof(int)); //¥Ó½ÐªÅ¶¡¡A¨Ï¨ä¤j¤p¬°¨â­Ó¤w¸g±Æ§Ç§Ç¦C¤§©M¡A¸ÓªÅ¶¡¥Î¨Ó¦s©ñ¦X¨Ö«áªº§Ç¦C
+	int *temp = (int *) malloc((high-low+1) * sizeof(int)); //ï¿½Ó½ÐªÅ¶ï¿½ï¿½Aï¿½Ï¨ï¿½jï¿½pï¿½ï¿½ï¿½ï¿½Ó¤wï¿½gï¿½Æ§Ç§Ç¦Cï¿½ï¿½ï¿½Mï¿½Aï¿½ÓªÅ¶ï¿½ï¿½Î¨Ó¦sï¿½ï¿½Xï¿½Ö«áªºï¿½Ç¦C
 	int begin1 = low;
 	int end1 = mid;
 	int begin2 = mid + 1;
 	int end2 = high;
  
-	//¤ñ¸û¨â­Ó«ü°w©Ò«ü¦Vªº¤¸¯À¡A¿ï¾Ü¬Û¹ï¤pªº¤¸¯À©ñ¤J¨ì¦X¨ÖªÅ¶¡¡A¨Ã²¾°Ê«ü°w¨ì¤U¤@¦ì¸m
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ó«ï¿½ï¿½wï¿½Ò«ï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½Ü¬Û¹ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½Xï¿½ÖªÅ¶ï¿½ï¿½Aï¿½Ã²ï¿½ï¿½Ê«ï¿½ï¿½wï¿½ï¿½Uï¿½@ï¿½ï¿½m
 	for (k = 0; begin1 <= end1 && begin2 <= end2; ++k)  
 		if(array[begin1]<array[begin2])
 			temp[k] = array[begin1++];
 		else
 			temp[k] = array[begin2++];	
 			
-	//­Y²Ä¤@­Ó§Ç¦C¦³³Ñ¾l¡Aª½±µ«þ¨©¥X¨ÓÖß¨ì¦X¨Ö§Ç¦C§À
+	//ï¿½Yï¿½Ä¤@ï¿½Ó§Ç¦Cï¿½ï¿½ï¿½Ñ¾lï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ß¨ï¿½Xï¿½Ö§Ç¦Cï¿½ï¿½
 	while(begin1<=end1) 
 		temp[k++] = array[begin1++];
 		
-	//­Y²Ä¤G­Ó§Ç¦C¦³³Ñ¾l¡Aª½±µ«þ¨©¥X¨ÓÖß¨ì¦X¨Ö§Ç¦C§À	
+	//ï¿½Yï¿½Ä¤Gï¿½Ó§Ç¦Cï¿½ï¿½ï¿½Ñ¾lï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ß¨ï¿½Xï¿½Ö§Ç¦Cï¿½ï¿½	
 	while(begin2<=end2) 
 		temp[k++] = array[begin2++];
 	
-	//±N±Æ§Ç¦nªº§Ç¦C«þ¨©¦^¼Æ²Õ¤¤	
+	//ï¿½Nï¿½Æ§Ç¦nï¿½ï¿½ï¿½Ç¦Cï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Æ²Õ¤ï¿½	
 	for (i = 0; i < (high-low+1); i++) 
 		array[low+i] = temp[i];
 	free(temp);
@@ -50,7 +50,7 @@ void merge_sort(int array[], unsigned int first, unsigned int last)
 		mid = (first+last)/2;
 		merge_sort(array, first, mid);
 		merge_sort(array, mid+1,last);
-		_2wayMerge(array,first,mid,last);
+ 		_2wayMerge(array,first,mid,last);
 	}
 }
 
@@ -61,7 +61,7 @@ void merge_sort(int array[], unsigned int first, unsigned int last)
 ************************************************/
 #define DATA_NO 10
 
-main()
+int main()
 {
 	int i ;
 	int data[DATA_NO] = {23,57,34,87,12,66,15,14,90,26} ;
@@ -78,6 +78,7 @@ main()
 		printf("%d  ", data[i]) ; 
 	printf("\n") ;
 	
+	return 0;
 	
 }
 
