@@ -6,46 +6,46 @@
 #define  SEGPortC	_pgc
 #define	 ScanPort	_pe
 #define	 ScanPortC	_pec
-const u8 SEG_TAB[] = {			   				//¤C¬qÅã¥Ü½X«Øªí°Ï(¦@³±)
+const u8 SEG_TAB[] = {			   				//ä¸ƒæ®µé¡¯ç¤ºç¢¼å»ºè¡¨å€(å…±é™°)
 				0x3F,0x06,0x5B,0x4F,0x66,
 			   	0x6D,0x7D,0x07,0x7F,0x67};
 volatile u8 *ptr,ScanCode,Buffer[4];
 void main()
 {	u8 i;
-	_wdtc=0b10101111;							//Ãö³¬¬İ­Ìª¯­p®É¾¹
-	SEGPort=0; SEGPortC=0;						//³W¹ºSEGPort¬°¿é¥XÄİ©Ê
-	ScanPort&=0xF0; ScanPortC&=0xF0;			//³W¹ºScanPort[3:0]¬°¿é¥XÄİ©Ê
-	_psc0r=0x01; _tb0c=0x85;_tb0e=1;			//fPSC0=fSYS/4,¶g´Á=8192*(1/fTB0),­P¯àTB0¤¤Â_
-	_sadc0=0b00111000;							//ADEN=ADRFS=1, SAC[3:0]=1000(¿ï¾ÜAN8)
-	_sadc1=0x07;								//SAINS[3:0]=0000(¿ï¾ÜANn),SACKS[2:0]=7(fSYS/128)
+x	_wdtc=0b10101111;							//é—œé–‰çœ‹å€‘ç‹—è¨ˆæ™‚å™¨
+	SEGPort=0; SEGPortC=0;						//è¦åŠƒSEGPortç‚ºè¼¸å‡ºå±¬æ€§
+	ScanPort&=0xF0; ScanPortC&=0xF0;			//è¦åŠƒScanPort[3:0]ç‚ºè¼¸å‡ºå±¬æ€§
+	_psc0r=0x01; _tb0c=0x85;_tb0e=1;			//fPSC0=fSYS/4,é€±æœŸ=8192*(1/fTB0),è‡´èƒ½TB0ä¸­æ–·
+	_sadc0=0b00111000;							//ADEN=ADRFS=1, SAC[3:0]=1000(é¸æ“‡AN8)
+	_sadc1=0x07;								//SAINS[3:0]=0000(é¸æ“‡ANn),SACKS[2:0]=7(fSYS/128)
 	_vbgrc=0x01;								//Enable VBG
-	_sadc2=0b10011010;							//­P¯àPGA, ¨Ã¿ï¾Ü¿é¤J¬°VBGREF,
-												//SAVR[1:0]=10(vREF=PGA¿é¥X),PGAS[1:0]=10(2.5)
-	_pds0=0x03;									//³]¸mPD0¥\¯à¬°AN8
-	_ade=1;										//­P¯àA/D¤¤Â_
-	ptr=Buffer; ScanCode=0b00000001;		    //«ü¼Ğªì­È³]©w
-	for(i=0;i<4;i++) Buffer[i]=0;				//Åã¥Üªì­È³]©w
-	_emi=1;										//­P¯àEMI
-	_start=1; _start=0;							//±Ò°ÊA/DÂà´«
-	while(1);									//µL½a°j°é
+	_sadc2=0b10011010;							//è‡´èƒ½PGA, ä¸¦é¸æ“‡è¼¸å…¥ç‚ºVBGREF,
+												//SAVR[1:0]=10(vREF=PGAè¼¸å‡º),PGAS[1:0]=10(2.5)
+	_pds0=0x03;									//è¨­ç½®PD0åŠŸèƒ½ç‚ºAN8
+	_ade=1;										//è‡´èƒ½A/Dä¸­æ–·
+	ptr=Buffer; ScanCode=0b00000001;		    //æŒ‡æ¨™åˆå€¼è¨­å®š
+	for(i=0;i<4;i++) Buffer[i]=0;				//é¡¯ç¤ºåˆå€¼è¨­å®š
+	_emi=1;										//è‡´èƒ½EMI
+	_start=1; _start=0;							//å•Ÿå‹•A/Dè½‰æ›
+	while(1);									//ç„¡çª®è¿´åœˆ (ç¨‹å¼idle ADC ä¸­æ–·æ™‚æœƒå…ˆå»åŸ·è¡Œè©²ä½ç½®)
 }
 DEFINE_ISR(ISR_ADC,0x1c)
 {	u16 adr;
-	adr=((u16)_sadoh<<8)|_sadol;				//¨ú±o12-bitªºÂà´«µ²ªG
-	adr=((u32)adr*3000)>>12;					//´«ºâ¬°¹qÀ£(©ñ¤j1000­¿)
-	Buffer[3]=adr/1000; adr%=1000;				//¨ú±o¤d¦ì¼Æ
-	Buffer[2]=adr/100; 	adr%=100;				//¨ú±o¦Ê¦ì¼Æ	
-	Buffer[1]=adr/10;   adr%=10;				//¨ú±o®É¦ì¼Æ
-	Buffer[0]=adr;								//¨ú±o­Ó¦ì¼Æ
-	_start=1; _start=0;							//±Ò°ÊA/DÂà´«
+	adr=((u16)_sadoh<<8)|_sadol;				//å–å¾—12-bitçš„è½‰æ›çµæœ
+	adr=((u32)adr*3000)>>12;					//æ›ç®—ç‚ºé›»å£“(æ”¾å¤§1000å€)
+	Buffer[3]=adr/1000; adr%=1000;				//å–å¾—åƒä½æ•¸
+	Buffer[2]=adr/100; 	adr%=100;				//å–å¾—ç™¾ä½æ•¸	
+	Buffer[1]=adr/10;   adr%=10;				//å–å¾—æ™‚ä½æ•¸
+	Buffer[0]=adr;								//å–å¾—å€‹ä½æ•¸
+	_start=1; _start=0;							//å•Ÿå‹•A/Dè½‰æ›, å†æ¬¡å•Ÿå‹•ä¸­æ–·
 }
 DEFINE_ISR(ISR_TB0,0x24)
-{	SEGPort=0;									//Ãö³¬¤C¬q
-	ScanPort=ScanCode;							//°e¥X±½´y½X								
-	if(ScanCode!=1<<3) SEGPort=SEG_TAB[*ptr++];	//°e¥X¸`¬q½X
-	else SEGPort=SEG_TAB[*ptr++]|(1<<7);		//°e¥X¸`¬q½X¨ÃÂI«G¤p¼ÆÂI
-	GCC_RL(ScanCode);							//§ó·s±½´y½X
-	if(ScanCode==0b00010000)					//­Y¤w±½§¹¥|Áû¤C¬q
-	{	ScanCode=0b00000001; ptr=Buffer;	    //­«·sªì©l«ü¼Ğ»P±½´y½X	
+{	SEGPort=0;									//é—œé–‰ä¸ƒæ®µ
+	ScanPort=ScanCode;							//é€å‡ºæƒæç¢¼								
+	if(ScanCode!=1<<3) SEGPort=SEG_TAB[*ptr++];	//é€å‡ºç¯€æ®µç¢¼
+	else SEGPort=SEG_TAB[*ptr++]|(1<<7);		//é€å‡ºç¯€æ®µç¢¼ä¸¦é»äº®å°æ•¸é»
+	GCC_RL(ScanCode);							//æ›´æ–°æƒæç¢¼
+	if(ScanCode==0b00010000)					//è‹¥å·²æƒå®Œå››é¡†ä¸ƒæ®µ
+	{	ScanCode=0b00000001; ptr=Buffer;	    //é‡æ–°åˆå§‹æŒ‡æ¨™èˆ‡æƒæç¢¼	
 	}
 }

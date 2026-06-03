@@ -12,6 +12,7 @@ const u8 SEG_TAB[] = {			   				//七段顯示碼建表區(共陰)
 volatile u8 *ptr,ScanCode,Buffer[4];
 void main()
 {	u8 i; u16 adr;
+	
 	_wdtc=0b10101111;							//關閉看們狗計時器
 	SEGPort=0; SEGPortC=0;						//規劃SEGPort為輸出屬性
 	ScanPort&=0xF0; ScanPortC&=0xF0;			//規劃ScanPort[3:0]為輸出屬性
@@ -22,11 +23,12 @@ void main()
 	_pds0=0x03;									//設置PD0功能為AN8
 	ptr=Buffer; ScanCode=0b00000001;		    //指標初值設定
 	for(i=0;i<4;i++) Buffer[i]=0;				//顯示初值設定
-	_emi=1;										//致能EMI
+	_emi=1;										//致能EMI   
 	while(1)
 	{	_start=1; _start=0;						//啟動A/D轉換
 		while(_adbz);							//等待轉換完成
 		adr=((u16)_sadoh<<8)|_sadol;			//取得12-bit的轉換結果, 要先擴展再轉, 強制型別轉換
+		adr =((u32)adr * 4500) >>12;			//轉換電壓, 2 的整數除法可以用左移右移		
 		Buffer[3]=adr/1000; adr%=1000;			//取得千位數
 		Buffer[2]=adr/100; 	adr%=100;			//取得百位數	
 		Buffer[1]=adr/10;   adr%=10;			//取得時位數
@@ -35,10 +37,12 @@ void main()
 }
 DEFINE_ISR(ISR_TB0,0x24)
 {	SEGPort=0;									//關閉七段
-	ScanPort=ScanCode;							//送出掃描碼								
-	SEGPort=SEG_TAB[*ptr++];					//送出節段碼
+	ScanPort=ScanCode;							//送出掃描碼
+	SEGPort=SEG_TAB[*ptr++];					//送出節段碼		
 	GCC_RL(ScanCode);							//更新掃描碼
-	if(ScanCode==0b00010000)					//若已掃完四顆七段
-	{	ScanCode=0b00000001; ptr=Buffer;	    //重新初始指標與掃描碼	
-	}
+	if(ScanCode==0b00010000)					//若已掃完四顆七段	
+	{		
+		ScanCode=0b00000001; ptr=Buffer;	    //重新初始指標與掃描碼	
+		SEGPort |=0x80;							//如果是第3顆，點亮小數點
+	}	
 }
