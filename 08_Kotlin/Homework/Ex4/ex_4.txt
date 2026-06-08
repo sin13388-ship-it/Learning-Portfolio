@@ -1,0 +1,22 @@
+
+## 題目 1：計算兩數並使用不同的操作邏輯
+設計一個函數 process(a: Int, b: Int, op: (Int, Int) -> Int)
+主程式呼叫二次process 函數並寫二個Lambda函式一個加法另一個是乘法
+最後列印結果
+
+**範例：**
+a=20 , b=30
+
+
+#### **題目 2：計算學生平均成績**
+定義一個 student function ，包含以下成員：
+* 姓名（name: String）
+* 學號( id: Int)
+* 匿名函數 score:（Int ,Int ,Int) -> Int
+在student 函數中使用readln() 輸入math , english, science 成績
+列印學生姓名，學號，成績結果
+
+主程式呼叫二次student 函數，並寫二個Lambda函式一個可以計算每位學生的總分。一個可以計算每位學生的平均分數。
+
+name :Jack , id:10 學生並印出他的總分
+name :Mary , id:20 學生並印出他的平均成績。
