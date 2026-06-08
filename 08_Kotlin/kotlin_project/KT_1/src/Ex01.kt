@@ -1,7 +1,7 @@
 /*Kotlin Homework Ex_1*/
 fun main() {
 
-   // printMultipleTable()
+    //printMultipleTable()
 
     calculateKarmaAndPrintColor()
 
