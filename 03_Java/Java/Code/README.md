@@ -14,8 +14,11 @@
 ## Contents
 
 ---
+- [正規表達式](#正規表達式)
+- [Multi-thread](#Multi-thread)
+- [Lambda expression](#Lambda-expression)
 
----
+
 ### 正規表達式
 
 #### 語法與對應的例題
@@ -226,3 +229,30 @@ public synchronized void deposit(int amount) {
     notifyAll();
 }
 ```
+
+### Lambda expression
+
+#### Monitor Handler Exercise
+
+- 說明 :
+    - 模擬伺服器監控CPU, Memory 的使用量
+- 架構 :
+    - Monitor handler interface :  一個介面存放事件的處理結果
+    - CPUMonitor, MemMonior: 主要邏輯的處理，此處用lambda
+    - EventDispatcher : 派佈事件給有註冊的handler
+    - Server Event : Data transport object , 用來存放事件的資料
+
+- Server Event: 
+    - 想要紀錄甚麼資料?
+
+    |Type|說明|Default value|
+    |----|---|-------------|
+    |String|確認當前的資料來自誰|CPU、MEM、DISK...|
+    |double|sensor 資料| 數值|
+    |long|Time stamp| ms|
+
+- Event Dispatcher:
+    - 將收到的資料轉發給有訂閱的人
+    - private attribute : 一個list 用來存放handler
+    - register(iMonitorHandler) : 註冊handler
+    - dispatch(ServerEvent) : 發布事件request 給各個handler 
