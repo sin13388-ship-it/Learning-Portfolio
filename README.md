@@ -28,7 +28,7 @@
    - 陣列與迴圈
    - 指標與結構
    - 自學補充專題-文字計算機 [文字計算機] (https://github.com/sin13388-ship-it/FullTextCalculator.git)
-3. Java程式語言(96小時)
+3. Java程式語言(96小時) [Java](./03_Java/Java/Code/README.md)
    - 資料型態
    - 流程控制
    - 陣列
