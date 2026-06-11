@@ -6,7 +6,6 @@ fun main() {
 
 
     val lst = listOf(1, 2, 3, 4, 5, 6)
-
     val f:(List<Int>)->List<Int> ={
         l ->
         l.filter { it %2 ==0 }
@@ -21,7 +20,7 @@ fun main() {
         result
     }
 
-    //val q2=Math(lst, f(lst), s(lst)).run(::println)
+    val q2=Math(lst, f, s).run(::println)
 
 }
 fun studentMap(name: String, scores: List<Int>): MutableMap<String, Any>{
@@ -34,7 +33,5 @@ fun studentMap(name: String, scores: List<Int>): MutableMap<String, Any>{
 fun Math(data: List<Int>, filter:(List<Int>) -> List<Int>, square:(List<Int>) -> List<Int>): List<Int>{
 
     var lst =filter(data)
-
     return square(lst)
-
 }
