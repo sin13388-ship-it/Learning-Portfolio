@@ -1,0 +1,19 @@
+
+## **題目 1：計算學生平均成績**
+定義一個 `studentMap` function，輸入以下成員：列印每位學生的姓名總分和平均分數, 使用Map 回傳學生資料
+* 姓名（name: String）
+* 成績（scores: List<Int>）,3 score
+return map(name : xxx , sum :xxx , average : xx)
+在主程式建立 3 個學生的map 資料, 並列印學生資料
+
+## 題目 2：過濾偶數並平方（使用 `filter` + `map`）
+**說明：**
+請設計一個math函數，傳入一個整數列表，過濾出偶數，並將每個偶數平方後列印新的列表。使用 二個匿名函式完成 `filter` 和 `square` 操作。
+定義一個 `math` function ，包含以下成員：
+* 資料（data: List<Int>）
+* 匿名函數1 filter:(List<Int>) -> List<Int>
+* 匿名函數2 square:(List<Int>) -> List<Int>
+印出結果
+
+**範例輸入：data=[1, 2, 3, 4, 5, 6]
+**範例輸出：** [4, 16, 36]
