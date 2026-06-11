@@ -43,7 +43,6 @@ fun main() {
     val stAge= arrayOf(20,21,22,23)
     val stEmail=arrayOf("mary@iot.com","john@iot.com","jack@iot.com","aaa@iot.com")
     var stList= mutableListOf< MutableMap<String, Any>>()
-
     for(i in 0.. stName.size-1){
         //Initialize object
         val data =mutableMapOf<String, Any>()
@@ -57,4 +56,5 @@ fun main() {
         stList.add(data)
     }
     println(stList)
+
 }
