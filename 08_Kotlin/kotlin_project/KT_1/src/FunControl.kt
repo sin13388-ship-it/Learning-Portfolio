@@ -120,5 +120,71 @@ fun main() {
     }
     println(data)
 
+    //----with----
+    println("with====")
+    lst = mutableListOf<Int>(90,91,98,93,94)
+    println(lst)
 
+    val num2=with(lst){
+        lst.sort()
+        max()
+    }
+    println(lst)
+    println("max= $num2")
+
+
+    println()
+    val  data1="Hello world"
+    /*使用with 不會改變原本的內容?
+    * 如果要取得最後的結果，需要用一個變數去承接他
+    * */
+    check= with (data1){
+        uppercase()
+        this.length>20
+    }
+    println("the result of checck $check")
+    println(data1) //Immutable 字串是不變性，所以不會變動，不是因為with 的關係
+    var newData= with (data1){
+        uppercase()
+    }
+    println(newData)
+
+    //結果可以做為參數回傳出去
+    println("Pipe? 可以把結果傳遞出去, ::")
+    lst = mutableListOf<Int>(90,91,98,93,94)
+    println(lst)
+
+    val d=lst.run{
+        min()
+    }.run(::isLarger)
+    println(d)
+
+    /*可以一直 .下去*/
+    val d2=lst.run{
+        min()
+    }.run(::isLarger).run(::println)
+
+    /*:: 更多範例*/
+    println(":: 更多範例")
+    myFun("Mary",::inputNumnber) //func 可以透過::直接傳進去
+
+    //透過lambda 傳進去
+    myFun("Jhon"){data : Int ->
+        data * 10
+    }
 }
+fun isLarger(num: Int) : Boolean{
+    return num>20
+}
+
+fun inputNumnber(number: Int):Int{
+    return number*number
+}
+
+fun myFun(name: String, process: (Int)-> Int){
+    println("name is $name")
+    var number =(1..10).shuffled().first()
+    println("number= $number")
+    println("new number= ${process(number)}")
+}
+
