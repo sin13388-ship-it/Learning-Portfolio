@@ -33,8 +33,5 @@ fun main() {
         data.put("stEmail",stEmail[i])
         stList.add(data)
     }
-
     println(stList)
-
-
 }
