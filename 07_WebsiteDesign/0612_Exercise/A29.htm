@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>
+        <!--Backgroung + 透明條紋-->    
+        <meta charset="utf-8">
+        <title>CSS 0612</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            h1{
+                color: rgb(21, 109, 58);
+            }   
+        </style>        
+    </head>
+    <body >
+        <!--文字框留空20px-->
+        <h1 style="border: solid 30px rgba(255, 150, 255, 0.5); padding: 20px;">臨江仙 玉樓春</h1>
+        <!--只在內容裡有花 background-clip: content-box-->
+        <h1 style="border: solid 30px rgba(255, 150, 255, 0.5); 
+            padding: 20px; background-image:  url('./images/Flower2.jpg'); 
+            background-clip: content-box; background-repeat: no-repeat;">
+            臨江仙 玉樓春
+        </h1>
+        <h1 style="border: solid 30px rgba(255, 150, 255, 0.5); 
+            padding: 20px; background-image:  url('./images/flower.gif') ;
+            background-clip: border-box; background-origin: border-box; background-repeat: no-repeat; background-position: left bottom">
+            臨江仙 玉樓春
+        </h1>
+    </body>
+</html>
