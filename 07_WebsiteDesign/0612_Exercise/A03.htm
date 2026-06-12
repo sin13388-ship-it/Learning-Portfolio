@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>CSS 0612</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">
+       
+        <style>
+
+            [class|="apple"]{ /*符合apple- 的類別*/
+                /*default style,*/
+                color: blue
+            }
+            [class~="apple"]{ /*符合... apple ... 的類別 (有空格)*/
+                /*default style,*/
+                color: rgb(225, 0, 255)
+            }
+            [class^="apple"]{ /*符合apple ... 的類別*/
+                /*default style,*/
+                color: rgb(0, 255, 234)
+            }
+
+            [class$="apple"]{ /*符合...apple的類別*/
+                /*default style,*/
+                color: rgb(6, 63, 9)
+            }
+            [class*="apple"]{ /*符合...apple...的類別*/
+                /*default style,*/
+                color: rgb(248, 14, 45)
+            }
+            .content{
+                color: chocolate;
+            }
+
+        </style>        
+    </head>
+    <body>
+        <h1>果汁牛奶</h1>
+        <ul>
+            <li class="apple ">蘋果牛奶</li>
+            <li class="apple-banana">香蕉蘋果牛奶</li>
+            <li class="grape apple banana">特調牛奶</li>
+            <li class="fruit apple">招牌牛奶</li>
+            <!--[class|="apple"] 不會作用在這裡，因為apple 不是 'apple-' -->
+            <li class="apple pineapple">草莓牛奶</li> 
+        </ul>
+        <p class="content">勞動部勞動力發展署</p>
+        <p>物聯網開發與行動裝置應用</p>
+    </body>
+
+</html>

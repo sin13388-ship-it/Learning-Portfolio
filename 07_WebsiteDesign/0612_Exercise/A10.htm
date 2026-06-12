@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>CSS 0612</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">
+       
+        <style>  
+            /*段落中不同行數的套色*/
+            p::first-line{
+                color:brown;
+                font-size: 18px;
+            }
+            p::first-letter{
+                color:rgb(252, 3, 3);
+                font-weight: bold;
+                font-size: 36px;
+            }
+            p::after{
+                content: "<相思.王維>";
+                color: orange;
+            }
+
+        </style>        
+    </head>
+    <body>
+        <p>
+            紅豆生南國，</br>
+            春來發幾枝。</br>
+            願君多采擷，</br>
+            此物最相思。</br>
+        </p>
+    </body>
+
+</html>

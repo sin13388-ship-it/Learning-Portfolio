@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>
+        <!--Backgroung + 透明條紋-->    
+        <meta charset="utf-8">
+        <title>CSS 0612</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            h1{
+                color: rgb(21, 109, 58);
+            }
+   
+        </style>        
+    </head>
+    <body>
+        <!--單行填滿-->
+        <h1 style="background-image:  url('./images/Flower2.jpg')">臨江仙</h1>
+        <h1 style="background-image:  url('./images/Flower2.jpg')">玉樓春</h1>
+        <!--多行填滿-->
+        <!--不重複-->
+        <div style="background-image:  url('./images/Flower.jpg'); background-repeat: no-repeat;">
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+        </div>
+        <!--重複水平-->
+        <div style="background-image:  url('./images/Flower.jpg'); background-repeat:repeat-x;">
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+        </div>
+        <!--重複垂直-->
+        <div style="background-image:  url('./images/Flower.jpg'); background-repeat:repeat-y;">
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+        </div>
+        <!--Space-->
+        <div style="background-image:  url('./images/Flower.jpg'); background-repeat:space;">
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+        </div>
+        <!--調整圖片大小-->
+        <div style="background-image:  url('./images/Flower.jpg'); background-repeat:round;">
+            <h1 >臨江仙</h1>
+            <h1 >玉樓春</h1>
+        </div>
+
+    </body>
+</html>
