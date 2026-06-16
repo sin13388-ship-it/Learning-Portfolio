@@ -32,6 +32,19 @@ fun main() {
         /*Array with forEach, onEach, forEaxhIndexed, onEachIndexed*/
         //onEach 敘述會回傳處理後的資料，可以用於串接函式或是方法
 
+        //比較 onEach, forEach 的差異
+        var arr2: IntArray=intArrayOf(34,12,5,67, 9, 10, 7)
+
+        var a=arr.forEach { println(it * 2 ) }
+        var b=arr.onEach { println(it * 2) }
+        println(a::class.simpleName) // return Unit
+        println(b::class.simpleName) // return IntArray
+
+        /*Application
+        * 輸入一個陣列，找出偶數後顯示，再將每個數都x2，最後再顯示一次*/
+
+
+
 
 
 
