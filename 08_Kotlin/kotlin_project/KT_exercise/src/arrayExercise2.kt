@@ -30,6 +30,10 @@ fun main() {
         println(sum)
 
         /*Array with forEach, onEach, forEaxhIndexed, onEachIndexed*/
+        //onEach 敘述會回傳處理後的資料，可以用於串接函式或是方法
+
+
+
 
 
 
