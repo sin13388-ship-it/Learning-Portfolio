@@ -40,8 +40,21 @@ fun main() {
         println(a::class.simpleName) // return Unit
         println(b::class.simpleName) // return IntArray
 
+        println()
+
         /*Application
         * 輸入一個陣列，找出偶數後顯示，再將每個數都x2，最後再顯示一次*/
+        /*
+        * filter 會回傳一個List 出來，再藉由OnEach 接收
+        * OnEach 會回傳一個泛形再藉由map 接收
+        * map 會回傳一個List，最後傳遞給forEach        *
+        * */
+        arr2.filter{it %2 ==0}.onEach(::println).map{ it *2 }.forEach(::println)
+
+
+
+
+
 
 
 

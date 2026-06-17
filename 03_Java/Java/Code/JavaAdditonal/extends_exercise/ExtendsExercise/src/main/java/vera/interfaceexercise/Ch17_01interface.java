@@ -40,6 +40,10 @@ class Rectangle implements Shape{
     public String showObjectInfo() {
         return "Rectangle";
     }
+
+    void printWidthAndHeight(){
+        System.out.println("Width= "+width+", Height= " + height);
+    }
 }
 class Circle implements Shape{
     static double PI= 3.14159;
@@ -57,6 +61,10 @@ class Circle implements Shape{
     public String showObjectInfo() {
         return "Circle";
     }
+    void printRadius(){
+        System.out.println("Radius= "+radius);
+    }
+
 }
 
 //Interface Vehicle
@@ -94,11 +102,20 @@ public class Ch17_01interface {
         bird.flying();
         AirPlane plane =new AirPlane();
         plane.flying();
-
+        /*Upcasting*/
         Shape  myShape=new Rectangle(5,10);
         System.out.println("Myshape: " + myShape.showObjectInfo() + " area is " + myShape.area());
+        /*Downcasting*/
+        Rectangle rect = (Rectangle) myShape;
+        rect.printWidthAndHeight();
+
+        /*Upcasting*/
         myShape=new Circle(2.5);
         System.out.println("Myshape: " + myShape.showObjectInfo() + " area is " + myShape.area());
+        /*Downcasting*/
+        Circle cir =(Circle) myShape;
+        cir.printRadius();
+         
 
     }
 }
