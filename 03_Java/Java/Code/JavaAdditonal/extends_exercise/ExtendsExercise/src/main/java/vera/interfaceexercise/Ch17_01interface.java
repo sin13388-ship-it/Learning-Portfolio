@@ -115,7 +115,7 @@ public class Ch17_01interface {
         /*Downcasting*/
         Circle cir =(Circle) myShape;
         cir.printRadius();
-         
+
 
     }
 }
