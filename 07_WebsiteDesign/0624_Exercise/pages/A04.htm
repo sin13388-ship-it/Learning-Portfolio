@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>          
+        <meta charset="utf-8">
+        <title>Table-Backgroung-gradient</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            caption{
+                color: #283618 ;
+                font-size: 32px;
+                font-family: 微軟正黑體;
+            }
+            thead{
+                background-color: #283618;
+                width :240px;
+                font-size: 24px;
+                color: #fefae0;
+                padding: 5px;                
+            }
+            .format_a{
+                background: radial-gradient( circle at top center, 
+                #606c38 5% , #fefae0 15%,
+                #606c38 25% , #fefae0 35%,
+                #606c38 45% , #fefae0 55%,
+                #606c38 65% , #fefae0 75%);
+                font-size: 20px;
+                font-weight: bolder;
+                padding: 5px;  
+                color: #283618 ;
+
+            }
+            .format_b{
+                background: radial-gradient( circle at top center , 
+                #606c38 5% , #fefae0 15%,
+                #606c38 25% , #fefae0 35%,
+                #606c38 45% , #fefae0 55%,
+                #606c38 65% , #fefae0 75%);
+                font-size: 20px;
+                font-weight: bolder;
+                padding: 5px;  
+                color: #283618 ;
+
+            }
+            
+            .item {
+                background: radial-gradient(
+                circle at 68% 90%,
+                white 5%,transparent calc(10% + 1px),
+                #606c38 8%,transparent calc(10% + 1px),
+                white 13%,transparent calc(10% + 1px),
+                #606c38 20%,transparent calc(10% + 1px),
+                rgb(255, 255, 255) 25%,transparent calc(10% + 1px),
+                #606c38 30%,transparent calc(10% + 1px)
+                ), 
+                radial-gradient(
+                circle at 10% 90%,
+                white 5%,transparent calc(10% + 1px),
+                black 10%,transparent calc(10% + 1px),
+                white 15%,transparent calc(10% + 1px),
+                #606c38 20%,transparent calc(10% + 1px),
+                rgb(255, 255, 255) 25%,transparent calc(10% ),
+                #606c38 30%,transparent calc(10% + 1px)           
+                ), 
+                radial-gradient(
+                circle at 5% 35%,
+                white 5%,transparent calc(10% + 1px),
+                #606c38 10%,transparent calc(10% + 1px),
+                white 15%,transparent calc(10% + 1px),
+                #606c38 20%,transparent calc(10% + 1px),
+                rgb(255, 255, 255) 25%,transparent calc(10% + 1px),
+                #606c38 30%,transparent calc(10% + 1px)
+                ), 
+                radial-gradient(
+                circle at 90% 20%,
+                rgb(255, 255, 255) 5%,transparent calc(3% + 1px),
+                #606c38 10%,transparent calc(10% + 1px)
+                ), #fefae0 ;
+            }
+            tfoot{
+                background: #fefae0;
+                font-size: 20px;
+                text-align: center;              
+                color: #283618 ;
+                font-family: 微軟正黑體;
+                text-decoration: dashed underline;
+            }
+            td{
+                padding: 5px;                               
+            }
+        </style>        
+    </head>
+    <body>
+<table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">書籍名稱</th>
+                <th style="width: 20%;">作者</th>
+                <th style="width: 55%;">書籍摘要（50字內）</th>
+            </tr>
+        </thead>
+        <tbody>
+            <colgroup>
+                <col class="format_a">
+                <col span=2 class="item">
+            
+            </colgroup>
+            <tr>
+                <td class="book-title">《連結》</td>
+                <td>哈拉瑞 (Yuval Noah Harari)</td>
+                <td>從大歷史視角剖析資訊網路如何形塑人類文明、神話與當代 AI 社會的巨大困境。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《失控的焦慮世代》</td>
+                <td>強納森．海德特 (Jonathan Haidt)</td>
+                <td>深入社會學與心理學，探討數位洪流與社群媒體如何徹底重塑並摧毀下一代的精神與生活。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《女工之死》</td>
+                <td>李安如</td>
+                <td>透過人類學視角，紀錄後工業時代下的鬧鬼傳聞與空間記憶，展現對強勢社會體系的抵抗。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《喬治．歐威爾之妻的隱形人生》</td>
+                <td>安娜．方德 (Anna Funder)</td>
+                <td>結合史料與歷史書寫，揭開文學巨擘背後被社會群體與歷史刻意遺忘、抹去的女性身影。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《1929》</td>
+                <td>紐約時報百大選書</td>
+                <td>深度剖析百年前經濟大崩盤的心理與制度失靈，與當代政治緊張及金融高漲形成驚人對照。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《多胞胎共和國》</td>
+                <td>吳嘉苓</td>
+                <td>記錄並探討台灣人工生殖技術發展的希望與風險，深思當代生育體制對社會與家庭的衝擊。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《失控的憤怒機器》</td>
+                <td>Tobias Rose-Stockwell</td>
+                <td>剖析社群平台如何劫持人類情緒、製造社會對立，並在無形中動搖並影響現代民主體制。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《足跡》</td>
+                <td>吉姆．李瑞 (Jim Leary)</td>
+                <td>藉由考古學與史前車轍、朝聖路徑的足印，拼湊出一部始於足下、影響至今的人類移動歷史。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《萬物的名字》</td>
+                <td>傑森．羅伯茲 (Jason Roberts)</td>
+                <td>講述博物學之父布豐與林奈的世紀對決，看科學家如何試圖用命名撼動單一社會話語權。</td>
+            </tr>
+            <tr>
+                <td class="book-title">《歷史的鐘擺》</td>
+                <td>李菁</td>
+                <td>以細膩筆觸回顧近代史實與人物命運，探討歷史巨輪如何在集體抉擇與時代巨變中來回擺盪。</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">2025-社會人文選書</td>
+            </tr>
+        </tfoot>
+    </table>        
+    </body>
+</html>

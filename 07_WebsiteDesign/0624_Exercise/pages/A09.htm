@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>          
+        <meta charset="utf-8">
+        <title>Background</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            table{
+                border-width: 2px;
+                border-style: solid;
+                border-collapse: collapse; /*沒有框中框*/
+            }
+
+            td{
+                border: 1px solid rgb(0, 0, 0);                
+            }
+            tfoot{
+                text-align: center;
+                letter-spacing: 3px;
+                font-family: 標楷體;
+                font-weight: bold;
+            }
+            .format_a{
+                background-color: antiquewhite
+            }
+            .format_b{
+                background-color: rgb(216, 186, 146)
+            }            
+
+        </style>        
+    </head>
+    <body>
+        <table>       
+        <caption>幼獅資訊管理書城</caption>
+        <thead>        
+            <tr>
+                <th>店名</th>
+                <th>地址</th>
+                <th>營業時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="format_a">
+                <td>天母店</td>
+                <td>台北市建國路20號</td>
+                <td rowspan="3">09:30-22:00</td>
+            </tr>
+            <tr class="format_a" >
+                <td>大安店</td>
+                <td>台北市大安路30號</td>                
+            </tr>
+            <tr class="format_a">
+                <td>幼獅店</td>
+                <td>桃園幼獅路30號</td>              
+            </tr>
+            <tr class="format_b">
+                <td>新竹店</td>
+                <td>新竹清華路40號</td>
+                <td>11:00-20:00</td>
+            </tr>                
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">書聲朗朗，博覽群書</td>
+            </tr>
+        </tfoot>
+        </table>
+    </body>
+</html>

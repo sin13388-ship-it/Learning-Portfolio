@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>          
+        <meta charset="utf-8">
+        <title>Table position</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            caption{
+                color: blueviolet;
+                margin: 5px;
+                font-weight: bold;
+                font-size: 20px;
+                /*table 如果有做定位，絕對定位會以table做基準*/
+                position: absolute;
+                top: -30px;
+                left: 80px;
+
+            }
+            table{
+                border-width: 2px;
+                border-style: solid;
+                border-collapse: collapse; /*沒有框中框*/
+                position: relative;
+                top: 20px;
+                left: 100px;
+            }
+            thead{
+                background-color: rgb(31, 122, 153);
+                padding: 20px;
+            }
+
+            td{
+                border: 1px solid rgb(0, 0, 0);  
+                padding:15px;                
+                background-color: aliceblue;                              
+            }
+            tfoot{
+                text-align: center;
+                letter-spacing: 3px;
+                font-family: 標楷體;                
+            }
+
+        </style>        
+    </head>
+    <body>
+        <table>
+      
+        <caption>幼獅資訊管理書城</caption>
+        <thead>        
+            <tr>
+                <th>店名</th>
+                <th>地址</th>
+                <th>營業時間</th>
+            </tr>
+        </thead>
+        <tbody>          
+            <tr >
+                <td>天母店</td>
+                <td>台北市建國路20號</td>
+                <td rowspan="3">09:30-22:00</td>
+            </tr>
+            <tr  >
+                <td>大安店</td>
+                <td>台北市大安路30號</td>                
+            </tr>
+            <tr >
+                <td>幼獅店</td>
+                <td>桃園幼獅路30號</td>              
+            </tr>
+            <tr >
+                <td>新竹店</td>
+                <td>新竹清華路40號</td>
+                <td>11:00-20:00</td>
+            </tr>                
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">書聲朗朗，博覽群書</td>
+            </tr>
+        </tfoot>
+        </table>
+    </body>
+</html>

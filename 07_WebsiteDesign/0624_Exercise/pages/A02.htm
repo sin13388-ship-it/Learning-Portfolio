@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>          
+        <meta charset="utf-8">
+        <title>Gradian</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            /*漸層設計*/
+            .h1_normal{
+                background: linear-gradient(black, red); 
+                color:white;
+            }
+            .h1_top{
+                background: linear-gradient(to top,black, red); 
+                color:white;
+            }
+            .h1_topleft{
+                background: linear-gradient(to top left,black, red); 
+                color:white;
+            }
+            .h1_multicolor{
+                background: linear-gradient(to top left,black 20%, red 50%, yellow 70%); 
+                color:white;
+            }
+            .h1_radial{
+                background: radial-gradient(circle,black 20%, red 50%, yellow 70%); 
+                color:white;
+            }
+            .h1_ellipse{
+                background: radial-gradient(ellipse,black 20%, red 50%, yellow 70%); 
+                color:white;
+            }
+
+            .exercise_border{
+                border: dashed 3px;
+                border-radius: 12px;
+                padding: 5%;
+
+            }
+        </style>        
+    </head>
+    <body>
+            <h1 class="h1_normal">臨江仙</h1>
+            <h1 class="h1_top" >玉樓春</h1>            
+            <h1 class="h1_topleft" >臨江仙</h1>
+            <h1 class="h1_multicolor" >玉樓春</h1>  
+            <h1 class="h1_radial" >玉樓春</h1>  
+            <h1 class="h1_ellipse" >玉樓春</h1>  
+            
+            <div class="exercise_border">
+                <h1 class="h1_normal">臨江仙</h1>
+                <h1 class="h1_top" >玉樓春</h1>            
+                <h1 class="h1_topleft" >臨江仙</h1>
+                <h1 class="h1_multicolor" >玉樓春</h1>  
+                <h1 class="h1_radial" >玉樓春</h1>  
+                <h1 class="h1_ellipse" >玉樓春</h1>  
+            </div>
+            
+
+    </body>
+</html>
