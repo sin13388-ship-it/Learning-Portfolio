@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="utf-8">
+    
+    <head>          
+        <meta charset="utf-8">
+        <title>Table position</title>
+        <link rel="stylesheet" href="../CSS_style_class/font_style.css">       
+        <style>
+            h2{
+                background-color: #ffff66;
+                color: orangered;
+                padding: 10px;
+                text-align: center;
+                border-radius: 10px;
+            }
+            caption{
+                color: purple;
+                font-size: 20px;
+                font-family: 標楷體;
+                position: absolute;
+                top: -30px;
+                left: 25px;
+
+            }
+            table{
+                border-width: 2px;
+                border-style: solid;
+                border-collapse: collapse; /*沒有框中框*/
+                position: absolute;
+                top: 120px;
+                left: 60px;
+            }
+            thead{
+                background-color:green;
+                color: white;
+            }
+
+            tfoot{
+                text-align: center;
+                letter-spacing: 3px;
+                font-family: 標楷體;                
+            }
+            body{
+                background-color: #ffbbbb;
+            }
+            .s{
+                color: rgb(255, 100, 100);
+                position: relative;
+                left: 15px;
+                font-size: 14px;
+            }
+            td{
+                padding: 10px 20px;
+            }
+            .d1{
+                color: purple;
+               
+                font-size: 14px;
+                background-color: lightgreen;
+                font-family: 微軟正黑體;
+            }
+            .d2{
+                color: orange;
+               
+                font-size: 14px;
+                background-color: lightyellow;
+                
+                font-family: 微軟正黑體;
+            }
+
+        </style>        
+    </head>
+    <body >
+        <h2>浪漫星座園地 <span class="s">星座花之戀</span></h2>        
+        <table>
+      
+        <caption>夢想的愛人</caption>
+        <thead>        
+            <tr>
+                <th>星座</th>
+                <th>生日</th>
+                <th>星座花</th>
+                <th>星座情人</th>
+            </tr>
+        </thead>
+        <tbody>          
+            <tr class="d1"  >
+                <td>水瓶座</td>
+                <td>1/21~2/19</td>
+                <td>瑪格麗特</td>
+                <td>自由的情人</td>
+            </tr>
+            <tr  class="d2">
+                <td>雙魚座</td>
+                <td>2/20~3/20</td>
+                <td>鬱金香</td>
+                <td>體貼浪漫的情人</td>             
+            </tr>
+            <tr class="d1">
+                <td>牡羊座</td>
+                <td>3/21~4/20</td>
+                <td>木堇</td>
+                <td>熱情樂觀的情人</td>            
+            </tr>
+            <tr  class="d2">
+                <td>金牛座</td>
+                <td>4/21~5/21</td>
+                <td>矮牽牛</td>
+                <td>堅貞不移的情人</td> 
+            </tr>
+            <tr class="d1">
+                <td>雙子座</td>
+                <td>5/22~6/21</td>
+                <td>玫瑰</td>
+                <td>善變的情人</td> 
+            </tr>
+            <tr class="d2">
+                <td>巨蟹座</td>
+                <td>6/22~7/23</td>
+                <td>洋桔梗</td>
+                <td>戀家的情人</td> 
+            </tr>                                
+        </tbody>
+        </table>
+    </body>
+</html>
