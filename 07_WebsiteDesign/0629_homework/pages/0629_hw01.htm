@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 網格作業</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* 共用邊框設定 */
+        .custom-border {
+            border: 1px solid orange;
+        }
+
+        /* 標題區塊樣式 */
+        .header-block {
+            background-color: cornsilk;
+            font-size: 38px;
+            font-family: "DFKai-SB", "BiauKai", "標楷體", sans-serif;
+            height: 100px;
+            padding: 20px;
+            text-align: center;
+            /* 置中文字（選用，讓畫面更美觀） */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 內文區塊共用樣式 */
+        .content-block {
+            font-size: 32px;
+            height: 200px;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 各區塊背景顏色設定 */
+        .block-1 { background-color: lightblue; }
+        .block-2 { background-color: #f2f2f2; } /* 淺灰色 */
+        .block-3 { background-color: lightgreen; }
+        .block-a { background-color: pink; }
+        .block-b { background-color: cyan; }
+        .block-c { background-color: pink; }
+    </style>
+</head>
+<body>
+
+<div class="container my-4">
+    <div class="row ">
+        <div class="col-12">
+            <div class="header-block custom-border">
+                網頁排版
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-ss-12">
+        <div class="col-3">
+            <div class="content-block block-1 custom-border">Block_1</div>
+        </div>
+        <div class="col-6 ">
+            <div class="content-block block-2 custom-border">Block_2</div>
+        </div>
+        <div class="col-3">
+            <div class="content-block block-3 custom-border">Block_3</div>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 g-0 ">
+        <div class="col-2">
+            <div class="content-block block-a custom-border">Block_A</div>
+        </div>
+        <div class="col-8">
+            <div class="content-block block-b custom-border">Block_B</div>
+        </div>
+        <div class="col-2">
+            <div class="content-block block-c custom-border">Block_C</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
