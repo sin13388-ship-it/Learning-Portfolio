@@ -1,14 +1,15 @@
 package homework
 
-import kotlin.contracts.Returns
+import java.sql.Date
+
 
 abstract class Shape{
     abstract fun area() : Double
 }
 
-class Rectangle(val length: Double=0.0, val width : Double =0.0): Shape(){
+class Rectangle(val width: Double=0.0, val height : Double =0.0): Shape(){
     override fun area() : Double {
-        return length * width
+        return height * width
     }
 }
 
@@ -38,14 +39,14 @@ interface PaymentMethod{
     fun pay(amount:Int): Boolean
 }
 
-class CreditCard(): PaymentMethod{
+class CreditCard: PaymentMethod{
     val pType="CreditCard"
     override fun pay(amount: Int): Boolean {
         println("使用信用卡付款：$amount 元 , 付款成功")
         return true
     }
 }
-class Cash(): PaymentMethod{
+class Cash: PaymentMethod{
     val pType="Cash"
     override fun pay(amount: Int): Boolean {
         println("使用現金付款：$amount 元 , 付款成功")
@@ -53,16 +54,16 @@ class Cash(): PaymentMethod{
     }
 }
 
-class Checkout(){
+class Checkout{
     fun processPayment(amount: Int, method: PaymentMethod){
-        method.pay(amount)
+       if  (method.pay(amount)) println("process : success") else println("process : fail")
     }
 }
 
 fun main() {
     /*Ex7 Q1 Shape calculator*/
     val circle: Shape= Circle(6.0)
-    val rectangle: Shape = Rectangle(12.0,6.0)
+    val rectangle: Shape = Rectangle(12.0,16.0)
     println("The area of circle = ${circle.area()}")
     println("The area of rectangle = ${rectangle.area()}")
 
@@ -70,14 +71,14 @@ fun main() {
     val emp1= FullTimeEmployee("Alice",50000.0)
     val emp2 = PartTimeEmployee("Bob", 300.0, 60)
     println("員工類型\t姓名\t薪資資料\t")
-    println("正職員工\t${emp1.name}\t月薪 50000\t 年薪${emp1.calculateSalary()}")
-    println("兼職員工\t${emp2.name}\t時薪 300.0，工作時數 60\t 月薪${emp2.calculateSalary()}")
+    println("正職員工\t${emp1.name}\t月薪 ${emp1.monthlySalary}\t 年薪 ${emp1.calculateSalary()}")
+    println("兼職員工\t${emp2.name}\t時薪 ${emp2.hourlyRate}，工作時數  ${emp2.workingHour}\t 月薪${emp2.calculateSalary()}")
 
     /*Ex9 Q1 PaymentStrategy*/
     val cash = Cash()
     val creditCard = CreditCard()
-    var checkout= Checkout()
-    checkout.processPayment(1000, creditCard)
+    val checkout= Checkout()
+    checkout.processPayment(10000, creditCard)
     checkout.processPayment(500, cash)
 
 }
