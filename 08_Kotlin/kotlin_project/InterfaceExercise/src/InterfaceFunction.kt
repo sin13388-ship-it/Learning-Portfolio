@@ -26,9 +26,20 @@ class TaskClass(val name: String){
     }
 }
 
+class JobClass(val name: String):StudentWork{
+    override fun execute(name: String) {
+        println("My job is done by $name")
+    }
+}
+
 
 
 fun main() {
+
+    val myJob=JobClass("John")
+    val myTask2=TaskClass("Jack")
+    myJob.execute("John")
+    myTask2.handleTask(myJob)
 
     val myTask = TaskClass("John")
     myTask.handleTask(object : StudentWork{
