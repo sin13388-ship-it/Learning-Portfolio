@@ -1,4 +1,4 @@
-import java.sql.SQLOutput
+import homework.Shape
 
 interface Drawable{
     fun draw()
@@ -24,12 +24,12 @@ open class Button : Drawable, Click{
 }
 
 /*Polymorphic應用*/
-interface  Shape{
+interface  IShape{
     fun area(): Double
     fun perimeter() : Double
 }
 
-class Rectangle(val width: Double, val length: Double):Shape{
+class Rectangle(val width: Double, val length: Double): IShape {
     override fun area(): Double {
         return width * length
     }
@@ -42,7 +42,7 @@ class Rectangle(val width: Double, val length: Double):Shape{
     }
 }
 
-class Circle(val radius: Double) : Shape{
+class Circle(val radius: Double) : IShape {
     override fun area(): Double {
         return Math.PI * radius * radius
     }
@@ -72,7 +72,7 @@ fun main() {
     rect.showInfo()
     val circle:Circle=Circle(10.0)
     circle.showInfo()
-    var shapes=mutableListOf<Shape>(rect,circle)
+    var shapes=mutableListOf<IShape>(rect,circle)
     for (item in shapes){
         println("Area = ${item.area()}")
         println("Perimeter= ${item.perimeter()}")

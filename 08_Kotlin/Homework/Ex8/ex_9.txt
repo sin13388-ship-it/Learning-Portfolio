@@ -1,0 +1,46 @@
+
+題目 1：支付策略（PaymentStrategy）
+建立 PaymentMethod 介面，定義 pay(amount: Int): Boolean。
+
+1.建立二個類別 CreditCard, Cash 實作二種支付方式。 
+建立以下兩個類別，並實作 PaymentMethod 介面。
+
+a.CreditCard 類別 ,代表信用卡付款。
+
+功能要求：
+實作 pay(amount: Int): Boolean
+列印信用卡付款金額 ,回傳付款成功結果
+
+輸出格式範例：使用信用卡付款：10000 元 , 付款成功
+
+b. Cash 類別 ,代表現金付款。
+
+功能要求：
+實作 pay(amount: Int): Boolean
+列印現金付款金額 , 回傳付款成功結果
+
+輸出格式範例：使用現金付款：500 元 , 付款成功
+
+
+2. 建立 Checkout 類別負責處理付款流程, 建立方法 fun processPayment(amount: Int, method: PaymentMethod)接收任一種支付策略來付款。
+
+fun processPayment(amount: Int, method: PaymentMethod)
+函式參數
+接收付款金額 amount
+接收付款方式 method
+呼叫傳入的支付方式進行付款 ,根據付款結果列印付款是否成功
+
+請在主程式中完成以下操作：
+
+支付方式		金額
+CreditCard	10000
+Cash		500
+
+執行流程：
+
+建立 Checkout 物件。
+建立 CreditCard 物件。
+建立 Cash 物件。
+使用 CreditCard 支付 10000 元。
+使用 Cash 支付 500 元。
+

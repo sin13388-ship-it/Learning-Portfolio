@@ -1,0 +1,60 @@
+
+題目 1：形狀計算器
+定義一個 Shape類別，具有一個 area() 方法
+請各自建立 Circle 與 Rectangle 類別，繼承 Shape類別，並覆寫 area() 計算公式
+
+1. Circle 類別
+屬性		型別		說明
+radius	Double	圓形半徑
+
+方法	:
+area()	覆寫父類別方法，計算圓面積
+
+2. Rectangle 類別
+屬性		型別		說明
+width	Double	矩形寬
+height	Double	矩形高
+
+方法：
+area()	覆寫父類別方法，計算矩形面積
+
+
+請在主程式中建立以下物件：
+
+1. 圓形	 半徑為 6
+2. 矩形	 寬為 12，高為 16
+
+並分別呼叫 area() 方法計算面積。
+
+
+題目 2：員工薪資計算系統
+
+定義一個 Employee 類別，有方法 calculateSalary()。
+請建立以下兩個類別，並繼承 Employee 類別：
+
+1. FullTimeEmployee 類別,代表正職員工。
+
+屬性				型別		說明
+name			String	員工姓名
+monthlySalary	Double	月薪
+
+方法：
+calculateSalary()	覆寫父類別方法，計算年薪
+
+2. PartTimeEmployee 類別 , 代表兼職員工。
+
+屬性			型別		說明
+name		String	員工姓名
+hourlyRate	Double	時薪
+workingHour	Int		工作時數
+
+方法：
+calculateSalary()	覆寫父類別方法，計算月薪
+
+
+請在主程式中建立以下員工物件：
+
+員工類型	姓名		薪資資料					計算項目
+正職員工	Alice	月薪 50000.0				年薪
+兼職員工	Bob		時薪 300.0，工作時數 60	月薪
+並分別呼叫 calculateSalary() 方法計算薪資。
