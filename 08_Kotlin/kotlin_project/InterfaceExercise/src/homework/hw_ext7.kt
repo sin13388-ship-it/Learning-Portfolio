@@ -1,8 +1,5 @@
 package homework
 
-import java.sql.Date
-
-
 abstract class Shape{
     abstract fun area() : Double
 }
