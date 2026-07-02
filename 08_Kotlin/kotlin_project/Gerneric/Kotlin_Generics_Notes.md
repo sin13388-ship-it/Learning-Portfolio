@@ -192,6 +192,48 @@ sum= 132.4
 - ⚠️ **值比較 vs 參考比較**：`==` 比較值（呼叫 `equals()`），`===` 比較記憶體參考，數值計算結果請用 `==`。
 - ⚠️ `Int + Double` 在一般運算中 Kotlin 不允許直接相加，泛型搭配 `.toDouble()` 是一種解決方式。
 
+### 進階：使用 `where` 連接多個泛型約束
+
+- 當同一個型別參數需要同時滿足**多個條件**時，可以使用 `where` 來寫更清楚的約束。
+- 語法格式：`fun <T> 函式名(...) where T: 條件1, T: 條件2`
+- `where` 常用在約束較多、宣告太長時，讓程式更容易讀。
+- 你提供的 `compare1()` 中，`T` 必須同時是 `Number`，又必須是 `Comparable<T>`。
+- 這樣就能同時做到：**可比較大小**、**也符合數值型別**。
+
+### 對照表：`<T: ...>` vs `where`
+
+| 寫法 | 適用情況 | 範例 |
+|---|---|---|
+| `<T: Comparable<T>>` | 只有一個約束 | `fun <T: Comparable<T>> compare(...)` |
+| `where T: Number, T: Comparable<T>` | 多個約束 | `fun <T> compare1(...) where T:Number, T:Comparable<T>` |
+
+### 最小可執行範例
+
+```kotlin
+fun <T> compare1(t1: T, t2: T) where T: Number, T: Comparable<T> {
+    when {
+        t1 > t2 -> println("$t1 > $t2")
+        t1 < t2 -> println("$t1 < $t2")
+        else -> println("$t1 = $t2")
+    }
+}
+
+fun main() {
+    compare1(12, 56)
+}
+```
+
+**預期輸出：**
+```text
+12 < 56
+```
+
+### 常見誤區 / 注意事項
+
+- ⚠️ `where` 不是用來取代泛型，而是用來**補充多個限制條件**。
+- ⚠️ `compare1(12, 56)` 會正常執行，但 `println(compare1(12,56))` 會另外印出 `kotlin.Unit`，因為 `compare1()` 的回傳型別是 `Unit`。
+- ⚠️ 如果型別只符合其中一個條件，例如只有 `Number` 但不能比較大小，就不能通過編譯。
+
 ---
 
 ## 5. 例題章節：綜合泛型函式應用
@@ -203,6 +245,7 @@ sum= 132.4
 > 2. 雙型別參數印出兩個不同型別的值
 > 3. 受 `Comparable` 約束的大小比較
 > 4. 受 `Number` 約束的加法運算
+> 5. 使用 `where` 連接多個泛型約束
 >
 > 並在 `main()` 中逐一呼叫，觀察輸出結果。
 
@@ -235,10 +278,22 @@ fun <T1: Number, T2: Number> add(p1: T1, p2: T2): Double {
     return p1.toDouble().plus(p2.toDouble())
 }
 
+// ⑤ where：約束 T 同時是 Number 與 Comparable<T>
+fun <T> compare1(t1: T, t2: T) where T: Number, T: Comparable<T> {
+    when {
+        t1 > t2 -> println("$t1 > $t2")
+        t1 < t2 -> println("$t1 < $t2")
+        else -> println("$t1 = $t2")
+    }
+}
+
 fun main() {
     // 測試 add()
     println("sum= ${add(100, 32.4)}")
     // println("sum= ${add("Mary", 32.4)}") // ❌ 編譯錯誤
+
+    // 測試 compare1()：同時要求 Number + Comparable
+    compare1(12, 56)
 
     // 測試 compare()
     compare(50, 30)
@@ -270,6 +325,11 @@ main()
  │    ├─ 100.0.plus(32.4) → 132.4
  │    └─ 回傳 132.4，印出 "sum= 132.4"
  │
+ ├─ compare1(12, 56)
+ │    ├─ T=Int
+ │    ├─ 同時滿足 Number 與 Comparable<Int>
+ │    └─ 12 < 56
+ │
  ├─ compare(50, 30)        → T=Int,    50 > 30   ✅
  ├─ compare("Mary","John") → T=String, M > J (字典序) ✅
  ├─ compare(12.45,12.45)   → T=Double, 相等 ✅
@@ -287,6 +347,7 @@ main()
 
 ```
 sum= 132.4
+12 < 56
 50 > 30
 Mary > John
 12.45 = 12.45
@@ -316,9 +377,169 @@ p2= 100
 | `fun <T1, T2> foo(x: T1, y: T2)` | 宣告雙型別參數泛型函式 |
 | `fun <T: Comparable<T>> foo(x: T, y: T)` | 限制 T 必須可比較大小 |
 | `fun <T1: Number, T2: Number> foo(...)` | 限制 T1、T2 必須是數值型別 |
+| `fun <T> foo(...) where T: A, T: B` | 限制同一個型別同時符合多個條件 |
 | `p1.toDouble()` | 將 Number 子型別統一轉為 Double |
 | `.plus(other)` | Double 的加法，等同 `+` 運算子 |
 | `when { t1 > t2 -> ... }` | 多條件分支，比較大小後分流 |
+
+---
+
+## 6. 泛型類別與泛型介面
+
+### 核心概念
+
+- `class Rect<T>`：單一型別參數的泛型類別，`height` 和 `width` 必須同型別。
+- `class PlayerClass<T1, T2>`：多型別參數的泛型類別，`name` 與 `score` 可用不同型別。
+- `interface Process<T>`：泛型介面，將「要處理的資料型別」延後到實作類別決定。
+- `class MyPrint : Process<String>`、`class MyData : Process<Data>`：實作時把 `T` 具體化。
+- `data class Data(...)`：資料模型；`copy()` 可快速複製並改欄位、`equals()` 用於值比較。
+
+### 對照表：泛型類別 vs 泛型介面
+
+| 項目 | 泛型類別 | 泛型介面 |
+|---|---|---|
+| 目的 | 儲存泛型狀態/資料 | 定義泛型行為規格 |
+| 宣告語法 | `class Name<T>(...)` | `interface Name<T> { ... }` |
+| 使用方式 | 建立實例後讀寫屬性 | 由類別實作 `override` 方法 |
+| 對應本課程式碼 | `Rect<T>`, `PlayerClass<T1,T2>` | `Process<T>` |
+
+### 最小可執行範例
+
+```kotlin
+class Rect<T>(h: T, w: T) {
+    var width: T = w
+    var height: T = h
+}
+
+interface Process<T> {
+    fun process(item: T)
+}
+
+class MyPrint : Process<String> {
+    override fun process(item: String) {
+        println("Item: $item")
+    }
+}
+
+fun main() {
+    val rect = Rect(10, 20)
+    println("Rect: ${rect.height} x ${rect.width}")
+    MyPrint().process("Mary")
+}
+```
+
+### 常見誤區 / 注意事項
+
+- ⚠️ `Rect<T>` 的兩個建構子參數都用同一個 `T`，不能一個 `Int` 一個 `Float`。
+- ⚠️ 實作泛型介面時，型別要明確化（例如 `Process<String>`），否則無法完成方法簽章。
+- ⚠️ **值比較 vs 參考比較**：`==` 比較內容（呼叫 `equals()`），`===` 比較是否同一物件參考。
+- ⚠️ `data class` 預設提供 `copy()`、`equals()`、`toString()`；這些是資料模型常用 API。
+
+---
+
+## 7. 例題章節：泛型類別 + 泛型介面整合
+
+### 題目背景
+
+建立一個小型資料處理情境：
+- 用 `Rect<T>` 表示不同數值型別的矩形資料。
+- 用 `PlayerClass<T1, T2>` 表示玩家名稱與分數（分數型別可彈性）。
+- 用 `Process<T>` 統一處理流程，分別處理 `String` 與 `Data`。
+
+### 完整程式碼
+
+```kotlin
+class Rect<T>(h: T, w: T) {
+    var width: T = w
+    var height: T = h
+}
+
+class PlayerClass<T1, T2>(n: T1, s: T2) {
+    var name = n
+    var score = s
+}
+
+interface Process<T> {
+    fun process(item: T)
+}
+
+class MyPrint : Process<String> {
+    override fun process(item: String) {
+        println("Item: $item")
+    }
+}
+
+data class Data(val name: String, val id: Int)
+
+class MyData : Process<Data> {
+    override fun process(item: Data) {
+        println("name: ${item.name}, id: ${item.id}")
+    }
+}
+
+fun main() {
+    val myData = MyData()
+    myData.process(Data("Mary", 100))
+    myData.process(Data("Bob", 101))
+
+    val rect = Rect(10, 20)
+    val rect1 = Rect(100.2F, 100.5F)
+
+    val player = PlayerClass("Mary", 100)
+    val players = PlayerClass("Mary", "Bob")
+
+    MyPrint().process("Mary")
+    val myPrint = MyPrint()
+    myPrint.process("Bob")
+
+    // data class 常用 API
+    val d1 = Data("Mary", 100)
+    val d2 = d1.copy(name = "Mary-2")
+    println(d1 == d2) // equals()：值比較
+}
+```
+
+### 執行流程說明
+
+```
+main()
+ ├─ 建立 MyData 並處理兩筆 Data
+ │   ├─ Data("Mary",100)
+ │   └─ Data("Bob",101)
+ │
+ ├─ 建立 Rect<Int> 與 Rect<Float>
+ │   ├─ Rect(10,20)
+ │   └─ Rect(100.2F,100.5F)
+ │
+ ├─ 建立 PlayerClass<String,Int> 與 PlayerClass<String,String>
+ │
+ ├─ 建立 MyPrint 並處理字串 Mary / Bob
+ │
+ └─ Data.copy() 建立新物件，使用 == 觸發 equals() 做值比較
+```
+
+### 預期輸出
+
+```text
+name: Mary, id: 100
+name: Bob, id: 101
+Item: Mary
+Item: Bob
+false
+```
+
+### 核心語法對照表
+
+| 語法 / API | 這個屬性/方法是做什麼 |
+|---|---|
+| `class Rect<T>(h: T, w: T)` | 宣告單型別參數泛型類別，讓寬高共用同型別 |
+| `class PlayerClass<T1, T2>(n: T1, s: T2)` | 宣告雙型別參數泛型類別，讓欄位型別可分離 |
+| `interface Process<T> { fun process(item: T) }` | 定義可重用的泛型處理規格 |
+| `class MyPrint : Process<String>` | 將 `T` 具體指定為 `String` 的介面實作 |
+| `class MyData : Process<Data>` | 將 `T` 具體指定為 `Data` 的介面實作 |
+| `item.name` | 存取 `Data` 的 `name` 屬性 |
+| `d1.copy(name = "Mary-2")` | 複製物件並只修改指定欄位 |
+| `d1 == d2` (`equals()`) | 比較兩個物件的欄位值是否相等 |
 
 ---
 
@@ -339,11 +560,21 @@ Kotlin 泛型（Generics）
 ├─ 型別約束（上界）
 │   ├─ 語法：<T: 上界型別>
 │   ├─ Comparable<T> → 可用 >、<、== 比較
-│   └─ Number → 可用 .toDouble()、.toInt() 等轉換
+│   ├─ Number → 可用 .toDouble()、.toInt() 等轉換
+│   └─ where 可連接多重約束（例：T 同時是 Number + Comparable）
 │
-└─ 回傳型別
-    ├─ 可宣告具體回傳型別（如 : Double）
-    └─ 搭配約束，確保計算邏輯合法
+├─ 泛型類別
+│   ├─ Rect<T>：同型別欄位資料
+│   └─ PlayerClass<T1,T2>：不同型別欄位資料
+│
+├─ 泛型介面
+│   ├─ Process<T>：先定義行為，再由實作類別指定型別
+│   └─ MyPrint / MyData：String 與 Data 的具體化實作
+│
+└─ data class 常用 API
+    ├─ copy()：複製並改局部欄位
+    ├─ equals()：值比較（`==`）
+    └─ 參考比較用 `===`
 ```
 
 ---
