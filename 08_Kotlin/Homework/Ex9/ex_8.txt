@@ -1,0 +1,53 @@
+
+題目 1：
+請設計一個 Student的 data類別，包含以下屬性:
+屬性：姓名（name）、年齡（age）、成績（score）
+
+再設計一個 ScoreManager 類別，內含：
+
+三個函式：
+  * addStudent(student:Student): 
+  * listPass()：印出成績大於等於 60 學生資訊
+  * printInfo()：印出學生資訊，例如 `"姓名：Tom，年齡：18，成績：85
+ 
+請在主程式中建立 4 個學生資料，
+
+姓名	年齡	 成績
+Tom	 18	 85
+Amy	 17	 92
+Bob	 19	 55
+Jane 18	 60
+
+主程式需完成以下步驟：
+
+建立 4 個 Student 物件。
+使用 addStudent() 將 4 位學生加入管理系統。
+使用 printInfo() 列印所有學生資訊。
+使用 listPass() 列印及格學生資訊。
+
+
+題目 2：
+
+設計一個 data 類別 Book(val title: String, val author: String, val year: Int)
+
+再設計一個 Library 類別，內含多本圖書資料並實作查詢功能：
+
+三個函式：
+1.加入書籍 addBook(book: Book)
+2.搜尋某作者的所有書 findByAuthor(author: String): List<Book> 
+3.printInfo()：print all 書籍
+
+請在主程式中建立 4 本書籍資料：
+
+書名	   			作者		出版年份
+Kotlin入門		Tom		2020
+Android開發實戰	Amy		2021
+Kotlin進階技巧	Tom		2022
+資料結構基礎		Bob		2019
+
+主程式需完成以下步驟：
+
+建立 4 個 Book 物件。
+使用 addBook() 將 4 本書加入圖書館。
+使用 printInfo() 列印所有書籍資料。
+使用 findByAuthor("Tom") 搜尋 Tom 的所有書籍, 列印搜尋結果。
