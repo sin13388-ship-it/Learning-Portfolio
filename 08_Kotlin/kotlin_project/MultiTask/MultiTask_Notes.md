@@ -342,7 +342,7 @@ fun main() {
 - **實務上的替代方案**：與其用 `Thread.sleep()` 卡住 main thread 硬等，業界更常見的做法是：
   1. 保留 `Job` 物件並呼叫 `job.join()`（一個 suspend 函式，等待該 coroutine 結束），或
   2. 把整個 `main()` 包在 `runBlocking { }` 裡，讓 coroutine 執行完才讓程式結束（詳見第 9 章）。
-     這樣才不會用「猜時間」的方式賭 coroutine 何時做完。
+  這樣才不會用「猜時間」的方式賭 coroutine 何時做完。
 - Kotlin coroutine 的 `Dispatchers.Default` 執行緒池預設**不是 daemon thread**，所以就算 `main()` 函式本體跑完，只要背景 coroutine 還沒結束，JVM 通常還是會繼續等它們跑完才真正關閉程式（這點和一般 Java `Thread` 的行為不完全一樣，別搞混）。
 
 ---
@@ -564,7 +564,61 @@ waiting 3
 
 ---
 
-## 11. 容易混淆的觀念（Coroutine 篇）
+## 11. `withContext`：在同一個 coroutine 內切換 Dispatcher
+
+### 核心概念
+- **動機**：一個 coroutine 執行到一半，常常需要「暫時借用」另一種執行緒去做特定工作——例如整體邏輯跑在 `Dispatchers.Main`（更新 UI），但中途要做網路請求或讀寫檔案，這些**必須**丟到 `Dispatchers.IO`；如果不做任何處理，直接在 Main coroutine 裡呼叫阻塞的 I/O，就會卡住 UI thread。你當然可以再開一個 `launch` 去做，但這樣會多一個「新任務」，還要額外處理等待與取值，邏輯反而變複雜。`withContext` 就是為了解決「同一段邏輯，中途換條 thread 執行，做完再換回來」而生的。
+- `withContext(dispatcher) { ... }` 是一個 **suspend 函式**：它會把目前這個 coroutine 切換到指定的 `Dispatcher` 執行 lambda 內容，**執行完畢後自動切回呼叫前的 Dispatcher**，並把 lambda 最後一行的值當作回傳值。
+- 它**不會建立新的 `Job` 或 `Deferred`**，仍然是同一個 coroutine，只是暫時借道到別的 thread pool，語意上比較接近「呼叫一個會切換執行緒的函式」，而不是「開一個新任務」。
+- `withContext` 會**依序阻塞（suspend）目前這個 coroutine**，直到內部工作做完才會往下走——它不像 `launch`/`async` 一樣是同時平行展開多個任務。
+- **實務應用**：Android 開發中最典型的寫法：
+  ```kotlin
+  viewModelScope.launch(Dispatchers.Main) {
+      val result = withContext(Dispatchers.IO) {
+          repository.fetchData()   // 網路/資料庫，屬於阻塞 I/O
+      }
+      updateUI(result)             // 自動切回 Main，可直接操作 UI
+  }
+  ```
+  外層邏輯讀起來完全是「由上而下」的同步寫法，但實際上網路請求已經被丟到適合的 thread 去跑，UI thread 完全沒被卡住。
+
+### 對照表
+
+| 寫法 | 是否開新 coroutine | 是否等待完成 | 能否直接取回傳值 | 適用情境 |
+|---|---|---|---|---|
+| `withContext(Dispatchers.IO) { }` | 否，仍是同一個 coroutine | 是，會等內部做完才繼續 | 可以（lambda 最後一行即回傳值） | 這段工作必須做完才能繼續往下的循序邏輯 |
+| `launch(Dispatchers.IO) { }` | 是 | 否，不等待（fire-and-forget） | 不行（除非另外 `join()`） | 不需要立刻拿結果、可以背景默默跑的任務 |
+| `async(Dispatchers.IO) { }` | 是 | 呼叫 `.await()` 時才等待 | 可以（`.await()`） | 需要平行跑多個任務、之後統一取值 |
+
+### 最小可執行範例
+```kotlin
+import kotlinx.coroutines.*
+
+suspend fun fetchData(): String {
+    return withContext(Dispatchers.IO) {
+        Thread.sleep(300) // 模擬阻塞的網路/檔案 I/O，在 IO thread 上執行沒問題
+        "data from server"
+    }
+}
+
+fun main() = runBlocking {
+    launch(Dispatchers.Default) {
+        println("開始，先做別的事")
+        val result = fetchData()  // 這裡會 suspend，等 IO 做完才繼續
+        println("拿到結果：$result")
+    }
+}
+```
+
+### 常見誤區 / 注意事項
+- **`withContext` 不是「開新 coroutine」**：很多初學者以為它像 `launch` 一樣會產生一個獨立的任務，其實它仍在同一個 coroutine 內執行，只是切換底層 thread。
+- **忘記用 `withContext(Dispatchers.IO)` 包住阻塞呼叫**：如果目前的 coroutine 在 `Dispatchers.Main`，卻在裡面直接呼叫阻塞的資料庫/檔案/網路操作而不透過 `withContext` 切到 IO，會直接卡住 UI thread，效果等同誤用 `Thread.sleep()`。
+- **回傳值取決於 lambda 最後一行**：`withContext { ... }` 的回傳值是**最後一行運算式的值**，如果最後一行是 `println(...)` 這種回傳 `Unit` 的呼叫，`withContext` 就會回傳 `Unit`，不是你想要的資料，要特別注意最後一行寫的是不是真正想回傳的值。
+- **實務上的替代方案**：如果需要「平行」處理多個各自獨立的 I/O 工作（例如同時打兩支 API 再合併結果），連續寫多個 `withContext` 其實是**依序**執行、沒有平行效果；這種情境應該改用多個 `async { }` 搭配 `awaitAll()`，才能真正同時進行。`withContext` 適合的是「單一段邏輯需要換執行緒，但流程本身仍是循序的」。
+
+---
+
+## 12. 容易混淆的觀念（Coroutine 篇）
 
 ### 核心概念
 - **`delay()` vs `Thread.sleep()`**：`delay()` 只暫停「這個 coroutine」，會把 thread 讓出去給別的 coroutine 用；`Thread.sleep()` 是把「整條 thread」卡死，該 thread 上其他排隊的 coroutine 全部要等。誤用 `Thread.sleep()` 取代 `delay()`（如 `MutiTask_2.kt` 的 `sFun()`）會讓 coroutine 失去輕量、協作式排程的優勢。
@@ -572,6 +626,7 @@ waiting 3
 - **`Job()` vs `SupervisorJob()`**：一句話——`Job()` 是「一人生病，全班隔離」；`SupervisorJob()` 是「一人生病，其他人正常上課」。
 - **`suspend fun` 不等於「自動非阻塞」**：標記 `suspend` 只表示這個函式**可以**包含暫停點（例如呼叫 `delay()`），但函式內部若寫的是 `Thread.sleep()` 這種阻塞呼叫，該函式依然會卡住執行它的 thread。
 - **一般 `fun` vs `suspend fun`**：`launch{}` 內可以呼叫一般 `fun`，語法上不會出錯，但一般 `fun` 沒有暫停能力，若其中有耗時操作，coroutine 會整個被卡住，等同於白白浪費了開 coroutine 的意義。
+- **`withContext` vs `launch`/`async`**：一句話——`withContext` 是「同一個人換個地方繼續做同一件事，做完馬上回來報告」；`launch`/`async` 是「另外派一個人去做別的事」。
 
 ### 常見誤區 / 注意事項
 - 不要看到 `suspend` 關鍵字就以為「這個函式一定不會卡住 thread」，要看函式**內部**用的是 `delay()` 還是 `Thread.sleep()`。
@@ -609,11 +664,16 @@ Kotlin 多執行緒與 Coroutine
 │  ├─ launch { } vs async { }
 │  │   ├─ launch → Job，不需要回傳值
 │  │   └─ async → Deferred<T>，用 .await() 取得回傳值
-│  └─ runBlocking { }
-│      └─ 阻塞呼叫的 thread，等內部 coroutine 全部跑完，常用於 main() / 測試
+│  ├─ runBlocking { }
+│  │   └─ 阻塞呼叫的 thread，等內部 coroutine 全部跑完，常用於 main() / 測試
+│  └─ withContext(dispatcher) { }
+│      ├─ 不開新 coroutine，只是同一個 coroutine 暫時換執行緒
+│      ├─ suspend 函式，會等內部做完才繼續，回傳值 = lambda 最後一行
+│      └─ 常見於：Main coroutine 中途切到 IO 做網路/檔案，做完自動切回 Main
 │
 └─ 容易混淆一句話
    ├─ 值比較 vs 參考比較：== 比內容，=== 比是否同一物件
    ├─ delay() 是「禮貌讓出資源」，Thread.sleep() 是「霸占資源硬躺著」
-   └─ Job() 是「一人生病全班隔離」，SupervisorJob() 是「一人生病其他人照常上課」
+   ├─ Job() 是「一人生病全班隔離」，SupervisorJob() 是「一人生病其他人照常上課」
+   └─ withContext 是「換地方做同一件事」，launch/async 是「派別人去做別的事」
 ```

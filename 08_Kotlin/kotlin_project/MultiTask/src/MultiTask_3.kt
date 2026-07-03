@@ -6,6 +6,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.sql.SQLOutput
 
 fun main() {
 
@@ -41,13 +43,12 @@ fun main() {
     println()
 
     /*runBlock 可以讓main thread 等block 做完在結束*/
-
     runBlocking {
         val value1 =scope1.async {
             delay(100)
             println("async job 1")
             100
-        }
+        }.await()
         val value2 =scope1.async {
             delay(200)
             println("async job 2")
@@ -55,10 +56,31 @@ fun main() {
         }
 
         //await 會去取得數值
-        println("value1= ${value1.await()}, value2 =${value2.await()}")
+        println("value1= ${value1}, value2 =${value2.await()}")
         println()
+    }
+
+    // 在 Default dispatcher 上啟動協程，執行 DoEvent() 函數
+    CoroutineScope(Dispatchers.Default).launch {
+        DoEvent()
     }
     Thread.sleep(1000)
     println("waiting 3")
+}
 
+suspend fun DoEvent(){
+    withContext(Dispatchers.Default){
+        println("Do Event")
+        DoJob()
+        delay(200)
+        println("event finished")
+    }
+}
+
+suspend fun DoJob(){
+    withContext(Dispatchers.IO){
+        println("Do job")
+        delay(100)
+        println("job finished")
+    }
 }
