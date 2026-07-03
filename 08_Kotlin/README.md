@@ -9,3 +9,5 @@
 [Lambda](./kotlin_project/KT_1/LambdaNotes.md)
 
 [Class](./kotlin_project/KT_3/ClassNotes.md)
+
+[Abstact-Class](./kotlin_project/AbstractClassExercise/)
