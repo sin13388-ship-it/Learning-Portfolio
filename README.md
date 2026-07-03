@@ -2,42 +2,71 @@
 職訓局IoT學習歷程
 
 ## 寫在前面
-之前都是用Notion寫，之後會陸續把內容移轉過來
+- 之前都是用Notion寫，之後會陸續把內容移轉過來
 [數位筆記連結](https://www.notion.so/IoT-Learning-323fbfb24ec0800c8d35ddb46b4f26d6?source=copy_link)
-前期的筆記會記錄的比較完整，後期的只會紀錄課程反思、自主學習和比較生疏的部分
+
+- 前期的筆記會記錄的比較完整，後期的只會紀錄課程反思、自主學習和比較生疏的部分
 
 ## 各項目的日程
 滾動式調整
 
 
+
 ## 課程內容
 
 1. 數位邏輯系統(32小時)
-   - 基本的邏輯閘介紹
-   - 布林代數的定理
-   - C語言的邏輯運算指令與邏輯閘的關係
-   - 數字系統介紹
-   - 常用的組合邏輯電路和循序邏輯電路
-   - [MCU的基本架構及運作原理](./04_DigitalLogic/README.md#mcu的基本架構及運作原理)
-   - Arduino beginner kit
+   <details>
+     <summary>基本概念</summary>
+     
+     - 基本的邏輯閘介紹
+     - 布林代數的定理
+     - C語言的邏輯運算指令與邏輯閘的關係
+     - 數字系統介紹
+     - 常用的組合邏輯電路和循序邏輯電路
+     </details>
+   <details>
+     <summary>MCU的基本概念</summary>
+     
+     - [MCU的基本架構及運作原理](./04_DigitalLogic/README.md#mcu的基本架構及運作原理)
+     </details>
+   <details>
+     <summary>Arduino 實作模組</summary>
+     
+     - Arduino beginner kit
+     </details>
 2. C程式語言(72小時)
-   - 程式的基本架構 
-   - 變數與常數
-   - 程式的運算與邏輯
-   - 程式控制流程
-   - 陣列與迴圈
-   - 指標與結構
-   - 自學補充專題-文字計算機 [文字計算機] (https://github.com/sin13388-ship-it/FullTextCalculator.git)
+   <details>
+     <summary>Basic concept</summary>
+     
+     - 程式的基本架構 
+     - 變數與常數
+     - 程式的運算與邏輯
+     - 程式控制流程
+     - 陣列與迴圈
+     - 指標與結構
+     </details>   
 3. Java程式語言(96小時) [Java](./03_Java/Java/Code/README.md)
-   - 資料型態
-   - 流程控制
-   - 陣列
-   - 方法
-   - 物件與類別
-   - 封裝、繼承
-   - 方法覆寫與多型
-   - 抽象類別與抽象方法
-   - 匿名、例外處理、泛型
+   <details>
+     <summary>基本語法</summary>
+     
+     - 資料型態
+     - 流程控制
+     - 陣列
+     - 方法
+     </details>
+   <details>
+     <summary>物件導向基礎</summary>
+     
+     - 物件與類別
+     - 封裝、繼承
+     - 方法覆寫與多型
+     </details>
+   <details>
+     <summary>進階特性</summary>
+     
+     - 抽象類別與抽象方法
+     - 匿名、例外處理、泛型
+     </details>
 4. Kotlin程式語言(80小時)[Kotlin](./08_Kotlin/README.md)
    - 資料型態(List、Set、Map)
    - 條件運算式
@@ -105,6 +134,11 @@
    - 生成式AI
    - 機器學習模型
 13. 綜合應用(104小時)
+   - <details>
+     <summary>Self-learning</summary>
+     
+     - 自學補充專題-文字計算機 [文字計算機] (https://github.com/sin13388-ship-it/FullTextCalculator.git)
+     </details>
    - Sensor的操作
    - JSON格式
    - Restful API
