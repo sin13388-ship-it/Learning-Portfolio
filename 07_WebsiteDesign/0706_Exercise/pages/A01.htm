@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap exercise2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /*start with 'col' */
+        [class^="col"]{
+            border: 1px solid #c2c2c2;
+            background-color: #e1e1e1;
+            height: 180px;
+        }
+        .row{
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-4">1</div>
+        <div class="col-4">2</div>
+        <div class="col-4">3</div>
+    </div>
+    <div class="row">
+        <div class="col-2">1</div>
+        <div class="col-2">2</div>
+        <div class="col-2">3</div>
+        <div class="col-2">4</div>
+        <div class="col-2">5</div>
+        <div class="col-2">6</div>
+    </div>
+    <div class="row">
+        <!--自動調整欄寬-->
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+        <div class="col">5</div>
+        <div class="col">6</div>
+        <div class="col">7</div>
+    </div>   
+
+    <div class="row">
+        <!---不同的螢幕尺寸，調整縮放比例
+        col-12(col-xs-12), 12 表示是一個欄寬的比例，縮到最小的size後 -12 >> 12/12 =100%, 會變成 1個欄寬,
+        col-sm-6 >> 6/12 =50%, 會佔畫面50%的欄寬      
+        -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm1</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm2</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm3</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm4</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm5</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm6</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm7</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm8</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm9</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm10</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm11</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Colunm12</div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 ">Column 21</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 22</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 23</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 24</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 25</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 26</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 27</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 28</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 29</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 30</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 31</div>
+        <div class="col-12 col-md-6 col-lg-4 ">Column 32</div>
+    </div>
+</div>
+<script src ="../../js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

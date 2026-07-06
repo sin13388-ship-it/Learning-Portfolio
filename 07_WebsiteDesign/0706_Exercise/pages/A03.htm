@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap exercise2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /*start with 'col' */
+        [class^="col"]{
+            border: 1px solid #c2c2c2;
+            background-color: #e1e1e1;
+            height: 180px;
+        }
+        .row{
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container ">
+    <div class="row">
+        <!--欄位排序-->
+        <div class="col-2 order-last">1</div>
+        <div class="col-2">2</div>
+        <div class="col-2">3</div>
+        <div class="col-2">4</div>
+        <div class="col-2 order-first">5</div>
+        <div class="col-2">6</div>
+    </div>
+    <div class="row">
+        <!--欄位排序 沒寫的優先最大，order-xx 會排在後面-->
+        <div class="col-2">1</div>
+        <div class="col-2">2</div>
+        <div class="col-2 order-2">3</div>
+        <div class="col-2">4</div>
+        <div class="col-2">5</div>
+        <div class="col-2 order-1">6</div>
+    </div>
+    <div class="row">
+        <!--欄位排序，欄位3後開始排序-->
+        <div class="col-2">1</div>
+        <div class="col-2">2</div>
+        <div class="col-2">3</div>
+        <div class="col-2 order-3">4</div>
+        <div class="col-2 order-2">5</div>
+        <div class="col-2 oreder-1">6</div>
+    </div>
+</div>
+<script src ="../../js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
