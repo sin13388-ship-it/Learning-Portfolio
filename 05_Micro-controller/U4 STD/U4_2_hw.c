@@ -49,11 +49,11 @@ void main()
 		} while(Key==16);	   						//等待按壓按鍵
 		SEGPort=SEG_TAB[Key];				      	//查表並顯示按鍵值
 
-		_ptm2al=Pitch_TAB[Key];		         		//取得計數時間常數
-		_ptm2ah=Pitch_TAB[Key]>>8;          
+//		_ptm2al=Pitch_TAB[Key];		         		//取得計數時間常數
+//		_ptm2ah=Pitch_TAB[Key]>>8;          
 
-//		_stm2ah=Pitch_TAB[Key]>>8;          		//Write Hi-byte First
-//		_stm2al=Pitch_TAB[Key];		         		//then write  Lo-byte !!!
+		_ptm2ah=Pitch_TAB[Key]>>8;          		//Write Hi-byte First
+		_ptm2al=Pitch_TAB[Key];		         		//then write  Lo-byte !!!
 
 		_pt2on=1;									//啟動STM2計數
 		while (ScanKey()!=16);	                  	//等待按鍵釋放

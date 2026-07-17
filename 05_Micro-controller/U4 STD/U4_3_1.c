@@ -13,44 +13,44 @@
 #define	SW_DirectionPU	_pcpu2	
 #define	SW_Direction	_pc2	
 #define	SW_DirectionC	_pcc2	
-const u8 SEG_TAB[] = {0x3F,0x06,0x5B,0x4F,0x66,		//¤C¬qÅã¥Ü½X«Øªí°Ï(¦@³±)
+const u8 SEG_TAB[] = {0x3F,0x06,0x5B,0x4F,0x66,		//ä¸ƒæ®µé¡¯ç¤ºç¢¼å»ºè¡¨å€(å…±é™°)
 			 		  0x6D,0x7D,0x07,0x7F,0x67};
-const u16 PWM_TAB[] = {0,512,1024,1536,2048,		//PWM±`¼Æ«Øªí°Ï
+const u16 PWM_TAB[] = {0,512,1024,1536,2048,		//PWMå¸¸æ•¸å»ºè¡¨å€
 			 		   2560,3072,3584,4096,4608};
-void Delayms(u16);									//¨ç¦¡­ì«¬«Å§i		 
+void Delayms(u16);									//å‡½å¼åŽŸåž‹å®£å‘Š		 
 void main()
 {	s8 Index=0;								
-	_wdtc=0b10101111;								//Ãö³¬¬Ý­Ìª¯­p®É¾¹
-	SEGPort=0; SEGPortC=0; 							//³W¹ºSEGPort¬°¿é¥XÄÝ©Ê,¨Ã¿é¥X0
-	SW_SpeedUpC=1; SW_SpeedUpPU=1;			   		//³W¹º«öÁä¸}¦ì¬°¿é¤JÄÝ©Ê¨Ã±Ò¥Î´£¤É¹qªý
+	_wdtc=0b10101111;								//é—œé–‰çœ‹å€‘ç‹—è¨ˆæ™‚å™¨
+	SEGPort=0; SEGPortC=0; 							//è¦åŠƒSEGPortç‚ºè¼¸å‡ºå±¬æ€§,ä¸¦è¼¸å‡º0
+	SW_SpeedUpC=1; SW_SpeedUpPU=1;			   		//è¦åŠƒæŒ‰éµè…³ä½ç‚ºè¼¸å…¥å±¬æ€§ä¸¦å•Ÿç”¨æå‡é›»é˜»
 	SW_SpeedDownC=1; SW_SpeedDownPU=1;		   	
 	SW_DirectionC=1; SW_DirectionPU=1;		   	
-	_pb2=0; _pbc2=0; _pd4=0; _pdc4=0;				//³W¹ºPB2/PD4¬°¿é¥XÄÝ©Ê¨Ã¿é¥X0
-	_pbs0=0x30; _pds1=0x00;							//PB2¬°PTP3¥\¯à¡BPD4¬°I/O¥\¯à
-	_ptm3rpl=(u8)4608; _ptm3rph=4608>>8;			//PWM ¶g´Á=4608/fINT
-	_ptm3c0=0b00111000;								//fINT=fSYS(8MHz)/64(8us),°_©lPTM3­p¼Æ
+	_pb2=0; _pbc2=0; _pd4=0; _pdc4=0;				//è¦åŠƒPB2/PD4ç‚ºè¼¸å‡ºå±¬æ€§ä¸¦è¼¸å‡º0
+	_pbs0=0x30; _pds1=0x00;							//PB2ç‚ºPTP3åŠŸèƒ½ã€PD4ç‚ºI/OåŠŸèƒ½
+	_ptm3rpl=(u8)4608; _ptm3rph=4608>>8;			//PWM é€±æœŸ=4608/fINT
+	_ptm3c0=0b00111000;								//fINT=fSYS(8MHz)/64(8us),èµ·å§‹PTM3è¨ˆæ•¸
 	_ptm3c1=0b10101000;								//PWM Mode, Active High
 	while(1)
 	{	SEGPort=SEG_TAB[Index];
-		if(_pds1==0x02) SEGPort|=1<<7;				//¤ÏÂà®ÉÅã¥Üdp¸`¬q
-		_ptm3al=(u8)PWM_TAB[Index]; 				//¨ú±o¦ûªÅ¤ñ°Ñ¼Æ
+		if(_pds1==0x02) SEGPort|=1<<7;				//åè½‰æ™‚é¡¯ç¤ºdpç¯€æ®µ
+		_ptm3al=(u8)PWM_TAB[Index]; 				//å–å¾—ä½”ç©ºæ¯”åƒæ•¸
 		_ptm3ah=PWM_TAB[Index]>>8;
-		Delayms(250);								//©µ¿ð250ms
+		Delayms(250);								//å»¶é²250ms
 		while(1)
 		{	if(!SW_SpeedUp)
-			{	if(++Index>9) Index=9;				//­Y«ö¤U¥[³tÁä,«ü¼Ð»¼¼W(¤W­­9) 
+			{	if(++Index>9) Index=9;				//è‹¥æŒ‰ä¸‹åŠ é€Ÿéµ,æŒ‡æ¨™éžå¢ž(ä¸Šé™9) 
 				break;   	
 			}
-			else if(!SW_SpeedDown) 					//­Y«ö¤U´î³tÁä,«ü¼Ð»¼´î(¤U­­0) 
+			else if(!SW_SpeedDown) 					//è‹¥æŒ‰ä¸‹æ¸›é€Ÿéµ,æŒ‡æ¨™éžæ¸›(ä¸‹é™0) 
 			{	if(--Index<0) Index=0;
 				break;   	
 			}
 			else if(!SW_Direction)
-			{	if(_pds1==0)						//¬O§_¬°¥¿Âà?
-				{	_pbs0=0x00; _pds1=0x02;			//¬O,PB2¬°I/O¥\¯à¡BPD4¬°PTP3¥\¯à
+			{	if(_pds1==0)						//æ˜¯å¦ç‚ºæ­£è½‰?
+				{	_pbs0=0x00; _pds1=0x02;			//æ˜¯,PB2ç‚ºI/OåŠŸèƒ½ã€PD4ç‚ºPTP3åŠŸèƒ½
 				}
-				else								//§_
-				{	_pbs0=0x30; _pds1=0x00;			//PB2¬°PTP3¥\¯à¡BPD4¬°I/O¥\¯à
+				else								//å¦
+				{	_pbs0=0x30; _pds1=0x00;			//PB2ç‚ºPTP3åŠŸèƒ½ã€PD4ç‚ºI/OåŠŸèƒ½
 				}
 				break;
 			}
@@ -58,6 +58,6 @@ void main()
 	}
 }
 void Delayms(u16 del)
-{	u16 i;											//@fSYS=8MH,©µ¿ðdel*1ms
+{	u16 i;											//@fSYS=8MH,å»¶é²del*1ms
 	for(i=0;i<del;i++) GCC_DELAY(2000);
 }
