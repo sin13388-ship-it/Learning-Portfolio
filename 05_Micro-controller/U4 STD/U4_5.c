@@ -10,15 +10,15 @@
 #define	pLCMRSC		_pec0	
 #define	LCMData		_pg
 #define	LCMDataC	_pgc
-#define	pDHT		_pc2					//DHT«H¸¹¿é¥X³s±µ¸}¦ì
+#define	pDHT		_pc2					//DHTä¿¡è™Ÿè¼¸å‡ºé€£æ¥è…³ä½
 #define	pDHTC		_pcc2
 #define	pDHTPU		_pcpu2
-#define	fSYS		8000000					//¨t²Î¤u§@®É¯ß
-//#define StartTC		(1*(fSYS/(4*1000)))	//DHT22 Start«H¸¹®É¶¡°Ñ¼Æ:1ms (Error Demonstration when fINT=fSYS/4)
-#define StartTC		((u32)1*fSYS/(16*1000))	//DHT22 Start«H¸¹®É¶¡°Ñ¼Æ:1ms[1ms/(1/fINT)] where fINT=fH/16 
+#define	fSYS		8000000					//ç³»çµ±å·¥ä½œæ™‚è„ˆ
+//#define StartTC		(1*(fSYS/(4*1000)))	//DHT22 Startä¿¡è™Ÿæ™‚é–“åƒæ•¸:1ms (Error Demonstration when fINT=fSYS/4)
+#define StartTC		((u32)1*fSYS/(16*1000))	//DHT22 Startä¿¡è™Ÿæ™‚é–“åƒæ•¸:1ms[1ms/(1/fINT)] where fINT=fH/16 
 
-const u8 STR1[] = {" Humi.:   .  %RH"};		//¦r¦ê1«Øªí			
-const u8 STR2[] = {" Temp.:   .  Deg"};		//¦r¦ê2«Øªí
+const u8 STR1[] = {" Humi.:   .  %RH"};		//å­—ä¸²1å»ºè¡¨			
+const u8 STR2[] = {" Temp.:   .  Deg"};		//å­—ä¸²2å»ºè¡¨
 u8 ReadDHT(u16*,u16*);
 void LCMInit(void);
 u8 LCMWrite(_Bool, u8);
@@ -26,105 +26,105 @@ void Delayms(u16);
 void main()
 {	const u8* ptr;
 	u16 h,t;
-	_wdtc=0b10101111;						//Ãö³¬¬İªùª¯­p®É¾¹
-	pDHTC=1; pDHTPU=1; 						//PC2³]¸m¬°¿é¤J¨Ã­P¯à´£¤É¹qªı
-	LCMInit();				           		//LCMªì©l¤Æ
-	LCMWrite(0,0x80); ptr=STR1;				//²Ä¤@¦C
-	while(*ptr!=0) LCMWrite(1,*ptr++); 		//Åã¥ÜSTR1[]¦r¦ê
-	LCMWrite(0,0xC0); ptr=STR2;				//²Ä¤G¦C
-	while(*ptr!=0) LCMWrite(1,*ptr++); 		//Åã¥ÜSTR2[]¦r¦ê
+	_wdtc=0b10101111;						//é—œé–‰çœ‹é–€ç‹—è¨ˆæ™‚å™¨
+	pDHTC=1; pDHTPU=1; 						//PC2è¨­ç½®ç‚ºè¼¸å…¥ä¸¦è‡´èƒ½æå‡é›»é˜»
+	LCMInit();				           		//LCMåˆå§‹åŒ–
+	LCMWrite(0,0x80); ptr=STR1;				//ç¬¬ä¸€åˆ—
+	while(*ptr!=0) LCMWrite(1,*ptr++); 		//é¡¯ç¤ºSTR1[]å­—ä¸²
+	LCMWrite(0,0xC0); ptr=STR2;				//ç¬¬äºŒåˆ—
+	while(*ptr!=0) LCMWrite(1,*ptr++); 		//é¡¯ç¤ºSTR2[]å­—ä¸²
 	while(1)
-	{	while(ReadDHT(&h,&t)==1)			//¥¿½TÅª¨úDHT22?
+	{	while(ReadDHT(&h,&t)==1)			//æ­£ç¢ºè®€å–DHT22?
 		{	LCMWrite(0,0x88);
-			LCMWrite(1,h/100+'0'); h%=100;	//Åã¥Ü·Ã«×:¤Q¦ì¼Æ
-			LCMWrite(1,h/10+'0'); h%=10;	//Åã¥Ü·Ã«×:­Ó¦ì¼Æ
+			LCMWrite(1,h/100+'0'); h%=100;	//é¡¯ç¤ºæº¼åº¦:åä½æ•¸
+			LCMWrite(1,h/10+'0'); h%=10;	//é¡¯ç¤ºæº¼åº¦:å€‹ä½æ•¸
 			LCMWrite(0,0x8B);
-			LCMWrite(1,h+'0');				//Åã¥Ü·Ã«×:¤p¼ÆÂI«á¤@¦ì
+			LCMWrite(1,h+'0');				//é¡¯ç¤ºæº¼åº¦:å°æ•¸é»å¾Œä¸€ä½
 			LCMWrite(0,0xC8);
-			LCMWrite(1,t/100+'0'); t%=100;	//Åã¥Ü·Å«×:¤Q¦ì¼Æ
-			LCMWrite(1,t/10+'0'); t%=10;	//Åã¥Ü·Å«×:­Ó¦ì¼Æ
-			LCMWrite(0,0xCB);				//Åã¥Ü·Å«×:¤p¼ÆÂI«á¤@¦ì
+			LCMWrite(1,t/100+'0'); t%=100;	//é¡¯ç¤ºæº«åº¦:åä½æ•¸
+			LCMWrite(1,t/10+'0'); t%=10;	//é¡¯ç¤ºæº«åº¦:å€‹ä½æ•¸
+			LCMWrite(0,0xCB);				//é¡¯ç¤ºæº«åº¦:å°æ•¸é»å¾Œä¸€ä½
 			LCMWrite(1,t+'0');
-			Delayms(1000);					//©µ¿ğ1¬í
+			Delayms(1000);					//å»¶é²1ç§’
 		}
 	}
 }
 u8 ReadDHT(u16* ptrh,u16* ptrt)
-{	u32	temp=0,temp1=(u32)1<<31;
+{	u32	temp=0,temp1=(u32)1<<31; //MSB first 
 	volatile u16 TCnt; volatile u8 parity=0;
 	_ptm0c0=0x20;							//fINT=fSYS/16
 	_ptm0c1=0b10110000;						//Single-Pulse/Active Low
 	_ptm0al=(u8)StartTC; _ptm0ah=StartTC>>8;//Start Signal
 	_pcs0=0x20;								//PC2==>PTP0		
-	_ptm0af=0; _pt0on=1; 					//¶}©l¿é¥X
-	while(!_ptm0af); 						//µ¥«İStart Signalµ²§ô
+	_ptm0af=0; _pt0on=1; 					//é–‹å§‹è¼¸å‡º
+	while(!_ptm0af); 						//ç­‰å¾…Start SignalçµæŸ
 	_pcs0=0;								//PC2==>I/O 						
 	_ptm0c0=0;								//fINT=fSYS/4
-	_ptm0c1=0b01010000;						//Capture I/P,­t½t®·®» 
-	_ptm0rpl=(u8)400; _ptm0rph=400>>8;		//³]¸m®·®»­È¤W­­(Response=80+80us, max:85us*2)
+	_ptm0c1=0b01010000;						//Capture I/P,è² ç·£æ•æ‰ 
+	_ptm0rpl=(u8)400; _ptm0rph=400>>8;		//è¨­ç½®æ•æ‰å€¼ä¸Šé™(Response=80+80us, max:85us*2)
 	_ptp0ips=0;								//PTP0I -> PC2 (IFS1)	
- 	_ptm0af=0; _ptm0pf=0; 					//²M°£ºX¼Ğ
- 	while(pDHT);							//µ¥«İDHT Pull-low
-	_pt0on=1; 								//±Ò°ÊCapture
-	while(!_ptm0af)							//µ¥«İDHTµ²§ôResponse	
-	{	if(_ptm0pf) { _pt0on=0; return 0;}	//¶W¹L®É¶¡¥¼¦^À³,Åª¨ú¿ù»~
+ 	_ptm0af=0; _ptm0pf=0; 					//æ¸…é™¤æ——æ¨™
+ 	while(pDHT);							//ç­‰å¾…DHT Pull-low
+	_pt0on=1; 								//å•Ÿå‹•Capture
+	while(!_ptm0af)							//ç­‰å¾…DHTçµæŸResponse	
+	{	if(_ptm0pf) { _pt0on=0; return 0;}	//è¶…éæ™‚é–“æœªå›æ‡‰,è®€å–éŒ¯èª¤
 	} 
 	_pt0on=0;
-	TCnt=_ptm0ah; TCnt=(TCnt<<8)|_ptm0al;	//¨ú±o®·®»­È
-	if(TCnt<240) return 0;					//Response«H¸¹¹Lµu,Åª¨ú¿ù»~(min:75us*2) 
-	while(temp1!=0)							//¨ú±o32-Bit¸ê®Æ
-	{	_ptm0af=0; _pt0on=1;				//±Ò°ÊCapture
-		while(!_ptm0af);					//µ¥«İ­t½t®·®»		
+	TCnt=_ptm0ah; TCnt=(TCnt<<8)|_ptm0al;	//å–å¾—æ•æ‰å€¼
+	if(TCnt<240) return 0;					//Responseä¿¡è™ŸéçŸ­,è®€å–éŒ¯èª¤(min:75us*2) 
+	while(temp1!=0)							//å–å¾—32-Bitè³‡æ–™
+	{	_ptm0af=0; _pt0on=1;				//å•Ÿå‹•Capture
+		while(!_ptm0af);					//ç­‰å¾…è² ç·£æ•æ‰		
 		_pt0on=0;
-		TCnt=(u16)_ptm0ah<<8; TCnt|=_ptm0al;//¨ú±o®·®»­È	
+		TCnt=(u16)_ptm0ah<<8; TCnt|=_ptm0al;//å–å¾—æ•æ‰å€¼	
 		if(TCnt>190) temp|=temp1;			//0:78us(70us~85us), 1:120us(116us~130us)
 		temp1>>=1;
 	}
-	temp1=1<<7;	 							//¨ú±oCheck Sum
+	temp1=1<<7;	 							//å–å¾—Check Sum
 	while(temp1!=0)
-	{	_ptm0af=0; _pt0on=1;				//±Ò°ÊCapture
-		while(!_ptm0af);					//µ¥«İ­t½t®·®»
+ 	{	_ptm0af=0; _pt0on=1;				//å•Ÿå‹•Capture
+		while(!_ptm0af);					//ç­‰å¾…è² ç·£æ•æ‰
 		_pt0on=0;
-		TCnt=(u16)_ptm0ah<<8; TCnt|=_ptm0al;//¨ú±o®·®»­È	
+		TCnt=(u16)_ptm0ah<<8; TCnt|=_ptm0al;//å–å¾—æ•æ‰å€¼	
 		if(TCnt>190) parity|=temp1;			//0:78us(70us~85us), 1:120us(116us~130us)
 		temp1>>=1;
 	}
-	while(!pDHT);							//µ¥«İEnd Signalµ²§ô
-	TCnt=temp;								//­pºâ Checksum
+	while(!pDHT);							//ç­‰å¾…End SignalçµæŸ
+	TCnt=temp;								//è¨ˆç®— Checksum
 	TCnt+=temp>>8;
 	TCnt+=temp>>16;
 	TCnt+=temp>>24;
 	if((u8)TCnt!=parity) return 0;			//Checksum Error
-	*ptrt=temp; *ptrh=temp>>16;				//¨ú±o·Å«×¡BÀã«×
-	return 1;								//¦^¶Ç1(¥¿½TÅª¨ú)
+	*ptrt=temp; *ptrh=temp>>16;				//å–å¾—æº«åº¦ã€æ¿•åº¦
+	return 1;								//å›å‚³1(æ­£ç¢ºè®€å–)
 }
 void LCMInit(void)
-{	pLCMEN=0; pLCMRW=0; pLCMRS=0;	      	//³]©wEN/RW/RS¸}¦ì¬°§C¹q¦ì
-	pLCMENC=0; pLCMRWC=0; pLCMRSC=0;	 	//³]©wEN/RW/RS¸}¦ì¬°¿é¥X¼Ò¦¡
+{	pLCMEN=0; pLCMRW=0; pLCMRS=0;	      	//è¨­å®šEN/RW/RSè…³ä½ç‚ºä½é›»ä½
+	pLCMENC=0; pLCMRWC=0; pLCMRSC=0;	 	//è¨­å®šEN/RW/RSè…³ä½ç‚ºè¼¸å‡ºæ¨¡å¼
 	Delayms(40);							//LCM Power-On Time
-	LCMWrite(0,0x38);						//¥\¯à³]©w:8-Bit, 2-Line, 5*7
-	LCMWrite(0,0x0C);						//Åã¥Ü±±¨î:Display on, No Cursor
-	LCMWrite(0,0x06);						//¶i¤J¼Ò¦¡:Increse, Not Shift
-	LCMWrite(0,0x01);						//²M°£LCM
+	LCMWrite(0,0x38);						//åŠŸèƒ½è¨­å®š:8-Bit, 2-Line, 5*7
+	LCMWrite(0,0x0C);						//é¡¯ç¤ºæ§åˆ¶:Display on, No Cursor
+	LCMWrite(0,0x06);						//é€²å…¥æ¨¡å¼:Increse, Not Shift
+	LCMWrite(0,0x01);						//æ¸…é™¤LCM
 }
 u8 LCMWrite(_Bool fgCD,u8 CD)
 {	u8 BusyAC;
-	LCMDataC=0b11111111;					//³W¹ºPort¬°¿é¤J¼Ò¦¡
+	LCMDataC=0b11111111;					//è¦åŠƒPortç‚ºè¼¸å…¥æ¨¡å¼
 	pLCMRS=0; pLCMRW=1;						//RS=0,RW=1 (Read IR)
 	GCC_NOP(); 								//tAS
 	do
 	{	pLCMEN=1; GCC_NOP();				//EN=1,tDDR
-		BusyAC=LCMData;						//Åª¨úLCM IR
+		BusyAC=LCMData;						//è®€å–LCM IR
 		pLCMEN=0;							//EN=0	
-	} while (BusyAC & 1<<7);				//­YLCM¦£¸L,¦A¦¸Åª¨ú
-	LCMDataC=0;								//³W¹ºPort¬°¿é¥X¼Ò¦¡
+	} while (BusyAC & 1<<7);				//è‹¥LCMå¿™ç¢Œ,å†æ¬¡è®€å–
+	LCMDataC=0;								//è¦åŠƒPortç‚ºè¼¸å‡ºæ¨¡å¼
 	pLCMRW=0;								//RW=0 (Write)
-	pLCMRS=fgCD;							//¨ÌfgCD­È³]¸m RS¸}¦ìª¬ºA
-	LCMData=CD;								//°e¥X¸ê®Æ©Î©R¥O
+	pLCMRS=fgCD;							//ä¾fgCDå€¼è¨­ç½® RSè…³ä½ç‹€æ…‹
+	LCMData=CD;								//é€å‡ºè³‡æ–™æˆ–å‘½ä»¤
 	pLCMEN=1; GCC_NOP(); pLCMEN=0; 			//EN=1,tPW,EN=0
-	return BusyAC;							//¦^¶ÇAddress Counter
+	return BusyAC;							//å›å‚³Address Counter
 }
 void Delayms(u16 del)
-{	u16 i;									//@fSYS=8MH,©µ¿ğdel*1ms
+{	u16 i;									//@fSYS=8MH,å»¶é²del*1ms
 	for(i=0;i<del;i++) GCC_DELAY(2000);
 }

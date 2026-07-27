@@ -68,6 +68,7 @@ u8 IRDecoder(u16 *ptradrs,u16 *ptrcmd)
 	_ptm2rpl=(u8)20000; _ptm2rph=20000>>8;			//20000*fINT=10ms(計數最大限制)
 	_ptm2pf=0; _ptm2af=0;							//清除PTM2AF、PTM2PF旗標
 	while(IR_Pin);									//等待Start Bit
+	//start
 	_pt2on=1;										//開始計數
 	while(!_ptm2af)									//等待STRAT信號結束
 	{	if(_ptm2pf) {_pt2on=0;	return 0; }			//若超過最大計數限制，回傳0
@@ -75,16 +76,20 @@ u8 IRDecoder(u16 *ptradrs,u16 *ptrcmd)
 	_pt2on=0; _ptm2af=0; _ptm2pf=0;  				//停止PTM2, 清除PTM2AF、PTM2PF
 	TCnt=_ptm2ah; TCnt=(TCnt<<8)|_ptm2al;			//取得START信號之時間長度
 	if(TCnt<16000) return 0;						//若Start<8ms，回傳0
+	//sync or repeat code
 	_ptm2c1=0b01010000;								//輸入捕捉模式(負緣)
 	_ptm2rpl=(u8)10000; _ptm2rph=10000>>8;			//9600*fINT=5ms(計數最大限制)
 	_pt2on=1; 
 	while(!_ptm2af)									//等待SYNC信號結束
 	{	if(_ptm2pf) {_pt2on=0;	return 0; }			//若超過最大計數限制，回傳0
-	}
+	}	
 	_pt2on=0; _ptm2af=0; _ptm2pf=0; 				//停止PTM2, 清除PTM2AF
 	TCnt=_ptm2ah; TCnt=(TCnt<<8)|_ptm2al;			//取得SYNC信號之時間長度
 	if(TCnt<4000) return 0; 						//若SYNC<2.0ms回傳0
 	if(TCnt<5000) return 1;							//若2ms<SYNC<2.5ms為重複碼，回傳1
+	
+	//temp capture 32bits data
+	//temp bit counter
 	while(temp1!=0)									//接收資料位元
 	{	_pt2on=1;									//啟動計數
 		while(!_ptm2af);							//等待位元時間結束;

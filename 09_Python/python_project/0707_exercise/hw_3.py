@@ -1,5 +1,6 @@
 #homework-3
 
+import random
 
 print("Question 1: ")
 scores=[]
@@ -22,5 +23,23 @@ while True:
         scores.append(score)
         cnt+=1
 
-print("=="*5)
-print("Question2:")
+# print("=="*5)
+
+
+# print("Question2:")
+# look_up_table={'apple':'蘋果','ball':'球','cat':'貓','dog':'狗'}
+# print(look_up_table)
+# text=str(input("請輸入要查詢的英文單字: "))
+# if (text in look_up_table):
+#     print(look_up_table[text])
+# else:
+#     print("本字典查無此英文單字")
+
+
+# print("Question3:")
+
+# lottery_numbers=random.sample(range(1,50),6)
+# special_number=lottery_numbers[0]
+# lottery_numbers.sort()
+# print("大樂透中獎號碼為:\n", *(lottery_numbers))
+# print("特別號碼為:",special_number,sep="\n")
