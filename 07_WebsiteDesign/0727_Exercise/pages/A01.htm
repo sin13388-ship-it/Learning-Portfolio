@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <title>form</title>
+    <style>
+        /*start with 'col' */
+        [class^="col"]{
+            border: 1px solid #c1c1c1;
+            background-color: #f1f1f1;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="usermail"class="form-label">E-mail</label>
+                    <input type="email" name="usermail"  id="usermail" class="form-control">
+                    <div id="comment_1" class="form-text">必填欄位</div>
+                </div>
+                <div class="mb-3">
+                    <label for="input_1"class="form-label">Text</label>
+                    <input type="text" name="input_1"  id="input_1" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_2"class="form-label">Numbers</label>
+                    <input type="number" name="input_2"  id="input_2" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_3"class="form-label">URL</label>
+                    <input type="url" name="input_3"  id="input_3" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_4"class="form-label">Color</label>
+                    <input type="color" name="input_4"  id="input_4" class="form-control form-control-color">                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="input_5"class="form-label">Password</label>
+                    <input type="password" name="input_5"  id="input_5" class="form-control">
+                    <div id="comment_2" class="form-text">必填欄位</div>
+                </div>
+                <div class="mb-3">
+                    <label for="input_6"class="form-label">Date</label>
+                    <input type="date" name="input_6"  id="input_6" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_7"class="form-label">Time</label>
+                    <input type="time" name="input_7"  id="input_7" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_8"class="form-label">Month</label>
+                    <input type="month" name="input_8"  id="input_8" class="form-control">                    
+                </div>
+                <div class="mb-3">
+                    <label for="input_9"class="form-label">Week</label>
+                    <input type="week" name="input_9"  id="input_9" class="form-control">                    
+                </div>
+            </div>
+            <div class="m-2" >
+                <label for="input_10"class="form-label">說明欄位</label>
+                <textarea name="input_9" id="input_9"  rows="6" class="form-control">說明欄位</textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary m-2">Confirm</button>
+            </div>
+
+
+        </form>
+
+    </div>
+    <script src ="../../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

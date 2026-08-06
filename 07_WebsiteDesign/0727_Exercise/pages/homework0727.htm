@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <title>form</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- 使用 Bootstrap container 建立響應式容器 -->
+    <div class="container">        
+        <!-- 表單容器 -->
+           <!-- 使用 Bootstrap Grid 系統建立行 -->
+           <div class="row">
+                <div class="col-3">
+                    <ul class="nav nav-pills flex-column mt-3" id="mytab" >
+                        <h5>古典樂曲</h5>
+                        <li class="nav-item"><a href="#pill_1" class="nav-link active" data-bs-toggle="pill">巴洛克音樂</a></li>
+                        <li class="nav-item"><a href="#pill_2" class="nav-link" data-bs-toggle="pill">古典主義音樂</a></li>
+                        <li class="nav-item"><a href="#pill_3" class="nav-link" data-bs-toggle="pill">浪漫主義音樂</a></li>
+                    </ul>
+                    <div class="tab-content mt-3" id="myTabContent" >
+                        <div class="tab-pane active" id="pill_1">                           
+                            <p>巴洛克音樂是指約1600年至1750年間的音樂風格，強調對比、裝飾和情感表達。代表作曲家包括巴赫、亨德爾等。</p>                            
+                        </div>
+                        <div class="tab-pane" id="pill_2">                            
+                            <p>古典主義音樂是指約1750年至1820年間的音樂風格，強調平衡、和諧和形式。代表作曲家包括海頓、莫札特等。</p>
+                            
+                        </div>
+                        <div class="tab-pane" id="pill_3">                           
+                            <p>浪漫主義音樂是指約1820年至1900年間的音樂風格，強調個人情感和表現主義。代表作曲家包括肖邦、李斯特等。</p>                            
+                        </div>
+                    </div>                                      
+                </div>
+                <div class="col-9  mt-3">
+                    <h5>詩詞欣賞</h5>
+                    <div>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#moon">
+                            七言律詩
+                        </button></div>
+                    <div class="row">                                        
+                        <div class="col-md-3 col-6"">
+                            <div class="collapse mt-3 " id="moon" >
+                                <img src="../images/1.JPG"  alt="noname" class="card-img-top" style="padding: 5px;">
+                                <h5 class="card-header">無題</h5>
+                                <div class="card card-body bg-info text-white mt-3 " 
+                                    style="line-height: 2; font-size: 1rem; letter-spacing: 1px;
+                                    border: solid; border-width: 0.5px;" >                            
+                                    <div>昨夜星辰昨夜風，
+                                        畫樓西畔桂堂東。
+                                        身無彩鳳雙飛翼，
+                                        心有靈犀一點通。
+                                        隔座送鉤春酒暖，
+                                        分曹射覆蠟燈紅。
+                                        嗟余聽鼓應官去，
+                                        走馬蘭臺類轉蓬。
+                                    </div>                     
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="collapse mt-3" id="moon">
+                                <img src="../images/2.JPG" alt="noname" class="card-img-top">
+                                <h5 class="card-header">錦瑟</h5>
+                                <div class="card card-body bg-success text-white mt-3 " 
+                                    style="line-height: 2; font-size: 1rem; letter-spacing: 1px;">
+                                    <p class="mb-0">
+                                        錦瑟無端五十弦，<br>一弦一柱思華年。<br>
+                                        莊生曉夢迷蝴蝶，<br>望帝春心托杜鵑。<br>
+                                        滄海月明珠有淚，<br>藍田日暖玉生煙。<br>
+                                        此情可待成追憶，<br>只是當時已惘然。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="collapse mt-3" id="moon">
+                                <img src="../images/3.JPG"  alt="noname" class="card-img-top">
+                                <h5 class="card-header">黃鶴樓</h5>
+                                <div class="card card-body bg-warning text-white mt-3 " 
+                                    style="line-height: 2; font-size: 1rem; letter-spacing: 1px;">                            
+                                    <p class="mb-0">昔人已乘黃鶴去，<br>此地空余黃鶴樓。<br>
+                                        黃鶴一去不复返，<br>白云千載空悠悠。<br>
+                                        晴川歷歷漢陽樹，<br>芳草萋萋鸚鵡洲。<br>
+                                        日暮鄉關何處是，<br>煙波江上使人愁。</p>                   
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="collapse mt-3" id="moon">
+                                <img src="../images/4.JPG"  alt="noname" class="card-img-top">
+                                <h5 class="card-header">隨宮</h5>
+                                <div class="card card-body bg-secondary text-white mt-3 " 
+                                    style="line-height: 2; font-size: 1rem; letter-spacing: 1px;">                            
+                                    <p>紫泉宮殿鎖煙霞，<br>欲取蕪城作帝家。<br>
+                                        玉璽不緣歸日角，<br>錦帆應是到天涯。<br>
+                                        於今腐草無螢火，<br>終古垂楊有暮鴉。<br>
+                                        地下若逢陳後主，<br>豈宜重問後庭花。</p>                   
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>                 
+
+                    
+                     
+                    
+                                      
+                </div>                              
+           </div>  
+    </div>
+    <!-- 引入 Bootstrap 的 JavaScript 套件以支援互動元件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

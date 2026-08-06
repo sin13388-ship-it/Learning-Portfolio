@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <title>form</title>
+    <style>
+        /*start with 'col' */
+        [class^="col"]{
+            border: 1px solid #c1c1c1;
+            background-color: #f1f1f1;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center m-3">Radio button</h3>
+        <form >
+           
+                <h4>選擇你最喜歡的寶可夢</h4>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_1">Pikachu</label>   
+                    <input class="form-check-input" type="radio" value="CK_1" id="CK_1" name="pokemon" >
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_2">Charmander</label>   
+                    <input class="form-check-input" type="radio" value="CK_2" id="CK_2" name="pokemon">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_3">Bulbasaur</label>   
+                    <input class="form-check-input" type="radio" value="CK_3" id="CK_3" name="pokemon">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_4">Squirtle</label>   
+                    <input class="form-check-input" type="radio" value="CK_4" id="CK_4" name="pokemon">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_5">Eevee</label>   
+                    <input class="form-check-input" type="radio" value="CK_5" id="CK_5" name="pokemon" >
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_6">Jigglypuff</label>   
+                    <input class="form-check-input" type="radio" value="CK_6" id="CK_6" name="pokemon">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="CK_7">Grimer</label>   
+                    <input class="form-check-input" type="radio" value="CK_7" id="CK_7" name="pokemon">
+                </div>
+           
+           
+                <h4>選擇你不喜歡的寶可夢</h4>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_1">Pikachu</label>   
+                    <input class="form-check-input" type="radio" value="CK_1" id="CK_a" name="pokemon2" >
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_2">Charmander</label>   
+                    <input class="form-check-input " type="radio" value="CK_2" id="CK_b" name="pokemon2">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_3">Bulbasaur</label>   
+                    <input class="form-check-input " type="radio" value="CK_3" id="CK_c" name="pokemon2">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_4">Squirtle</label>   
+                    <input class="form-check-input " type="radio" value="CK_4" id="CK_d" name="pokemon2">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_5">Eevee</label>   
+                    <input class="form-check-input " type="radio" value="CK_5" id="CK_e" name="pokemon2" >
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_6">Jigglypuff</label>   
+                    <input class="form-check-input " type="radio" value="CK_6" id="CK_f" name="pokemon2">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="CK_7">Grimer</label>   
+                    <input class="form-check-input " type="radio" value="CK_7" id="CK_g" name="pokemon2">
+                </div>  
+                <hr/>
+                <div class="form-check form-switch">
+                    <input class="form-check-input " type="checkbox" value="sw_1" id="sw_1" name="sw_1">
+                    <label class="form-check-label" for="CK_7">你有看過貓頭鷹嗎</label> 
+                </div>  
+        </form>
+
+    </div>
+    <script src ="../../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

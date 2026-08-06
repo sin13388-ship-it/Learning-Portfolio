@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <title>form</title>
+    <style>
+        .bg1{
+            background: linear-gradient(to bottom, bisque, darkseagreen);
+        }
+        .bg2{
+            background-color: darkseagreen;
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- 使用 Bootstrap container 建立響應式容器 -->
+    <div class="container">        
+        <!-- 表單容器 -->
+           <!-- 使用 Bootstrap Grid 系統建立行 -->
+           <div class="row">
+                <div class="col">
+                    <form class="bg2">
+                        <label for="select_1" class="control-label m-2 h4">選單1</label>
+                        <select name="select_1" id="select_1" class="form-select">
+                            <option value="1">Text1</option>
+                            <option value="2">Text2</option>
+                            <option value="3">Text3</option>
+                            <option value="4">Text4</option>
+                            <option value="5">Text5</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="col">
+                    <form class="bg1">
+                        <label for="select_2" class="control-label m-2 h4">選單B</label>
+                        <select name="select_2" id="select_2" class="form-select">
+                            <option value="1">TextA</option>
+                            <option value="2">TextB</option>
+                            <option value="3">TextC</option>
+                            <option value="4">TextD</option>
+                            <option value="5">TextE</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="col">
+                    <form>
+                        <label for="select_3" class="control-label m-2 h4">選單C</label>
+                        <P>輸入複選 <kbd>Ctrl + Mouse Click</kbd></P>
+                        <select name="select_3" id="select_3" class="form-select-sm" multiple>
+                            <option value="1">Text1A</option>
+                            <option value="2">Text2B</option>
+                            <option value="3">Text3C</option>
+                            <option value="4">Text4D</option>
+                            <option value="5">Text5E</option>
+                        </select>
+                    </form>
+                </div>
+           </div>  
+    </div>
+    <!-- 引入 Bootstrap 的 JavaScript 套件以支援互動元件 -->
+    <script src ="../../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

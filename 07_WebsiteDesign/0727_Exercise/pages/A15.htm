@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <title>form</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- 使用 Bootstrap container 建立響應式容器 -->
+    <div class="container">        
+        <!-- 表單容器 -->
+           <!-- 使用 Bootstrap Grid 系統建立行 -->
+           <div class="row">
+                <div class="col">
+                    <div>
+                        <button type="button" class="btn btn-primary m-2" data-bs-toggle="collapse" data-bs-target=".multi-collapse">
+                            七言律詩
+                        </button>
+                    </div>
+                    <div class="collapse multi-collapse" id="multiCollapse_1">
+                        <div class="card m-1">
+                            <h5 class="card-header">黃鶴樓</h5>
+                            <div class="card-body bg-warning">
+                                昔人已乘黃鶴去，此地空餘黃鶴樓。
+                               黃鶴一去不復返，白雲千載空悠悠。
+                                晴川歷歷漢陽樹，芳草萋萋鸚鵡洲。
+                                日暮鄉關何處是，煙波江上使人愁。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse multi-collapse" id="multiCollapse_2">
+                        <div class="card m-1">
+                            <h5 class="card-header">錦瑟</h5>
+                            <div class="card-body bg-warning">
+                                錦瑟無端五十弦，一弦一柱思華年。
+                                莊生曉夢迷蝴蝶，望帝春心託杜鵑。
+                                滄海月明珠有淚，藍田日暖玉生煙。
+                                此情可待成追憶，只是當時已惘然。
+                            </div>
+                        </div>
+                    </div>                                  
+                </div>                              
+           </div>  
+    </div>
+    <!-- 引入 Bootstrap 的 JavaScript 套件以支援互動元件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
