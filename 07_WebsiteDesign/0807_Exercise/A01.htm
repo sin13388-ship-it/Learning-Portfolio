@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <script>
+        let dog={
+            name:"Jason",
+            weight:19,
+            age:3,
+            breed:"Labrador"
+        };
+        dog.bark="mimi";
+    </script>
+    <script>
+        if (dog.weight > 20) {
+            dog.bark="WOOF WOOF";
+        }
+        else{
+            dog.bark="woof woof";
+
+        }
+        let speak=dog.name+" says \""+dog.bark+"\" and is "+dog.age+" years old.";
+        document.write(speak);
+    </script>
+</body>
+</html>

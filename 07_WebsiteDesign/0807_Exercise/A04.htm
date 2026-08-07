@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script>
+        function showText(){
+           let li=document.getElementById("myLi");
+           alert(li.innerHTML); 
+        }
+        function changeText(){
+            let c=document.getElementById("content");
+            c.innerHTML="Javascript an DOM";
+            alert(c.innerHTML);
+        }
+        function travalList(){
+            // 選取 #myUl 底下的所有 <li> 元素
+            let listItems=document.querySelectorAll("#myUl > li");
+            let str="";            
+            listItems.forEach(item=>{
+                str+=item.textContent+","
+            })
+            alert(str);
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <h2>取得元素更改內容</h2>
+    <hr/>
+    <p id="content">取得元素更改內容</p>
+    <ul id="myUl">
+        <li>HTML</li>
+        <li id="myLi">Javascript</li>
+        <li>PHP</li>
+    </ul>
+    <input type="button" onclick="showText()" value="showText">   
+    <input type="button" onclick="changeText()" value="changeText">  
+    <input type="button" onclick="travalList()" value="Show all list">
+</body>
+</html>
