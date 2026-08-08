@@ -1,6 +1,6 @@
 # Digital Logic 筆記 [Home](../README.md#learning-portfolio)
 
-## 說在前面
+## 寫在前面
 由於對本課程的基礎概念已有一定程度的掌握，這份學習歷程將著重記錄自主延伸的內容，以及那些讓我多想了一會兒的細節。
 
 ## 目錄
@@ -28,3 +28,14 @@
         - 佔用位址空間：裝置會消耗 CPU 的記憶體位址範圍
         - 快取問題：需特別標記為 non-cacheable，否則 CPU 快取會讓硬體看不到最新值
         - 除錯較難：看起來像普通記憶體操作，容易混淆
+---
+### Arduino 實作
+#### LED 閃爍
+- 核心重點 :
+    
+    - 學習LED發光原理 :<br/>
+    發光二極體(LED)是一種半導體光源，當通過電流時會將電能轉成光能發光。實驗中的LED驅動電壓約在1.5V~2.2v之間，因此供應電壓要大於此區間，此外通常會配合一個限流電阻來防止元件燒毀。
+    - 簡易電路示意 :<br/>
+    VDD (5V) -- Resistor (330 ohm) -- LED -- GND
+    - 學習Arduino I/O 控制
+    - [程式碼](./arduino_project/Blink_exercise/Blink_exercise.ino)

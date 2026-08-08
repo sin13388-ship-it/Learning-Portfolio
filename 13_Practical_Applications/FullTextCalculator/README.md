@@ -13,14 +13,14 @@
 ## 架構
 很粗淺的先分成3個模組
 ### V1的架構
-- Main
+- [Main](./TextCalculator.c)
     - 格式化輸出
     - Shunting Yard
     - Infix -> Postfix
     - 計算結果
-- Token
+- [Token](./Token.c)
     - Tokenize
-- Stack
+- [Stack](./Stack.c)
     - Action : Pop , Push, Peek , Initialize
     - Flag : isEmpty, isFull
 
