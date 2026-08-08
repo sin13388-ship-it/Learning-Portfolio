@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        function showElement(){
+            let a= document.getElementById("Google"); //取得id為Google的元素 a
+            alert(a.nodeName + "-" + a.href); //使用alert 顯示element 的 attributes href
+
+        }
+        function showButton(){
+            let btn=document.getElementById("test");
+            alert(btn.nodeName + " - "+ btn.type);
+        }
+    </script>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <h2>使用id屬性取得元素節點</h2>
+    <hr/>
+    <p id="content">使用id屬性取得元素節點</p>
+    <p><a href="https:\\www.google.com.tw" id="Google"/>Google</p>
+    <input type="button" id="test" onclick="showElement()" value="Select the 'a' element">
+    <input type="button" id="buttonA" onclick="showButton()" value="Select the 'input' element">   
+</body>
+</html>
